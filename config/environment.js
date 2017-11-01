@@ -7,6 +7,14 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    firebase: {
+      apiKey: "AIzaSyB8EevPrQKQkTebma3zgu8qDa9yl9YqGfM",
+      authDomain: "wedding-c174c.firebaseapp.com",
+      databaseURL: "https://wedding-c174c.firebaseio.com",
+      projectId: "wedding-c174c",
+      storageBucket: "wedding-c174c.appspot.com",
+      messagingSenderId: "733740338071"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
