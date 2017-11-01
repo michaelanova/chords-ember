@@ -1,0 +1,17 @@
+{
+  "name": "test-ember",
+  "description": "Small description for test-ember goes here",
+  "main": "",
+  "authors": [
+    "Vít Bartošic <vit@bartosic.cz>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
