@@ -8,19 +8,3 @@
   autocomplete="off"
   required=required}}
 <label for={{attr}}>{{label}}</label>
-
-{{#if units}}
-  <div class="units">{{units}}</div>
-{{/if}}
-
-{{#if error}}
-  <div class="errors">{{{error}}}</div>
-{{else}}
-  {{#if model.errors}}
-    <div class="errors">
-      {{#each (get model.errors attr) as |error|}}
-        {{error.message.detail}}<br />
-      {{/each}}
-    </div>
-  {{/if}}
-{{/if}}

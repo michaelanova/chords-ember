@@ -10,9 +10,8 @@ export default Component.extend({
   pattern: null,
   title: null,
   units: '',
-  error: '',
   required: false,
   keyDown() {
-    this.set('error', '');
+  //  this.set('error', '');
   }
 });
