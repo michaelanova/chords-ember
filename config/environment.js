@@ -8,12 +8,12 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
     firebase: {
-      apiKey: "AIzaSyB8EevPrQKQkTebma3zgu8qDa9yl9YqGfM",
-      authDomain: "wedding-c174c.firebaseapp.com",
-      databaseURL: "https://wedding-c174c.firebaseio.com",
-      projectId: "wedding-c174c",
-      storageBucket: "wedding-c174c.appspot.com",
-      messagingSenderId: "733740338071"
+      apiKey: "AIzaSyAxZYJYfhVDEAZ5GgF5B_ozqJj_2j033c8",
+      authDomain: "wedding-c803a.firebaseapp.com",
+      databaseURL: "https://wedding-c803a.firebaseio.com",
+      projectId: "wedding-c803a",
+      storageBucket: "wedding-c803a.appspot.com",
+      messagingSenderId: "1040464891283"
     },
     EmberENV: {
       FEATURES: {

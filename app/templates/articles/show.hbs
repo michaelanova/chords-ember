@@ -1,0 +1,11 @@
+<h1>Články</h1>
+{{#each model as |post|}}
+  <div class="article">
+    <h2 class="title">
+      {{post.title}}
+    </h2>
+    <div class="body">
+      {{post.body}}
+    </div>
+  </div>
+{{/each}}
