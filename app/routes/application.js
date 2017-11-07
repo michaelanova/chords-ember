@@ -8,7 +8,10 @@ export default Route.extend({
   },
   actions: {
     signIn: function(provider) {
-      this.get('session').open('firebase', { provider: provider}).then(function(data) {
+      this.get('session').open('firebase', {
+        provider: 'password',
+        email: 'mmiissaann@seznam.cz',
+        password: 'password'}).then(function(data) {
         console.log(data.currentUser);
       });
     },

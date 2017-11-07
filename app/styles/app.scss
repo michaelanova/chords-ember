@@ -1,22 +1,33 @@
-$red: #990000;
+$black: #000;
+$green: #86c67c;
+$green-dark: #699864;
+$red: #900;
 
 body {
   margin: 0;
 }
 
 .main {
-  padding: 20px;
+  padding: 1.5em;
 }
 
 .main-name {
   text-align: center;
 }
 
-.main-menu {
-  background: black;
+.head {
+  align-items: center;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding: 0 1.5em;
+}
+
+.main-menu {
   align-items: center;
+  background: $black;
+  display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   margin: 0 0 20px;
 
@@ -109,4 +120,13 @@ body {
 
 .article {
   margin-bottom: 2em;
+}
+
+.login {
+  button {
+    background-color: $green;
+    border: 1px solid $green-dark;
+    border-radius: 2px;
+    padding: .5em 1em;
+  }
 }
