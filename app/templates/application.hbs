@@ -5,8 +5,8 @@
       Logged in as {{session.currentUser.email}}
       <button {{action "signOut"}}>Sign out</button>
     {{else}}
-      <button {{action "signInOpen"}}>Sign in</button>
-      <button {{action "signUpOpen"}}>Sign up</button>
+      {{#link-to "signup"}}Registrace{{/link-to}}
+      {{#link-to "login"}}Přihlášení{{/link-to}}
     {{/if}}
   </div>
 </div>
