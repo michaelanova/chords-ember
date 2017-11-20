@@ -18,9 +18,18 @@ export default Ember.Controller.extend({
                     var newUser = self.store.createRecord('user', {
                         id: result.uid,
                         email: email,
-                        username: username
+                        username: username,
                     });
                     newUser.save();
+
+                    var fireUser = this.get('firebaseApp').auth().currentUser;
+                  fireUser.updateProfile({
+                        displayName: username,
+                    }).then(function() {
+                      Ember.Logger.log('ok update');
+                    }).catch(function(error) {
+                      Ember.Logger.log('ok update');
+                    });
 
                     self.get('session').open('firebase', {
                         provider: 'password',

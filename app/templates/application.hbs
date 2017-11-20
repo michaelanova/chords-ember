@@ -2,7 +2,7 @@
   <h1 class="main-name">Základní aplikace</h1>
   <div class="login">
     {{#if session.isAuthenticated}}
-      Logged in as {{session.currentUser.email}}
+      Logged in as {{session.currentUser.displayName}}
       <button {{action "signOut"}}>Sign out</button>
     {{else}}
       {{#link-to "signup"}}Registrace{{/link-to}}
