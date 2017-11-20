@@ -17,6 +17,9 @@ Router.map(function() {
   this.route('signup');
   this.route('login');
   this.route('active-user');
+  this.route('profile', function() {
+    this.route('show', { path: ':profile_id' });
+  });
 });
 
 export default Router;

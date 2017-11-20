@@ -4,6 +4,9 @@ import Ember from 'ember';
 export default DS.Model.extend({
   title: DS.attr('string'),
   body: DS.attr('string'),
+  user: DS.attr('string'),
+  userName: DS.attr('string'),
+  createdAt: DS.attr('date', { defaultValue() { return new Date(); } }),
   /*titleURL: DS.attr('string'),
   comments: DS.hasMany('comment' ),
   user: DS.belongsTo('user'),

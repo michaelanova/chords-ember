@@ -2,22 +2,23 @@
 
 <div class="well col-md-6">
     <div id="usernameInput" class="input-field label-floating">
+
+        <input class="form-control" id="email" type="text" placeholder=" ">
         <label class="control-label" for="username">Email</label>
-        <input class="form-control form-control-danger" id="email" type="text">
-        <span id="help" class="help-block hidden">Sorry, that username's taken. Try another?</span>
+        <!--span id="help" class="help-block hidden">Sorry, that username's taken. Try another?</span-->
     </div>
 
-    <div id="passwordInput" class="input-field  label-floating">
-        <label class="control-label" for="password">Password</label>
+    <div id="passwordInput" class="input-field" placeholder=" ">
         <input class="form-control" id="password" type="password"/>
-        <span id="helpPass" class="help-block hidden">Incorrect username and/or password</span>
+        <label class="control-label" for="password">Password</label>
+        <!--span id="helpPass" class="help-block hidden">Incorrect username and/or password</span-->
     </div>
 
-    {{#link-to 'signup'}}<button class="btn btn-primary">Sign Up</button>{{/link-to}}
-    <button {{action 'loginWithEmail'}} class="btn btn-primary btn-raised">Login</button>
-    &nbsp;or&nbsp;
-    <button {{action 'loginWithGoogle'}} class="btn btn-secondary btn-raised">
+
+    <button {{action 'loginWithEmail'}} class="btn btn-primary btn-raised">Přihlásit se</button>
+    a nebo se můžete{{#link-to 'signup'}}zaregistrovat{{/link-to}}
+    <!--button {{!action 'loginWithGoogle'}} class="btn btn-secondary btn-raised">
         <img src="images/googleG.png" width="20"/>
         Login With Google
-    </button>
+    </button-->
 </div>

@@ -4,6 +4,8 @@ export default Controller.extend({
   responseMessage: '',
   title: '',
   body: '',
+  uid: Ember.computed.alias('session.currentUser.uid'),
+  userName: Ember.computed.alias('session.currentUser.displayName'),
 
   /*isValid: Ember.computed.match('title', /^.$/),
   isDisabled: Ember.computed.not('isValid'),*/
@@ -13,10 +15,12 @@ export default Controller.extend({
     savePost() {
       const title = this.get('title');
       const body = this.get('body');
+      const uid = this.get('uid');
+      const userName = this.get('userName');
 
 
 
-      const newArticle = this.store.createRecord('article', { title: title, body:body });
+      const newArticle = this.store.createRecord('article', { title: title, body:body, user: uid, userName: userName});
       Ember.Logger.log(newArticle);
       newArticle.save();
 

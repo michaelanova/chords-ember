@@ -3,10 +3,10 @@
   <div class="login">
     {{#if session.isAuthenticated}}
       Logged in as {{session.currentUser.displayName}}
-      <button {{action "signOut"}}>Sign out</button>
+      <button {{action "signOut"}} class="btn-small logout" >Sign out</button>
     {{else}}
-      {{#link-to "signup"}}Registrace{{/link-to}}
-      {{#link-to "login"}}Přihlášení{{/link-to}}
+      {{#link-to "signup" class="btn btn-small btn-header"}}Registrace{{/link-to}}
+      {{#link-to "login" class="btn btn-small btn-header"}}Přihlášení{{/link-to}}
     {{/if}}
   </div>
 </div>

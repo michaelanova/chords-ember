@@ -1,5 +1,7 @@
-<h1>Články</h1>
-{{#each model as |article|}}
+{{model.user.username}}
+{{model.user.email}}
+{{#each model.article as |article|}}
+{{#if (eq article.user model.user.id)}}
   <div class="article">
     <h2 class="title">
       {{article.title}}
@@ -8,6 +10,6 @@
     <div class="body">
       {{article.body}}
     </div>
-    {{#link-to "profile.show" article.user}}{{article.userName}}{{/link-to}}
   </div>
+{{/if}}
 {{/each}}

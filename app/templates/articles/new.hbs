@@ -1,8 +1,17 @@
 <h1>Nový článek</h1>
 {{#if session.isAuthenticated}}
-  {{input type="text" value=title class="form-control" placeholder="Post title" autofocus="autofocus"}}
-  {{input type="text" value=body class="form-control" placeholder="Post body" autofocus="autofocus"}}
-  <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'savePost'}}>Vložit článek</button>
+<div id="title" class="input-field">
+    {{input type="text" value=title id="title" name="title" class="form-control" autofocus="autofocus" placeholder=" "}}
+    <label class="control-label" for="title">Titulek článku</label>
+
+</div>
+
+<div id="body" class="input-field">
+    {{input type="text" value=body id="body" name="body" class="form-control" autofocus="autofocus" placeholder=" "}}
+    <label class="control-label" for="body">Obsah článku</label>
+</div>
+
+  <button class="btn btn-primary" disabled={{isDisabled}} {{action 'savePost'}}>Vložit článek</button>
 {{else}}
   <p>Pro přidání článku se musíte přihlásit!</p>
 {{/if}}
