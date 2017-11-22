@@ -1,18 +1,4 @@
-<div class="head">
-  <h1 class="main-name">Základní aplikace</h1>
-  <div class="login">
-    {{#if session.isAuthenticated}}
-    <div class="active-user">
-      {{#link-to "active-user"}}Logged in as {{session.currentUser.displayName}}{{/link-to}}
-    </div>
-
-      <button {{action "signOut"}} class="btn-small logout" >Sign out</button>
-    {{else}}
-      {{#link-to "signup" class="btn btn-small btn-header"}}Registrace{{/link-to}}
-      {{#link-to "login" class="btn btn-small btn-header"}}Přihlášení{{/link-to}}
-    {{/if}}
-  </div>
-</div>
+{{application-head}}
 {{#if signInvisible}}
   <div class="modal">
     <div class="modal-overflow sign-in hidden" >

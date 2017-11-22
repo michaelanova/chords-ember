@@ -1,0 +1,15 @@
+<div class="article">
+  <h2 class="title">
+    {{model.title}}
+  </h2>
+  <div class="info">
+    <p class="date">{{model.createdAt}}</p>
+    <div class="author">
+      <span>Autor:</span>
+      {{#link-to "profile.show" model.user}}{{model.userName}}{{/link-to}}
+    </div>
+  </div>
+  <div class="body">
+    {{model.body}}
+  </div>
+</div>

@@ -1,15 +1,35 @@
-{{model.user.username}}
-{{model.user.email}}
-{{#each model.article as |article|}}
-{{#if (eq article.user model.user.id)}}
-  <div class="article">
-    <h2 class="title">
-      {{article.title}}
-    </h2>
-    <p class="date">{{article.createdAt}}</p>
-    <div class="body">
-      {{article.body}}
+{{#if session.isAuthenticated}}
+  <div class="profil">
+    <div class="heading">
+      {{model.user.username}}
+    </div>
+    <div class="info">
+      <p><span>E-mail</span> {{model.user.email}}</p>
     </div>
   </div>
+
+
+  {{#article-list model=model.article onlyUsersArticles=true}}
+    {{#each model.article as |article|}}
+    {{#if (eq article.user model.user.id)}}
+      <div class="article">
+        {{#link-to "articles.detail" article.id}}
+          <h2 class="title">
+            {{article.title}}
+          </h2>
+          <div class="date">{{article.createdAt}}</div>
+          <div class="body">
+            {{!article.body}}
+          </div>
+          <div class="author">
+            <span>Autor:</span>
+            {{#link-to "profile.show" article.user}}{{article.userName}}{{/link-to}}
+          </div>
+        {{/link-to}}
+      </div>
+    {{/if}}
+    {{/each}}
+  {{/article-list}}
+{{else}}
+<p class="error">Pro přístup k uživatelským profilům se musíte přihlásit!</p>
 {{/if}}
-{{/each}}

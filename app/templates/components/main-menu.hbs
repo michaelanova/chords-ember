@@ -1,6 +1,8 @@
 
   {{#link-to "index"}}Domů{{/link-to}}
   {{#link-to "articles.show"}}Články{{/link-to}}
-  {{#link-to "articles.new"}}Nový článek{{/link-to}}
+  {{#if session.isAuthenticated}}
+    {{#link-to "articles.new"}}Nový článek{{/link-to}}
+  {{/if}}
 
 {{yield}}

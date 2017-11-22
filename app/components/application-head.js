@@ -2,5 +2,10 @@ import Component from '@ember/component';
 
 export default Component.extend({
   session: Ember.inject.service(),
-  classNames: ['main-menu'],
+  classNames: ['head'],
+  actions: {
+    signOut() {
+      this.get('session').close();
+    },
+  }
 });

@@ -203,9 +203,6 @@ button {
   }
 }
 
-
-
-
 .article {
   margin-bottom: 2em;
   .body {
@@ -219,17 +216,120 @@ button {
 }
 
 .login {
-    display: flex;
-    margin: 0;
+  display: flex;
+  margin: 0;
+}
+
+.profil {
+  .heading {
+    background: #f0f0f0;
+    color: $black;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0 -15px;
+    padding: 20px 15px;
+  }
+}
+@media screen and (min-width: 641px) {
+  .login-mobile,
+  .burger-menu {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 648px) {
 
   .head {
-    justify-content: center;
+    box-shadow: 0 0 7px #a9a9a9;
+    justify-content: space-between;
+    padding: 0 0 0 15px;
+    position: relative;
+
+    .login {
+      display: none;
+    }
+
+    .login-mobile {
+      .btn {
+        padding: 1.5em;
+      }
+    }
+
+    .active-user {
+      background: black;
+      padding: .45em .65em;
+      text-align: center;
+
+      a {
+        color: $white;
+        text-decoration: none;
+      }
+
+      .fa {
+        display: block;
+      }
+    }
+
+    .main-name {
+      margin: 0;
+    }
+
+    .right {
+      display: flex;
+    }
+
+    .fa {
+      font-size: 1.5em;
+    }
+
+    .burger-menu {
+      .burger {
+        padding: .45em .65em;
+        text-align: center;
+      }
+
+      .links-block {
+        margin-bottom: 1px;
+      }
+
+      .burger-menu-links {
+        background: $white;
+        bottom: 0;
+        height: calc(100vh - 58px);
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 58px;
+        z-index: 1;
+
+        .btn {
+          padding: 20px 15px;
+          text-align: left;
+          width: 100%;
+        }
+      }
+
+      .fa-bars {
+        display: block;
+      }
+    }
 
     .login {
       margin-bottom: 1em;
     }
+  }
+
+  .main {
+    padding: 0 15px;
+  }
+
+  .main-menu {
+    display: none;
+  }
+
+  input {
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
   }
 }
