@@ -9,11 +9,11 @@
             {{article.title}}
           </h2>
           <div class="info">
-            <div class="date">{{article.createdAt}}</div>
             <div class="author">
               <span>Autor:</span>
               {{#link-to "profile.show" article.user}}{{article.userName}}{{/link-to}}
             </div>
+            <div class="date">{{article.createdAt}}</div>
           </div>
           <div class="body">
             {{truncate article.body 40}}

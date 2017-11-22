@@ -1,5 +1,6 @@
 {{yield}}
-  <h1 class="main-name">Base</h1>
+  {{#link-to "index" }}<h1 class="main-name">Base</h1>{{/link-to}}
+
   <div class="right">
     <div class="login">
       {{#if session.isAuthenticated}}
@@ -14,12 +15,11 @@
     </div>
     <div class="login-mobile">
       {{#if session.isAuthenticated}}
-      <div class="active-user">
-        {{#link-to "active-user"}}{{fa-icon "user-circle"}}{{session.currentUser.displayName}}{{/link-to}}
-      </div>
+        {{#link-to "active-user" class="btn btn-small btn-header"}}{{fa-icon "user-circle"}}{{session.currentUser.displayName}}{{/link-to}}
       {{else}}
         {{#link-to "login" class="btn btn-small btn-header"}}{{fa-icon "user-circle"}}{{/link-to}}
       {{/if}}
+      <button type="button" name="button" class="btn btn-small btn-header"{{action "open"}}>{{fa-icon "bars"}}Menu</button>
     </div>
     {{burger-menu}}
   </div>

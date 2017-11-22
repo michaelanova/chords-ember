@@ -1,11 +1,10 @@
-<div class="burger" {{action "toggle"}}>
-  {{fa-icon "bars"}}Menu
+<div class="header">
+  <button type="button" name="button" class="btn btn-small btn-header"{{action "close"}}>{{fa-icon "times"}}Zavřit</button>
 </div>
-{{#if linksVisible}}
   <div class="burger-menu-links">
     {{#unless session.isAuthenticated}}
       <div class="links-block">
-        {{#link-to "signup" class="btn btn-small btn-header" click=(action "close")}}Registrace{{/link-to}}
+        {{#link-to "signup" class="btn btn-small" click=(action "close")}}Registrace{{/link-to}}
       </div>
     {{/unless}}
     <div class="links-block">
@@ -20,8 +19,5 @@
         <button {{action "signOut"}} class="btn-small btn" >Odhlásit se</button>
       {{/if}}
     </div>
-
-
   </div>
-{{/if}}
 {{yield}}
