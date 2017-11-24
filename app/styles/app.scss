@@ -23,6 +23,14 @@ a {
 
 .main {
   padding: 1.5em;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+
+
+main {
+
 }
 
 .main-name {
@@ -40,8 +48,11 @@ button {
   color: $white;
   cursor: pointer;
   display: block;
+  font-family: 'Roboto';
   font-size: .9em;
+  font-weight: bold;
   padding: 1em 2em;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   transition: all .5s;
@@ -49,6 +60,13 @@ button {
   &-small {
     font-size: .8em;
     padding: .75em 1.5em;
+  }
+
+  &-default {
+    background: $white;
+    border: 1px solid $black;
+    color: $black;
+    font-weight: bold;
   }
 
   &:hover,
@@ -66,12 +84,14 @@ button {
 }
 
 .head {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 1.5em;
+  .inner {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 1.5em;
+  }
 }
 
 .modal {
@@ -103,13 +123,27 @@ button {
   }
 }
 
+.opening-box {
+  border: 1px solid $black;
+  border-top: 0;
+  box-shadow: 0 0 3px $box-shadow;
+  padding: 2em;
+  position: relative;
+  z-index: 2;
+}
+
 .main-menu {
-  align-items: center;
   background: $primary;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin: 0 0 20px;
+  width: 100%;
+
+  .inner {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0 auto 20px;
+    max-width: 1280px;
+  }
 
   a {
     color: $white;
@@ -135,6 +169,8 @@ button {
     top: .75em;
     transition: all .25s;
   }
+
+
 
 .input-field {
   margin: 0 0 1.5em;
@@ -178,6 +214,10 @@ button {
     }
   }
 
+  input[type="file"] {
+    background: $white;
+  }
+
   .has-units {
     padding-right: 2em;
 
@@ -205,6 +245,29 @@ button {
   }
 }
 
+.select-field {
+  padding: 2em 0 0;
+  position: relative;
+
+  select {
+    background: $white;
+    border: 0;
+    border-bottom: 1px solid $black;
+    padding: 1em 0;
+    width: 100%;
+  }
+
+  option {
+    padding: 1em 0;
+  }
+}
+
+input,
+select {
+  max-width: 50%;
+  min-width: 50%;
+}
+
 .article {
   background: linear-gradient(45deg, $white, $gray-light);
   .body {
@@ -217,22 +280,22 @@ button {
   }
 }
 
-
-
 .login {
   display: flex;
   margin: 0;
 }
 
 .profil {
-  .heading {
-    background: $gray-light;
-    color: $black;
-    font-size: 1.1em;
-    font-weight: bold;
-    margin: 0 -15px;
-    padding: 20px 15px;
-  }
+
+}
+
+.heading {
+  background: $gray-light;
+  color: $black;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0 -15px;
+  padding: 20px 15px;
 }
 
 @media screen and (min-width: 641px) {
@@ -268,6 +331,11 @@ button {
     font-size: 1.3em;
   }
 
+  .opening-box {
+    margin-bottom: 2em;
+    padding: 20px 15px 15px;
+  }
+
   .head {
     background: $black;
     box-shadow: 0 0 7px $box-shadow;
@@ -278,9 +346,14 @@ button {
     position: fixed;
     right: 0;
     top: 0;
+    z-index: 100;
 
     .login {
       display: none;
+    }
+
+    .inner {
+      padding: 0;
     }
 
     .login-mobile {
@@ -333,7 +406,7 @@ button {
       top: 0;
       transform: translate3d(100vw, 0, 0);
       transition: all .25s;
-      z-index: 1;
+      z-index: 1000;
 
       &.is-open {
         transform: translate3d(0, 0, 0);
@@ -383,6 +456,11 @@ button {
     }
   }
 
+  .btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .main {
     padding: 60px 15px;
   }
@@ -404,6 +482,7 @@ button {
     flex-direction: column;
     height: 100%;
     justify-content: center;
+    padding: 1em 1.2em;
   }
 
   .article-list {
@@ -438,5 +517,11 @@ button {
         font-weight: 100;
       }
     }
+  }
+
+  input,
+  select {
+    max-width: 100%;
+    width: 100%;
   }
 }
