@@ -16,12 +16,21 @@ Router.map(function() {
     this.route('new');
     this.route('show');
     this.route('detail', { path: 'detail/:article_id' });
+
+    this.route('category', function() {
+      this.route('show', { path: 'show/:category_id' });
+      this.route('index');
+    });
   });
   this.route('signup');
   this.route('login');
   this.route('active-user');
   this.route('profile', function() {
     this.route('show', { path: ':profile_id' });
+  });
+
+  this.route('category', function() {
+    this.route('show', { path: 'show/:category_id' });
   });
 });
 

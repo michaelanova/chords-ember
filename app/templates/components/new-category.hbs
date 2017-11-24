@@ -1,0 +1,19 @@
+<h1>Nová kategorie</h1>
+{{#if session.isAuthenticated}}
+<div id="media" class="input-field" style="height:50px">
+  <label class="control-label" for="media">foto</label>
+</div>
+  <div id="title" class="input-field">
+      {{input type="title" value=name id="name" name="name" class="form-control" autofocus="autofocus" placeholder=" "}}
+      <label class="control-label" for="name">Název kategorie</label>
+  </div>
+
+  <div id="info" class="input-field">
+      {{input type="text" value=info id="info" name="info" class="form-control" autofocus="autofocus" placeholder=" "}}
+      <label class="control-label" for="info">Krátký popis kategorie</label>
+  </div>
+
+    <button class="btn btn-primary" disabled={{isDisabled}} {{action 'saveCategory'}}>vložit kategorii</button>
+{{else}}
+  <p>Pro přidání kategorie se musíte přihlásit!</p>
+{{/if}}

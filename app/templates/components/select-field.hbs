@@ -1,0 +1,10 @@
+<label>{{label}}</label>
+
+<select onchange={{action "select" value="target.value"}} required={{required}}>
+  <option value=""></option>
+  {{#each model as |item|}}
+    <option value={{item.id}} selected={{eq selected.id item.id}}>
+      {{get item name}}
+    </option>
+  {{/each}}
+</select>

@@ -1,8 +1,13 @@
 <h1>Nový článek</h1>
 {{#if session.isAuthenticated}}
+
+{{#each model as |category|}}
+    {{category.title}}
+{{/each}}
+{{select-field model=model.category selected=category name="name" label="Kategorie" required=true}}
 <div id="title" class="input-field">
-    {{input type="text" value=title id="title" name="title" class="form-control" autofocus="autofocus" placeholder=" "}}
-    <label class="control-label" for="title">Titulek článku</label>
+    {{input type="text" value=title id="titleCategory" name="title" class="form-control" autofocus="autofocus" placeholder=" "}}
+    <label class="control-label" for="titleCategory">Titulek článku</label>
 
 </div>
 
@@ -12,6 +17,8 @@
 </div>
 
   <button class="btn btn-primary" disabled={{isDisabled}} {{action 'savePost'}}>Vložit článek</button>
+
+  {{new-category}}
 {{else}}
   <p>Pro přidání článku se musíte přihlásit!</p>
 {{/if}}

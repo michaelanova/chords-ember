@@ -8,7 +8,6 @@
     </div>
   </div>
 
-
   {{#article-list model=model.article onlyUsersArticles=true}}
     {{#each model.article as |article|}}
     {{#if (eq article.user model.user.id)}}
