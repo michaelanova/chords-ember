@@ -1,13 +1,19 @@
-<div class="article">
-  <h2 class="title">
-    {{model.title}}
-  </h2>
+<h2 class="heading">
+  {{model.title}}
+</h2>
+<div class="article detail">
   <div class="info">
-    <p class="date">{{model.createdAt}}</p>
+    <div class="category">
+      {{#link-to "articles.category.show" model.cat}}<span>{{fa-icon 'list'}}kategorie: </span>Kategorie{{/link-to}}
+    </div>
     <div class="author">
-      <span>Autor:</span>
+      <span>{{fa-icon 'user-circle-o'}}Autor:</span>
       {{#link-to "profile.show" model.user}}{{model.userName}}{{/link-to}}
     </div>
+    <div class="date">
+      {{fa-icon 'calendar'}}{{model.createdAt}}
+    </div>
+
   </div>
   <div class="body">
     {{model.body}}

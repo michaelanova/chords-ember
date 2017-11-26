@@ -1,8 +1,13 @@
-<div class="heading">
-  Kategorie: {{model.category.name}}
+<div class="image-box">
+  <div id="image-container" class="image-container">
+  </div>
+  <div class="category-name">
+    {{model.category.name}}
+  </div>
+
 </div>
+
 {{load-image model=model}}
-<div id="image-container">
-</div>
+
 
 {{category-article-list model=model}}

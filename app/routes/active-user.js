@@ -9,4 +9,13 @@ export default Route.extend({
         article: this.store.findAll('article'),
       });
     },
+  actions: {
+    didTransition() {
+      Ember.run.scheduleOnce('afterRender', () => {
+        let profileHeight = Ember.$('.profil').outerHeight();
+        console.log(profileHeight);
+        Ember.$('.scrolling-box').css({"top": profileHeight});
+      });
+    }
+  }
 });

@@ -1,6 +1,8 @@
-<h2>Login</h2>
+<div class="heading">
+  Přihlášení
+</div>
 
-<div class="well col-md-6">
+<form class="">
     <div id="usernameInput" class="input-field label-floating">
 
         <input class="form-control" id="email" type="text" placeholder=" ">
@@ -17,8 +19,4 @@
 
     <button {{action 'loginWithEmail'}} class="btn btn-primary btn-raised">Přihlásit se</button>
     a nebo se můžete{{#link-to 'signup'}}zaregistrovat{{/link-to}}
-    <!--button {{!action 'loginWithGoogle'}} class="btn btn-secondary btn-raised">
-        <img src="images/googleG.png" width="20"/>
-        Login With Google
-    </button-->
-</div>
+</form>

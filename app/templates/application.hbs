@@ -1,50 +1,5 @@
 {{application-head}}
-{{#if signInvisible}}
-  <div class="modal">
-    <div class="modal-overflow sign-in hidden" >
-      <div class="close" {{action "modalClose"}}>
-        x
-      </div>
-      <div class="modal-iner">
-        <div class="input-field full-width">
-          {{input name=identification value=identification }}
-          <label for="identification">E-mail</label>
-        </div>
-
-        <div class="input-field full-width">
-          {{input name=password1 value=password }}
-          <label for="password1">Heslo</label>
-        </div>
-        <button {{action "signIn"}}>Sign in</button>
-      </div>
-    </div>
-  </div>
-{{/if}}
-{{#if signUpvisible}}
-  <div class="modal">
-    <div class="modal-overflow sign-up hidden" >
-      <div class="close" {{action "modalClose"}}>
-        x
-      </div>
-      <div class="modal-inner">
-        <div class="input-field full-width">
-          {{input name=email value=email }}
-          <label for="password1">E-mail</label>
-        </div>
-        <div class="input-field full-width">
-          {{input name=username value=username }}
-          <label for="password1">Uživatelské jméno</label>
-        </div>
-        <div class="input-field full-width">
-          {{input name=password2 value=password }}
-          <label for="password2">Heslo</label>
-        </div>
-        <button {{action "signUp"}}>Sign up</button>
-      </div>
-    </div>
-  </div>
-{{/if}}
 {{main-menu action="signIn"}}
 <div class="main">
-{{outlet}}
+  {{outlet}}
 </div>
