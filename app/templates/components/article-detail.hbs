@@ -4,7 +4,7 @@
 <div class="article detail">
   <div class="info">
     <div class="category">
-      {{#link-to "articles.category.show" model.cat}}<span>{{fa-icon 'list'}}kategorie: </span>Kategorie{{/link-to}}
+      {{#link-to "articles.category.show" model.cat}}<span>{{fa-icon 'list'}}kategorie: </span>{{model.catName}}{{/link-to}}
     </div>
     <div class="author">
       <span>{{fa-icon 'user-circle-o'}}Autor:</span>

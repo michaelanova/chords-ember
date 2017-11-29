@@ -314,6 +314,12 @@ select {
 
 .article {
   background: linear-gradient(45deg, $white, $gray-light);
+  .delete {
+    position: relative;
+    right: 0;
+    padding: 1em;
+    z-index: 100;
+  }
   .body {
     font-family: 'Slabo 27px', serif;
     font-size: 20px;

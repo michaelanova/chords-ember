@@ -4,6 +4,7 @@ import Ember from 'ember';
 export default DS.Model.extend({
   category: DS.belongsTo('category'),
   cat: DS.attr('string'),
+  catName: DS.attr('string'),
   title: DS.attr('string'),
   body: DS.attr('string'),
   user: DS.attr('string'),

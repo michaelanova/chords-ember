@@ -4,6 +4,11 @@
   <div class="articles-all">
     {{#each model as |article|}}
       <div class="article">
+          {{#if (eq article.user session.currentUser.uid)}}
+            <div class="delete"{{action "delete" article}}>
+              {{fa-icon "times"}}
+            </div>
+          {{/if}}
           {{#link-to "articles.detail" article.id}}
           <h2 class="title">
             {{article.title}}
@@ -11,7 +16,7 @@
           {{/link-to}}
           <div class="info">
             <div class="category">
-              {{#link-to "articles.category.show" article.cat}}<span>kategorie:</span>Kategorie{{/link-to}}
+              {{#link-to "articles.category.show" article.cat}}<span>kategorie:</span>{{article.catName}}{{/link-to}}
             </div>
             <div class="author">
               {{#link-to "profile.show" article.user}}<span>Autor:</span>{{article.userName}}{{/link-to}}
