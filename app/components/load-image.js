@@ -13,17 +13,26 @@ export default Component.extend({
       this.set('imageUrl', url);
     });
   },*/
-  downloadUrl: Ember.computed('model.category', function() {
-    let category = this.get('model.category.name');
+  downloadUrl: Ember.computed('model', function() {
+    let category = this.get('model.name');
     //this._super(...arguments);
     var storage = this.get('firebaseApp').storage();
     var storageRef = storage.ref();
     var imageRef = storageRef.child('images/' + category);
-    return imageRef.getDownloadURL().then(function(url) {
+
+    return imageRef.getDownloadURL().then((url) => {
       console.log(url);
-      var image_element = document.createElement("img"); // create the new image object
+      this.set('imageUrl', url);
+      return url;
+
+      /*var image_element = document.createElement("img"); // create the new image object
       image_element.src = url;
-      document.getElementById('image-container').appendChild(image_element); // add the new image to the div
-   })
+      document.getElementById('image-container').appendChild(image_element); // add the new image to the div*/
+    })
   }),
+  /*didInsertElement() {
+    //this._super(...arguments);
+    let url= this.get('downloadUrl');
+    console.log(url.get('ra'));
+  },*/
 });

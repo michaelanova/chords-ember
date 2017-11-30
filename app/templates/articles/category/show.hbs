@@ -1,13 +1,12 @@
 <div class="image-box">
-  <div id="image-container" class="image-container">
-  </div>
+  {{load-image model=model.category class="image-container"}}
   <div class="category-name">
     {{model.category.name}}
   </div>
 
 </div>
 
-{{load-image model=model}}
+
 
 
 {{category-article-list model=model}}
