@@ -1,10 +1,12 @@
 <div class="category-list">
   {{#each model as |category|}}
-  <div class="image-box">
-    {{load-image model=category class="image-container"}}
-    <div class="category-name">
-      {{#link-to "articles.category.show" category.id}}{{category.name}}{{/link-to}}
-    </div>
-  </div>
+    {{#link-to "articles.category.show" category.id}}
+      <div class="image-box">
+        {{load-image model=category class="image-container"}}
+        <div class="category-name">
+          {{category.name}}
+        </div>
+      </div>
+    {{/link-to}}
   {{/each}}
 </div>

@@ -6,14 +6,12 @@
       </h2>
       <div class="info">
         <div class="author">
-          <span>kategorie:</span>
-          {{#link-to "articles.category.show" article.cat}}Kategorie{{/link-to}}
-        </div>
-        <div class="author">
-          <span>Autor:</span>
+          <span>{{fa-icon 'user-circle-o'}}</span>
           {{#link-to "profile.show" article.user}}{{article.userName}}{{/link-to}}
         </div>
-        <div class="date">{{article.createdAt}}</div>
+        <div class="date">
+          <span>{{fa-icon 'calendar'}}</span>
+          {{article.createdAt}}</div>
       </div>
       <div class="body">
         {{truncate article.body 40}}

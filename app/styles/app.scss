@@ -1,5 +1,6 @@
 $black: #000;
 $black-transparent: rgba(0, 0, 0, .6);
+$black-transparent-light: rgba(0, 0, 0, .2);
 $green: #006951;
 $green-dark: #699864;
 $primary: $black;
@@ -27,9 +28,15 @@ a {
   max-width: 1280px;
 }
 
+.category-list {
+  a {
+    display: block;
+  }
+}
 
 .image-box {
-  margin: 0 -15px;
+  cursor: pointer;
+  margin: 0 -15px 5px;
   overflow: hidden;
   position: relative;
   width: 100vw;
@@ -40,14 +47,22 @@ a {
     font-weight: bold;
     position: absolute;
     text-align: center;
+    text-transform: uppercase;
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
     z-index: 100;
+
+    a {
+      color: $white;
+      display: block;
+      height: 100%;
+      text-decoration: none;
+    }
   }
 
   .image-container {
-    height: 150px;
+    height: 100px;
     position: relative;
 
     img {
@@ -323,7 +338,7 @@ select {
   }
   .body {
     font-family: 'Slabo 27px', serif;
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .title {
@@ -331,15 +346,15 @@ select {
   }
 
   .info {
-    background: $gray;
-    display: block;
-    margin: 0 -15px 15px;
-    padding: 15px 15px 10px;
+    display: flex;
+    margin: 0 -15px 0;
+    padding: 0 15px 10px;
 
     .date,
     .author,
     .category {
       font-size: 13px;
+      margin: 0 10px 0 0;
       padding: 5px 0;
     }
   }
@@ -592,7 +607,7 @@ select {
     }
 
     .info {
-      display: block;
+      flex-wrap: wrap;
 
       .body {
         font-size: 1em;
