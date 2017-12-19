@@ -15,12 +15,13 @@ export default Controller.extend({
 
     savePost() {
       const category = this.get('category.id');
+      const categoryName = this.get('category.name');
       const title = this.get('title');
       const body = this.get('body');
       const uid = this.get('uid');
       const userName = this.get('userName');
 
-      const newArticle = this.store.createRecord('article', { title: title, body:body, user: uid, userName: userName, cat: category});
+      const newArticle = this.store.createRecord('article', { title: title, body:body, user: uid, userName: userName, cat: category, catName:categoryName});
       Ember.Logger.log(newArticle);
       newArticle.save();
 

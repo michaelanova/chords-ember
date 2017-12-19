@@ -5,27 +5,44 @@
     {{#each model as |article|}}
       <div class="article">
           {{#if (eq article.user session.currentUser.uid)}}
-            <div class="delete"{{action "delete" article}}>
-              {{fa-icon "times"}}
+            {{#if admin}}
+              <div class="admin-panel">
+                <div class="action"{{action "delete" article}}>
+                  {{fa-icon "times"}}
+                </div>
+                {{#link-to "articles.edit" article.id class=action}}
+                  {{fa-icon "pencil"}}
+                {{/link-to}}
+              </div>
+            {{/if}}
+          {{/if}}
+
+          {{#if onlyTitle}}
+            {{#link-to "articles.detail" article.id}}
+              <h2 class="title">
+                {{article.title}}
+              </h2>
+            {{/link-to}}
+          {{else}}
+            {{#link-to "articles.detail" article.id}}
+              <h2 class="title">
+                {{article.title}}
+              </h2>
+            {{/link-to}}
+
+            <div class="info">
+              <div class="category">
+                {{#link-to "articles.category.show" article.cat}}<span>{{fa-icon 'list'}}</span>{{article.catName}}{{/link-to}}
+              </div>
+              <div class="author">
+                {{#link-to "profile.show" article.user}}<span>{{fa-icon 'user-circle-o'}}</span>{{article.userName}}{{/link-to}}
+              </div>
+              <div class="date"><span>{{fa-icon 'calendar'}}</span>{{article.createdAt}}</div>
+            </div>
+            <div class="body">
+              {{truncate article.body 40}}
             </div>
           {{/if}}
-          {{#link-to "articles.detail" article.id}}
-          <h2 class="title">
-            {{article.title}}
-          </h2>
-          {{/link-to}}
-          <div class="info">
-            <div class="category">
-              {{#link-to "articles.category.show" article.cat}}<span>kategorie:</span>{{article.catName}}{{/link-to}}
-            </div>
-            <div class="author">
-              {{#link-to "profile.show" article.user}}<span>Autor:</span>{{article.userName}}{{/link-to}}
-            </div>
-            <div class="date">{{article.createdAt}}</div>
-          </div>
-          <div class="body">
-            {{truncate article.body 40}}
-          </div>
 
       </div>
     {{/each}}

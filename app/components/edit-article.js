@@ -7,15 +7,10 @@ export default Component.extend({
   currentUser: Ember.inject.service(),
   onlyUsersArticles: false,
   classNames: ['article-list'],
-  onlyTitle: false,
-  admin: Ember.computed.alias('currentUser.user.admin'),
+  article:null,
   actions: {
-    delete(article) {
-      article.destroyRecord().then(() => {
-        console.log('Smazáno.');
-      }, () => {
-        console.log('Nesmazáno.');
-      });
+    save() {
+      console.log('***');
     }
   }
 });

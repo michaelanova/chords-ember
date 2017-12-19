@@ -1,0 +1,24 @@
+<div class="heading">
+  Editace článku {{article.name}}
+</div>
+{{#if session.isAuthenticated}}
+<div class="new-article">
+  <div id="title" class="input-field">
+    {{select-field model=model.category selected=category name="name" id="category"  required=true}}
+    <label class="control-label" for="category">Karegorie</label>
+  </div>
+  <div id="title" class="input-field" style="margin-top:1em;">
+      {{input type="text" value=article.title id="titleCategory" name="title" class="form-control" autofocus="autofocus" placeholder=" "}}
+      <label class="control-label" for="titleCategory">Titulek článku</label>
+  </div>
+
+  <div id="body" class="input-field">
+      {{input type="text" value=article.body id="body" name="body" class="form-control" autofocus="autofocus" placeholder=" "}}
+      <label class="control-label" for="body">Obsah článku</label>
+  </div>
+
+    <button class="btn btn-primary" disabled={{isDisabled}} {{action 'save'}}>Uložit změny</button>
+</div>
+  {{else}}
+    <p>Pro přidání článku se musíte přihlásit!</p>
+  {{/if}}

@@ -21,6 +21,7 @@ Router.map(function() {
       this.route('show', { path: 'show/:category_id' });
       this.route('index');
     });
+    this.route('edit', { path: 'edit/:article_id' });
   });
   this.route('signup');
   this.route('login');
