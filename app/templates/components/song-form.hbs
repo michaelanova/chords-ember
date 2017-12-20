@@ -1,0 +1,34 @@
+<div class="row">
+
+      {{select-field model=authors selected=song.author name="name" label="Autor" required=true}}
+
+      <div class="add-cat">
+        <a class="btn btn-default" {{action "showAuthor"}}>
+          Nový autor
+        </a>
+        {{#if authorVisible}}
+          <div class="opening-box">
+            {{new-author}}
+          </div>
+        {{/if}}
+      </div>
+
+      <div id="title" class="input-field">
+          {{input type="title" value=song.name id="name" name="name" class="form-control" autofocus="autofocus" placeholder=" "}}
+          <label class="control-label" for="name">Název písničky</label>
+      </div>
+
+      <div id="info" class="input-field">
+          {{textarea type="text" value=song.text id="text" name="text" class="form-control" autofocus="autofocus" placeholder=" "}}
+          <label class="control-label" for="text">Text s akordy</label>
+      </div>
+      {{!image-uploader model=truck photo=truck.photo action="fileUploaded"}}
+      <button type="submit" class="btn btn-primary btn-md form-submit" disabled={{loading}}>
+        Vložit
+      </button>
+
+</div>
+
+<div class="offset form-buttons">
+  {{btn-back}}
+</div>

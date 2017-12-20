@@ -1,0 +1,29 @@
+
+<form class="" name="new-category" >
+  {{#if session.isAuthenticated}}
+  <div id="media" class="input-field" style="height:50px">
+    {{input name="files"
+        type="file"
+        multiple=true
+        action="upload"
+        alt="Choose a File"
+        id="image-input"
+        name="image"
+        class="btn btn-success-outline btn-block"}}
+    <label class="control-label" for="media">foto</label>
+  </div>
+    <div id="title" class="input-field">
+        {{input type="title" value=authName id="aName" name="aName" class="form-control" autofocus="autofocus" placeholder=" "}}
+        <label class="control-label" for="aName">Název autora</label>
+    </div>
+
+    <div id="info" class="input-field">
+        {{input type="text" value=authInfo id="aInfo" name="aInfo" class="form-control" autofocus="autofocus" placeholder=" "}}
+        <label class="control-label" for="aInfo">Krátký popis kategorie</label>
+    </div>
+
+      <button class="btn btn-primary" disabled={{isDisabled}} {{action 'save'}}>vložit kategorii</button>
+  {{else}}
+    <p>Pro přidání kategorie se musíte přihlásit!</p>
+  {{/if}}
+</form>

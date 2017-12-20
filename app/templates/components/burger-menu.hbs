@@ -11,8 +11,11 @@
       {{#link-to "index" class="btn-small btn" click=(action "close")}}Domů{{/link-to}}
       {{#link-to "articles.show" class="btn-small btn" click=(action "close")}}Články{{/link-to}}
       {{#link-to "articles.category" class="btn-small btn" click=(action "close")}}Kategorie{{/link-to}}
+      {{#link-to "song" class="btn-small btn" click=(action "close")}}Písničky{{/link-to}}
+      {{#link-to "song.author.index" class="btn-small btn" click=(action "close")}}Autoři{{/link-to}}
       {{#if session.isAuthenticated}}
         {{#link-to "articles.new" class="btn-small btn" click=(action "close")}}Nový článek{{/link-to}}
+        {{#link-to "song.new" class="btn-small btn" click=(action "close")}}Nová písnička{{/link-to}}
       {{/if}}
     </div>
     <div class="links-block">

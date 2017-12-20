@@ -5,7 +5,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'test-ember',
     environment,
-    rootURL: '',
+    rootURL: '/',
     locationType: 'auto',
     firebase: {
       apiKey: "AIzaSyAxZYJYfhVDEAZ5GgF5B_ozqJj_2j033c8",

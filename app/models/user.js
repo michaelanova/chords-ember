@@ -4,5 +4,6 @@ export default DS.Model.extend({
   username: DS.attr('string'),
   email: DS.attr('string'),
   articles: DS.hasMany('article'),
-  admin: DS.attr('boolean')
+  admin: DS.attr('boolean'),
+  songsAdded: DS.hasMany('song', { inverse: 'addedBy' })
 });

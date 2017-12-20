@@ -33,6 +33,14 @@ Router.map(function() {
   this.route('category', function() {
     this.route('show', { path: 'show/:category_id' });
   });
+  this.route('song', function() {
+    this.route('new');
+    this.route('edit', { path: 'edit/:song_id' });
+    this.route('show', { path: 'show/:song_id' });
+    this.route('author', function() {
+      this.route('show', { path: 'show/:author_id' });
+    });
+  });
 });
 
 export default Router;
