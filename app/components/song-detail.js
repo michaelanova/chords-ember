@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import Ember from 'ember';
 
 export default Component.extend({
+  classNames: ['song-detail'],
   song: null,
   allChords: [],
   textWithSup: null,

@@ -1,9 +1,22 @@
-{{song.name}}
-<br>
-Akordy: {{#each allChords as |chord|}}
-  {{chord}}
-{{/each}}
-<br>
-{{!textWithSup}}
-<div class="song" id="song">
+
+<div class="heading">
+  <div class="info">
+    <div class="name">
+      {{song.name}}
+    </div>
+    <div class="about">
+      hodnocení
+    </div>
+    <div class="count">
+      {{#each allChords as |chord|}}
+        {{chord}}
+      {{/each}}
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="text">
+    <div class="song" id="song">
+    </div>
+  </div>
 </div>

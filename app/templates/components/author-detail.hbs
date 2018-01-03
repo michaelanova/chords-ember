@@ -1,4 +1,22 @@
-{{load-image model=author class="image-container"}}
-{{author.name}}
-{{author.info}}
-{{song-list model=author.songs}}
+
+<div class="heading image">
+  <div class="image">
+    {{load-image model=author class="image-container"}}
+  </div>
+  <div class="info">
+    <div class="name">
+      {{author.name}}
+    </div>
+    <div class="about">
+      {{author.info}}
+    </div>
+    <div class="count">
+      5
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="songs">
+    {{song-list model=author.songs}}
+  </div>
+</div>

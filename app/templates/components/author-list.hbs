@@ -1,5 +1,21 @@
 {{#each model as |author|}}
-{{#link-to "song.author.show" author.id}}{{author.name}}{{/link-to}}
-{{load-image model=author class="image-container"}}
-{{author.info}}
+  {{#link-to "song.author.show" author.id}}
+    <div class="list image-bg">
+      <div class="image">
+        {{load-image model=author class="image-container"}}
+      </div>
+      <div class="info">
+        <div class="name">
+          {{author.name}}
+        </div>
+        <div class="about">
+          {{author.info}}
+        </div>
+        <div class="count">
+          5
+        </div>
+      </div>
+    </div>
+
+  {{/link-to}}
 {{/each}}

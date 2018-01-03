@@ -657,3 +657,71 @@ select {
     width: 100%;
   }
 }
+.author-list {
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+.list {
+  margin: 0 -15px 1px;
+  position: relative;
+
+  &.image-bg {
+    height: 150px;
+    overflow: hidden;
+
+    .image {
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      .image-container {
+        height: 100px;
+        position: relative;
+
+        img {
+          max-width: 100%;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &::after {
+          background: $black-transparent;
+          content: '';
+          height: 100%;
+          position: absolute;
+          width: 100%;
+        }
+      }
+    }
+
+    .about {
+      height: 60%;
+      margin-top: 8px;
+      max-height: 60%;
+      overflow-y: auto;
+    }
+  }
+
+  .info {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 15px;
+    position: relative;
+
+    .name {
+      text-align: center;
+      text-transform: uppercase;
+      width: 100%;
+    }
+
+    .count {
+      text-align: right;
+    }
+
+  }
+}
