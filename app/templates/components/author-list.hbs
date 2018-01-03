@@ -1,4 +1,5 @@
 {{#each model as |author|}}
 {{#link-to "song.author.show" author.id}}{{author.name}}{{/link-to}}
+{{load-image model=author class="image-container"}}
 {{author.info}}
 {{/each}}

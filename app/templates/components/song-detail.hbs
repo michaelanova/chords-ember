@@ -1,2 +1,9 @@
 {{song.name}}
-{{song.text}}
+<br>
+Akordy: {{#each allChords as |chord|}}
+  {{chord}}
+{{/each}}
+<br>
+{{!textWithSup}}
+<div class="song" id="song">
+</div>

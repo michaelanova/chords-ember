@@ -18,7 +18,7 @@ export default Component.extend({
     //this._super(...arguments);
     var storage = this.get('firebaseApp').storage();
     var storageRef = storage.ref();
-    var imageRef = storageRef.child('images/' + category);
+    var imageRef = storageRef.child('images/author/' + category);
 
     return imageRef.getDownloadURL().then((url) => {
       console.log(url);
