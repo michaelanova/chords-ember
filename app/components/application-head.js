@@ -1,13 +1,14 @@
 import Component from '@ember/component';
 
 export default Component.extend({
+  back: Ember.inject.service(),
   burgerMenu: Ember.inject.service(),
   session: Ember.inject.service(),
   classNames: ['head'],
   backVisible: true,
   didInsertElement() {
     let currentRoute = this.get('router.currentRouteName');
-    console.log(currentRoute);
+    //console.log(currentRoute);
     if(currentRoute == 'index') {
       this.set('backVisible', false);
     } else {
@@ -16,13 +17,13 @@ export default Component.extend({
   },
   willUpdate() {
     let currentRoute = this.get('router.currentRouteName');
-    console.log(currentRoute);
+    console.log('head',currentRoute);
     if(currentRoute == 'index') {
       this.set('backVisible', false);
     } else {
       this.set('backVisible', true);
     };
-    console.log(this.get('backVisible'));
+
   },
   actions: {
     signOut() {
@@ -32,7 +33,7 @@ export default Component.extend({
       this.get('burgerMenu').open();
     },
     back() {
-      history.back();
+      this.get('back').goBack();
     }
   }
 });

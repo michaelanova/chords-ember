@@ -2,19 +2,15 @@ import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 
 const Router = EmberRouter.extend({
-  back: Ember.inject.service(),
+  //back: Ember.inject.service(),
   location: config.locationType,
   rootURL: config.rootURL,
-  back: Ember.computed.alias('back.backVisible'),
+  /*pages: [],
   willTransition() {
-      //this._super(...arguments);
-
-    let current = this.currentRouteName;
-    console.log(current);
-    /*if(current == '') {
-      this.set('back.backVisible', false);
-    }*/
-  },
+    this.set('back.lastRoute', this.currentRouteName);
+    console.log('currentRouteRouter',this.currentRouteName);
+    console.log('lastRouteRouter',this.get('back.lastRoute'));
+  },*/
 });
 
 Router.map(function() {
