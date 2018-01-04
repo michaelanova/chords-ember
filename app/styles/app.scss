@@ -845,6 +845,14 @@ select {
       justify-content: space-between;
     }
 
+    .right {
+      display: flex
+    }
+
+    .rating {
+      margin-left: 5px;
+    }
+
     a {
       color: $black;
       text-decoration: none;

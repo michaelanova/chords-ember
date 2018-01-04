@@ -9,6 +9,19 @@
         Interpret
         {{#link-to "song.author.show" song.author.id}}{{song.author.name}}{{/link-to}}
       </div>
+      {{#if uid}}
+        {{#unless isLiked}}
+          <div class="like plus"{{action "like" song}}>
+            {{fa-icon "heart-o"}}
+            {{song.likes}}
+          </div>
+        {{else}}
+          <div class="like minus"{{action "unlike" song}}>
+            {{fa-icon "heart"}}
+            {{song.likes}}
+          </div>
+        {{/unless}}
+      {{/if}}
       <div class="addedBy">
         Přidal
         {{#link-to "profile.show" song.addedBy.id}}{{song.addedBy.username}}{{/link-to}}

@@ -1,16 +1,7 @@
 {{#unless first}}
   {{#each model as |song|}}
     <div class="list bg">
-      {{#link-to "song.show" song.id}}
-          <div class="info">
-            <div class="name">
-              {{song.name}}
-            </div>
-            <div class="count rating">
-              5
-            </div>
-          </div>
-      {{/link-to}}
+          {{song-item song=song}}
     </div>
   {{/each}}
 {{else}}

@@ -35,6 +35,7 @@ Router.map(function() {
   this.route('active-user');
   this.route('profile', function() {
     this.route('show', { path: ':profile_id' });
+    this.route('favourites', { path: 'favourites/:profile_id' });
   });
 
   this.route('category', function() {

@@ -1,0 +1,26 @@
+<div class="info">
+  {{#link-to "song.show" song.id}}
+    <div class="name">
+      {{song.name}}
+    </div>
+  {{/link-to}}
+  <div class="right">
+    {{#if uid}}
+      {{#unless isLiked}}
+        <div class="like plus"{{action "like" song}}>
+          {{fa-icon "heart-o"}}
+          {{song.likes}}
+        </div>
+      {{else}}
+        <div class="like minus"{{action "unlike" song}}>
+          {{fa-icon "heart"}}
+          {{song.likes}}
+        </div>
+      {{/unless}}
+    {{/if}}
+    <div class="count rating">
+      5
+    </div>
+  </div>
+
+</div>
