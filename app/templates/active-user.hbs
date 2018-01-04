@@ -5,21 +5,24 @@
   <div class="info">
     <p><span>E-mail</span> {{model.user.email}}</p>
   </div>
+</div>
+<div class="scrolling-box">
+  <div class="heading sub">
+    Přidané písničky
+  </div>
+  {{song-list model=model.user.songsAdded}}
   <div class="heading sub">
     Přidané články
   </div>
-</div>
-<div class="scrolling-box">
-  {{#article-list model=model.article onlyUsersArticles=true}}
+  {{#article-list onlyTitle=true model=model.article onlyUsersArticles=true}}
     {{#each model.article as |article|}}
     {{#if (eq article.user model.user.id)}}
-      <div class="article">
+      <div class="list bg">
         {{#link-to "articles.detail" article.id}}
-          <h2 class="title">
-            {{article.title}}
-          </h2>
-          <div class="body">
-            {{article.body}}
+          <div class="info">
+            <div class="name">
+              {{article.title}}
+            </div>
           </div>
         {{/link-to}}
       </div>

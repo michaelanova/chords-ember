@@ -6,11 +6,15 @@
   <div class="info">
     <p><span>E-mail</span> {{model.user.email}}</p>
   </div>
+</div>
+<div class="scrolling-box">
+  <div class="heading sub">
+    Přidané písničky
+  </div>
+  {{song-list model=model.user.songsAdded}}
   <div class="heading sub">
     Přidané články
   </div>
-</div>
-<div class="scrolling-box">
   {{#article-list model=model.article onlyUsersArticles=true}}
     {{#each model.article as |article|}}
     {{#if (eq article.user model.user.id)}}

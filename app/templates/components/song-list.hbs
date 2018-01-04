@@ -1,15 +1,32 @@
+{{#unless first}}
+  {{#each model as |song|}}
+    <div class="list bg">
+      {{#link-to "song.show" song.id}}
+          <div class="info">
+            <div class="name">
+              {{song.name}}
+            </div>
+            <div class="count rating">
+              5
+            </div>
+          </div>
+      {{/link-to}}
+    </div>
+  {{/each}}
+{{else}}
+  {{#each firstSongs as |song|}}
+    <div class="list bg">
+      {{#link-to "song.show" song.id}}
+          <div class="info">
+            <div class="name">
+              {{song.name}}
+            </div>
+            <div class="count rating">
+              5
+            </div>
+          </div>
+      {{/link-to}}
+    </div>
+  {{/each}}
 
-{{#each model as |song|}}
-  <div class="list">
-    {{#link-to "song.show" song.id class="list"}}
-        <div class="info">
-          <div class="name">
-            {{song.name}}
-          </div>
-          <div class="count">
-            5
-          </div>
-        </div>
-    {{/link-to}}
-  </div>
-{{/each}}
+{{/unless}}

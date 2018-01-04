@@ -1,50 +1,75 @@
 {{#if onlyUsersArticles}}
   {{yield}}
 {{else}}
-  <div class="articles-all">
-    {{#each model as |article|}}
-      <div class="article">
-          {{#if (eq article.user session.currentUser.uid)}}
-            {{#if admin}}
-              <div class="admin-panel">
-                <div class="action"{{action "delete" article}}>
-                  {{fa-icon "times"}}
+{{#unless first}}
+    <div class="articles-all">
+      {{#each model as |article|}}
+        <div class="article">
+            {{#if (eq article.user session.currentUser.uid)}}
+              {{#if admin}}
+                <div class="admin-panel">
+                  <div class="action"{{action "delete" article}}>
+                    {{fa-icon "times"}}
+                  </div>
+                  {{#link-to "articles.edit" article.id class=action}}
+                    {{fa-icon "pencil"}}
+                  {{/link-to}}
                 </div>
-                {{#link-to "articles.edit" article.id class=action}}
-                  {{fa-icon "pencil"}}
-                {{/link-to}}
+              {{/if}}
+            {{/if}}
+
+            {{#if onlyTitle}}
+              {{#link-to "articles.detail" article.id}}
+                <h2 class="title">
+                  {{article.title}}
+                </h2>
+              {{/link-to}}
+            {{else}}
+              {{#link-to "articles.detail" article.id}}
+                <h2 class="title">
+                  {{article.title}}
+                </h2>
+              {{/link-to}}
+
+              <div class="info">
+                <div class="category">
+                  {{#link-to "articles.category.show" article.cat}}<span>{{fa-icon 'list'}}</span>{{article.catName}}{{/link-to}}
+                </div>
+                <div class="author">
+                  {{#link-to "profile.show" article.user}}<span>{{fa-icon 'user-circle-o'}}</span>{{article.userName}}{{/link-to}}
+                </div>
+                <div class="date"><span>{{fa-icon 'calendar'}}</span>{{article.createdAt}}</div>
+              </div>
+              <div class="body">
+                {{truncate article.body 40}}
               </div>
             {{/if}}
-          {{/if}}
-
-          {{#if onlyTitle}}
-            {{#link-to "articles.detail" article.id}}
-              <h2 class="title">
-                {{article.title}}
-              </h2>
-            {{/link-to}}
-          {{else}}
-            {{#link-to "articles.detail" article.id}}
-              <h2 class="title">
-                {{article.title}}
-              </h2>
-            {{/link-to}}
-
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+  {{#each firstArticles as |article|}}
+      <div class="list bg">
+        {{#link-to "articles.detail" article.id}}
             <div class="info">
-              <div class="category">
-                {{#link-to "articles.category.show" article.cat}}<span>{{fa-icon 'list'}}</span>{{article.catName}}{{/link-to}}
+              <div class="name">
+                {{article.title}}
               </div>
-              <div class="author">
-                {{#link-to "profile.show" article.user}}<span>{{fa-icon 'user-circle-o'}}</span>{{article.userName}}{{/link-to}}
+              <div class="count">
+                {{#if admin}}
+                  <div class="admin-panel">
+                    <div class="action"{{action "delete" article}}>
+                      {{fa-icon "times"}}
+                    </div>
+                    {{#link-to "articles.edit" article.id class="action"}}
+                      {{fa-icon "pencil"}}
+                    {{/link-to}}
+                  </div>
+                {{/if}}
               </div>
-              <div class="date"><span>{{fa-icon 'calendar'}}</span>{{article.createdAt}}</div>
             </div>
-            <div class="body">
-              {{truncate article.body 40}}
-            </div>
-          {{/if}}
-
+        {{/link-to}}
       </div>
-    {{/each}}
-  </div>
+  {{/each}}
+{{/unless}}
 {{/if}}

@@ -5,4 +5,5 @@ export default DS.Model.extend({
   text: DS.attr('string'),
   addedBy: DS.belongsTo('user', { inverse: 'songsAdded' }),
   author: DS.belongsTo('author', { inverse: 'songs' }),
+  video: DS.attr('string')
 });

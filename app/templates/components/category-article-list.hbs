@@ -1,28 +1,23 @@
 {{#each filteredArticles as |article|}}
-  <div class="article">
-
-    {{#link-to "articles.detail" article.id}}
-      {{#if onlyTitle}}
-        <h2 class="title">
-          {{article.title}}
-        </h2>
-      {{else}}
-        <h2 class="title">
-          {{article.title}}
-        </h2>
-        <div class="info">
-          <div class="author">
-            <span>{{fa-icon 'user-circle-o'}}</span>
-            {{#link-to "profile.show" article.user}}{{article.userName}}{{/link-to}}
+    <div class="list bg">
+      {{#link-to "articles.detail" article.id}}
+          <div class="info">
+            <div class="name">
+              {{article.title}}
+            </div>
+            <div class="count">
+              {{#if admin}}
+                <div class="admin-panel">
+                  <div class="action"{{action "delete" article}}>
+                    {{fa-icon "times"}}
+                  </div>
+                  {{#link-to "articles.edit" article.id class="action"}}
+                    {{fa-icon "pencil"}}
+                  {{/link-to}}
+                </div>
+              {{/if}}
+            </div>
           </div>
-          <div class="date">
-            <span>{{fa-icon 'calendar'}}</span>
-            {{article.createdAt}}</div>
-        </div>
-        <div class="body">
-          {{truncate article.body 40}}
-        </div>
-      {{/if}}
-    {{/link-to}}
-  </div>
+      {{/link-to}}
+    </div>
 {{/each}}

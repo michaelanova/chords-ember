@@ -1,7 +1,12 @@
 <div class="heading">
-  Domovská stránka
+  Přehled
 </div>
-
-{{outlet}}
-<p>Nejnovéjší články</p>
-{{article-list model=model onlyTitle=true}}
+<div class="box">
+  <p>Nejnovéjší písničky</p>
+  {{song-list first=true model=model.songs}}
+</div>
+<div class="box">
+  <p>Nejnovéjší články</p>
+  {{article-list first=true model=model.articles onlyTitle=true}}
+</div>
+<br>

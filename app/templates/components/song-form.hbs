@@ -18,10 +18,17 @@
           <label class="control-label" for="name">Název písničky</label>
       </div>
 
+      <div id="title" class="input-field">
+          {{input type="title" value=song.video id="video" name="video" class="form-control" autofocus="autofocus" placeholder=" "}}
+          <label class="control-label" for="video">Youtube URL</label>
+      </div>
+
       <div id="info" class="input-field">
           {{textarea type="text" value=song.text id="text" name="text" class="form-control" autofocus="autofocus" placeholder=" "}}
           <label class="control-label" for="text">Text s akordy</label>
       </div>
+
+
       {{!image-uploader model=truck photo=truck.photo action="fileUploaded"}}
       <button type="submit" class="btn btn-primary btn-md form-submit" disabled={{loading}}>
         Vložit

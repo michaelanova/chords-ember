@@ -8,6 +8,11 @@ export default Component.extend({
   onlyUsersArticles: false,
   classNames: ['article-list'],
   onlyTitle: false,
+  first: false,
+  model: null,
+  firstArticles: Ember.computed('model.@each', function() {
+    return this.get('model').slice(0,5);
+  }),
   admin: Ember.computed.alias('currentUser.user.admin'),
   actions: {
     delete(article) {

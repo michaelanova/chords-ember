@@ -1,12 +1,20 @@
+<div class="heading">
+  Kategorie článků
+</div>
 <div class="category-list">
   {{#each model as |category|}}
-    {{#link-to "articles.category.show" category.id}}
-      <div class="image-box">
-        {{load-image model=category class="image-container"}}
-        <div class="category-name">
+    <div class="list bg">
+      {{#link-to "articles.category.show" category.id}}
+      <div class="info">
+        <div class="name">
           {{category.name}}
         </div>
+        <!--div class="count">
+          {{!category.count}}
+        </div-->
       </div>
-    {{/link-to}}
+      {{/link-to}}
+    </div>
   {{/each}}
+
 </div>

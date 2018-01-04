@@ -1,6 +1,16 @@
 <div class="inner">
 {{yield}}
-  {{#link-to "index" }}<h1 class="main-name">Base</h1>{{/link-to}}
+  {{#link-to "index" }}
+    <h1 class="main-name {{if backVisible "arrow"}}">
+      {{#if backVisible}}
+      <div class="back" {{action 'back'}}>
+        {{fa-icon "angle-left"}}
+      </div>
+      {{else}}
+        Chords.cz
+      {{/if}}
+    </h1>
+  {{/link-to}}
   <div class="right">
     <div class="login">
       {{#if session.isAuthenticated}}

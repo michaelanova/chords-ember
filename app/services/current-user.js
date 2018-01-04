@@ -4,11 +4,8 @@ import Ember from 'ember';
 export default Service.extend({
   store: Ember.inject.service(),
   session: Ember.inject.service(),
-
-  uid: Ember.computed.alias('session.currentUser.uid'),
+  uid:  Ember.computed.alias('session.currentUser.uid'),
   data: null,
-  notifications: null,
-  notificationsCount: Ember.computed.alias('notifications.length'),
   user: Ember.computed('uid', 'data', function() {
     let uid = this.get('uid'),
         data = this.get('data');
@@ -17,10 +14,12 @@ export default Service.extend({
     else if (data) { return data; }
 
     return this.get('store').findRecord('user', uid).then(current => {
+      let locale = current.get('locale') || 'en';
       this.setProperties({ data: current });
       return current;
     });
   }),
+  //isAdmin: bool('user.admin'),
   unload() {
     this.set('data', null);
   }

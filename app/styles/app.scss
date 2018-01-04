@@ -9,7 +9,7 @@ $white: #fff;
 $gray: #e8e8e8;
 $gray-light: #f0f0f0;
 $blue: #44fdec;
-$yellow: #f8d966;
+$yellow: #daac00;
 $box-shadow: #a9a9a9;
 
 body {
@@ -75,7 +75,7 @@ a {
   }
 
   .image-container {
-    height: 100px;
+    height: 150px;
     position: relative;
 
     img {
@@ -95,6 +95,8 @@ a {
   }
 }
 
+
+
 main {
 
 }
@@ -102,8 +104,17 @@ main {
 .main-name {
   background: linear-gradient(45deg, $blue, $yellow);
   font-family: 'Zilla Slab Highlight';
-  font-size: 34px;
+  font-size: 25px;
   font-weight: 500;
+
+  &.arrow {
+    background: transparent;
+
+    .back {
+      color: $white;
+      //font-size: 20px;
+    }
+  }
 }
 
 .button,
@@ -416,17 +427,70 @@ select {
 
 .heading {
   background: $gray-light;
+  //border-bottom: 1px solid $gray;
   color: $black;
   font-size: 1.1em;
   font-weight: bold;
-  margin: 0 -15px;
+  margin: 0 -15px 3px;
   padding: 20px 15px;
+  position: relative;
 
   &.sub {
     background: $white;
     border-top: 1px solid $gray-light;
     padding: 10px;
     text-align: center;
+  }
+
+  &.image-bg {
+    color: $white;
+    height: 150px;
+    padding: 0;
+
+    .image-container {
+      height: 100%;
+    }
+
+    .image {
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  .info {
+    .name {
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.song-detail {
+  .name {
+    margin-bottom: 10px;
+  }
+  .others {
+    border-top: 1px solid $gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 15px;
+
+    a {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
+  .addedBy,
+  .author {
+    font-size: 13px;
+    font-weight: 100;
+  }
+  .addedBy {
+    text-align: right;
   }
 }
 
@@ -447,6 +511,27 @@ select {
       padding: 0 .5em;
       text-decoration: none;
     }
+  }
+}
+
+.image-container {
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::after {
+    background: $black-transparent;
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
   }
 }
 
@@ -622,9 +707,6 @@ select {
     padding: 1em 1.2em;
   }
 
-  .article-list {
-    margin: 0 -15px;
-  }
 
   .article {
     padding: 15px;
@@ -664,46 +746,33 @@ select {
   }
 }
 
-.list {
-  margin: 0 -15px 1px;
-  position: relative;
+.image-bg {
+  overflow: hidden;
 
-  &.image-bg {
-    height: 150px;
-    overflow: hidden;
+  .image {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
 
-    .image {
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%;
+    .image-container {
+      //height: 120px;
+      position: relative;
 
-      .image-container {
-        height: 100px;
-        position: relative;
-
-        img {
-          max-width: 100%;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-
-        &::after {
-          background: $black-transparent;
-          content: '';
-          height: 100%;
-          position: absolute;
-          width: 100%;
-        }
+      img {
+        max-width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
       }
-    }
 
-    .about {
-      height: 60%;
-      margin-top: 8px;
-      max-height: 60%;
-      overflow-y: auto;
+      &::after {
+        background: $black-transparent;
+        content: '';
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      }
     }
   }
 
@@ -714,14 +783,95 @@ select {
     position: relative;
 
     .name {
+      font-weight: bold;
       text-align: center;
       text-transform: uppercase;
       width: 100%;
     }
 
-    .count {
-      text-align: right;
+    .about {
+      font-size: 13px;
     }
 
+    .count {
+      border-right: 1px solid $white;
+      font-size: 15px;
+      padding: 1px 5px;
+      text-align: right;
+    }
+  }
+
+  .info {
+    position: relative;
+  }
+
+  .about {
+    font-weight: 100;
+    height: calc(100% - 40px);
+    margin-top: 8px;
+    max-height: calc(100% - 40px);
+    overflow-y: auto;
+  }
+}
+
+.rating {
+  align-items: center;
+  background: $yellow;
+  border-radius: 50%;
+  color: $white;
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  height: 19px;
+  justify-content: center;
+  width: 19px;
+}
+
+.list {
+  margin: 0 -15px 1px;
+  position: relative;
+
+  &.image-bg {
+    height: 120px;
+  }
+
+  &.bg {
+    background: $gray-light;
+    padding: 15px;
+
+    .info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    a {
+      color: $black;
+      text-decoration: none;
+    }
+  }
+
+  .admin-panel {
+    display: flex;
+    .action {
+      padding: 0 10px;
+    }
+  }
+
+}
+
+.articles-all {
+  margin: 0 -15px;
+}
+
+.song {
+  font-family: 'Slabo 27px', serif;
+  padding: 15px 0 25px;
+
+  .chord {
+    color: $green;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
   }
 }
