@@ -23,7 +23,7 @@ a {
 }
 
 .main {
-  padding: 1.5em;
+  padding: 0 15px;
   margin: 0 auto;
   max-width: 1280px;
 }
@@ -93,12 +93,6 @@ a {
       width: 100%;
     }
   }
-}
-
-
-
-main {
-
 }
 
 .main-name {
@@ -222,7 +216,7 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin: 0 auto 20px;
+    margin: 0 auto 0;
     max-width: 1280px;
   }
 
@@ -511,27 +505,6 @@ select {
       padding: 0 .5em;
       text-decoration: none;
     }
-  }
-}
-
-.image-container {
-  height: 150px;
-  overflow: hidden;
-  position: relative;
-
-  img {
-    max-width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  &::after {
-    background: $black-transparent;
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 100%;
   }
 }
 
