@@ -1,0 +1,31 @@
+<div class="link">
+  {{#link-to "active-user"}}
+    {{fa-icon "user-o"}}
+    Profil
+  {{/link-to}}
+</div>
+<div class="link">
+  {{#link-to "profile.favourites" uid}}
+    {{fa-icon "heart-o"}}
+    Oblíbené
+  {{/link-to}}
+</div>
+{{#if session.isAuthenticated}}
+  <div class="link add">
+    {{#link-to "add-new"}}
+      {{fa-icon "plus-square-o"}}
+    {{/link-to}}
+  </div>
+{{/if}}
+<div class="link">
+  {{#link-to "song.author.index"}}
+    {{fa-icon "music"}}
+    Akordy
+  {{/link-to}}
+</div>
+<div class="link">
+  {{#link-to "articles.show"}}
+    {{fa-icon "newspaper-o"}}
+    Novinky
+  {{/link-to}}
+</div>

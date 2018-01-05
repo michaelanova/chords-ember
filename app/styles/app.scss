@@ -8,6 +8,7 @@ $red: #900;
 $white: #fff;
 $gray: #e8e8e8;
 $gray-light: #f0f0f0;
+$gray-dark: #636363;
 $blue: #44fdec;
 $yellow: #daac00;
 $box-shadow: #a9a9a9;
@@ -29,10 +30,44 @@ a {
 }
 
 .new-article {
-  padding: 0 15px;
 
   .heading {
-    padding: 20px 30px;
+    //padding: 20px 30px;
+  }
+}
+
+.add-new {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  margin: 0 -15px;
+
+  .add {
+    background: rgba(51,51,51,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(51,51,51,1) 0%, rgba(46,46,46,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(51,51,51,1)), color-stop(100%, rgba(46,46,46,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(51,51,51,1) 0%, rgba(46,46,46,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(51,51,51,1) 0%, rgba(46,46,46,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(51,51,51,1) 0%, rgba(46,46,46,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(51,51,51,1) 0%, rgba(46,46,46,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#2e2e2e', GradientType=1 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#292929', endColorstr='#000000', GradientType=1 );
+    align-items: center;
+    border-bottom: 2px solid $white;
+    color: $white;
+    display: flex;
+    flex-wrap: wrap;
+    height: 50%;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+
+    i {
+      font-size: 35px;
+      margin-right: 10px;
+    }
   }
 }
 
@@ -243,7 +278,7 @@ button {
 }
 
   label {
-    color: $gray;
+    color: $gray-dark;
     font-size: .95em;
     left: 0;
     position: absolute;
@@ -263,12 +298,19 @@ form {
   &.full-width {
     width: 100%;
 
-    input {
+    input,
+    textarea {
       width: 100%;
     }
   }
 
-  input {
+  textarea {
+    min-height: 150px;
+    width: 100%;
+  }
+
+  input,
+  textarea {
     background: none;
     border: 0;
     border-bottom: 1px solid $primary;
@@ -348,17 +390,17 @@ form {
 
 input,
 select {
+  -webkit-appearance: none;
   max-width: 50%;
   min-width: 50%;
 }
 
 .article {
-  background: linear-gradient(45deg, $white, $gray-light);
-  box-shadow: 0 -1px 3px rgb(216, 216, 216);
   position: relative;
 
   .admin-panel {
     align-items: center;
+    background: $gray-light;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -367,10 +409,14 @@ select {
     position: absolute;
     right: 0;
     top: 0;
-    width: 50px;
+    width: 30px;
 
     .action {
-      padding: 1em .25em;
+      align-items: center;
+      box-sizing: border-box;
+      display: flex;
+      height: 50%;
+      padding: 10px;
       position: relative;
       right: 0;
       width: 100%;
@@ -390,7 +436,7 @@ select {
   .info {
     display: flex;
     margin: 0 -15px;
-    padding: 0 15px 10px;
+    //padding: 0 15px 10px;
 
     .date,
     .author,
@@ -427,12 +473,11 @@ select {
 
 .heading {
   background: $gray-light;
-  //border-bottom: 1px solid $gray;
   color: $black;
   font-size: 1.1em;
   font-weight: bold;
   margin: 0 -15px 3px;
-  padding: 20px 15px;
+  padding: 15px 15px;
   position: relative;
 
   &.sub {
@@ -440,6 +485,16 @@ select {
     border-top: 1px solid $gray-light;
     padding: 10px;
     text-align: center;
+  }
+
+  &> .text {
+    font-size: 16px;
+    font-weight: 100;
+
+  }
+
+  .article-link {
+    width: 100%;
   }
 
   &.image-bg {
@@ -464,34 +519,67 @@ select {
       text-transform: uppercase;
     }
   }
+
+  .link {
+    color: $gray-dark;
+    float: right;
+    font-size: 14px;
+    font-weight: 100;
+  }
 }
 
-.song-detail {
+.song-detail,
+.article-detail {
   .name {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   .others {
     border-top: 1px solid $gray;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding-top: 15px;
+    padding-top: 10px;
+    width: 100%;
 
     a {
+      color: $black;
       display: block;
       font-size: 13px;
       font-weight: 600;
+      text-decoration: none;
       text-transform: uppercase;
     }
   }
+
+  .like {
+    font-size: 10px;
+    text-align: center;
+    width: 20%;
+
+    i {
+      display: block;
+      font-size: 20px;
+    }
+  }
+
   .addedBy,
   .author {
     font-size: 13px;
     font-weight: 100;
+    width: 40%;
   }
+
   .addedBy {
     text-align: right;
   }
+
+  .date {
+    font-weight: 100;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
 }
 
 @media screen and (min-width: 641px) {
@@ -681,15 +769,15 @@ select {
 
   .main {
     max-width: 100%;
-    overflow: hidden;
-    padding: 60px 15px;
+    height: calc(100vh - 105px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 60px 15px 0;
   }
 
   .main-menu {
     display: none;
   }
-
-
 
   input {
     border-radius: 0;
@@ -707,17 +795,19 @@ select {
     padding: 1em 1.2em;
   }
 
-
   .article {
     padding: 15px;
+
     h2 {
       font-size: 1.3em;
       margin: 0 0 5px;
       text-decoration: underline;
     }
+
     a {
       color: $black;
       text-decoration: none;
+
       .title {
         text-decoration: none;
       }
@@ -739,6 +829,7 @@ select {
     width: 100%;
   }
 }
+
 .author-list {
   a {
     color: $white;
@@ -843,6 +934,18 @@ select {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+
+      .name {
+        font-size: 17px;
+      }
+
+      .date {
+        font-size: 11px;
+      }
+    }
+
+    .others {
+      display: flex;
     }
 
     .right {
@@ -869,7 +972,7 @@ select {
 }
 
 .articles-all {
-  margin: 0 -15px;
+  //margin: 0 -15px;
 }
 
 .song {
@@ -881,5 +984,41 @@ select {
     font-size: 20px;
     font-weight: bold;
     padding: 5px;
+  }
+}
+
+.bottom-bar {
+  align-items: center;
+  border-top: 1px solid $gray;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  height: 45px;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+
+  a {
+    color: $gray-dark;
+    text-decoration: none;
+  }
+
+  .link {
+    flex-grow: 1;
+    font-size: 10px;
+    text-align: center;
+    text-transform: uppercase;
+
+    i {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 1px;
+    }
+
+    &.add {
+      i {
+        font-size: 30px;
+      }
+    }
   }
 }

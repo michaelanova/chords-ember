@@ -1,21 +1,26 @@
 <h2 class="heading">
-  {{model.title}}
-</h2>
-<div class="article detail">
   <div class="info">
-    <div class="category">
-      {{#link-to "articles.category.show" model.cat}}<span>{{fa-icon 'list'}}kategorie: </span>{{model.catName}}{{/link-to}}
+    <div class="name">
+      {{model.title}}
     </div>
-    <div class="author">
-      <span>{{fa-icon 'user-circle-o'}}Autor:</span>
-      {{#link-to "profile.show" model.user}}{{model.userName}}{{/link-to}}
+    <div class="date like">
+      {{model.createdAt}}
     </div>
-    <div class="date">
-      {{fa-icon 'calendar'}}{{model.createdAt}}
-    </div>
+    <div class="others">
+      <div class="author">
+        Kategorie
+        {{#link-to "articles.category.show" model.cat}}{{model.catName}}{{/link-to}}
+      </div>
+      <div class="addedBy">
+        Přidal
+        {{#link-to "profile.show" model.user}}{{model.userName}}{{/link-to}}
+      </div>
 
+    </div>
   </div>
-  <div class="body">
+</h2>
+<div class="content">
+  <div class="text">
     {{model.body}}
   </div>
 </div>

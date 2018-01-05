@@ -2,6 +2,12 @@
 <div class="profil">
   <div class="heading">
     {{model.user.username}}
+    {{#link-to "profile.favourites" model.user.id}}
+      <div class="like plus link">
+        {{fa-icon "heart-o"}}
+        Oblíbené
+      </div>
+    {{/link-to}}
   </div>
   <div class="info">
     <p><span>E-mail</span> {{model.user.email}}</p>
@@ -18,13 +24,24 @@
   {{#article-list model=model.article onlyUsersArticles=true}}
     {{#each model.article as |article|}}
     {{#if (eq article.user model.user.id)}}
-      <div class="article">
+
+        {{#if admin}}
+          <div class="admin-panel">
+            <div class="action"{{action "delete" article}}>
+              {{fa-icon "times"}}
+            </div>
+            {{#link-to "articles.edit" article.id class="action"}}
+              {{fa-icon "pencil"}}
+            {{/link-to}}
+          </div>
+        {{/if}}
+
+      <div class="list bg">
         {{#link-to "articles.detail" article.id}}
-          <h2 class="title">
-            {{article.title}}
-          </h2>
-          <div class="body">
-            {{article.body}}
+          <div class="info">
+            <div class="name">
+              {{article.title}}
+            </div>
           </div>
         {{/link-to}}
       </div>

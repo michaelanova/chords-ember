@@ -49,6 +49,7 @@ Router.map(function() {
       this.route('show', { path: 'show/:author_id' });
     });
   });
+  this.route('add-new');
 });
 
 export default Router;

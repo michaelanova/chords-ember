@@ -5,7 +5,7 @@ export default Component.extend({
   session: Ember.inject.service(),
   currentUser: Ember.inject.service(),
   tagName: 'form',
-  classNames: ['truck-form'],
+  classNames: ['song-form'],
   uid:  Ember.computed.alias('session.currentUser.uid'),
   song: null,
   authors: null,
