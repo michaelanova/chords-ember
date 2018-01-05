@@ -1,6 +1,6 @@
 {{#if session.isAuthenticated}}
 <div class="profil">
-  <div class="heading">
+  <div class="title">
     {{model.user.username}}
     {{#link-to "profile.favourites" model.user.id}}
       <div class="like plus link">

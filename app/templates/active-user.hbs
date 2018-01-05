@@ -1,6 +1,9 @@
+<div class="title">
+  {{model.user.username}}
+</div>
 <div class="profil">
-  <div class="heading">
-    {{model.user.username}}
+  <div class="actions">
+    <button {{action "signOut"}} class="btn-small btn" >Odhlásit se</button>
   </div>
   <div class="info">
     <p><span>E-mail</span> {{model.user.email}}</p>

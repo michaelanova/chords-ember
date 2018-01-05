@@ -24,11 +24,6 @@
       {{/if}}
     </div>
     <div class="login-mobile">
-      {{#if session.isAuthenticated}}
-        {{#link-to "active-user" class="btn btn-small btn-header"}}{{fa-icon "user-circle"}}{{session.currentUser.displayName}}{{/link-to}}
-      {{else}}
-        {{#link-to "login" class="btn btn-small btn-header"}}{{fa-icon "user-circle"}}{{/link-to}}
-      {{/if}}
       <button type="button" name="button" class="btn btn-small btn-header"{{action "open"}}>{{fa-icon "bars"}}Menu</button>
     </div>
     {{burger-menu}}

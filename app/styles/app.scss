@@ -461,14 +461,14 @@ select {
 }
 
 .profil {
-  background: $white;
+  /*background: $white;
   box-shadow: 1px 1px 3px $box-shadow;
   box-sizing: border-box;
   margin: 0 -15px;
   padding: 0 15px;
   position: fixed;
   width: 100%;
-  z-index: 3;
+  z-index: 3;*/
 }
 
 .heading {
@@ -644,7 +644,7 @@ select {
   .head {
     background: $black;
     box-shadow: 0 1px 7px $black-transparent;
-    height: 60px;
+    height: 40px;
     justify-content: space-between;
     left: 0;
     padding: 0 0 0 15px;
@@ -694,7 +694,7 @@ select {
     .right {
       background: $black;
       display: flex;
-      height: 60px;
+      height: 40px;
       overflow: hidden;
     }
 
@@ -769,10 +769,23 @@ select {
 
   .main {
     max-width: 100%;
-    height: calc(100vh - 105px);
+    //height: calc(100vh - 105px);
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 60px 15px 0;
+    padding: 40px 15px 45px;
+    position: relative;
+
+    &>.title {
+      color: $white;
+      left: 50%;
+      line-height: 40px;
+      max-height: 4px;
+      position: fixed;
+      text-transform: uppercase;
+      top: 0;
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
   }
 
   .main-menu {
@@ -989,6 +1002,7 @@ select {
 
 .bottom-bar {
   align-items: center;
+  background: $white;
   border-top: 1px solid $gray;
   bottom: 0;
   display: flex;

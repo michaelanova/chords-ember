@@ -2,6 +2,7 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   session: Ember.inject.service(),
+  store: Ember.inject.service(),
     model(params) {
       //return this.store.findRecord('user', this.get('session.currentUser.uid'));
       return Ember.RSVP.hash({
@@ -12,9 +13,15 @@ export default Route.extend({
   actions: {
     didTransition() {
       Ember.run.scheduleOnce('afterRender', () => {
-        let profileHeight = Ember.$('.profil').outerHeight();
+        /*let profileHeight = Ember.$('.profil').outerHeight();
         console.log(profileHeight);
-        Ember.$('.scrolling-box').css({"top": profileHeight});
+        Ember.$('.scrolling-box').css({"top": profileHeight});*/
+      });
+    },
+    signOut() {
+      this.get('session').close().then(() => {
+        this.get('store').unloadAll();
+        this.replaceWith('index');
       });
     }
   }

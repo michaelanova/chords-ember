@@ -1,3 +1,11 @@
+{{#unless session.isAuthenticated}}
+<div class="link">
+  {{#link-to "login"}}
+    {{fa-icon "user-o"}}
+    Login
+  {{/link-to}}
+</div>
+{{else}}
 <div class="link">
   {{#link-to "active-user"}}
     {{fa-icon "user-o"}}
@@ -10,6 +18,8 @@
     Oblíbené
   {{/link-to}}
 </div>
+{{/unless}}
+
 {{#if session.isAuthenticated}}
   <div class="link add">
     {{#link-to "add-new"}}

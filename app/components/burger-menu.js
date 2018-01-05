@@ -19,9 +19,10 @@ export default Component.extend({
       this.sendAction('transitionTo', ...arguments);
     },
     signOut() {
+      this.replaceWith('index');
       this.get('session').close().then(() => {
         this.get('store').unloadAll();
-        this.replaceWith('index');
+
       });
     }
   }
