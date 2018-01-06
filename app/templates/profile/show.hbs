@@ -1,12 +1,11 @@
+<div class="title">
+  {{model.user.username}}
+</div>
 {{#if session.isAuthenticated}}
 <div class="profil">
-  <div class="title">
-    {{model.user.username}}
-    {{#link-to "profile.favourites" model.user.id}}
-      <div class="like plus link">
-        {{fa-icon "heart-o"}}
-        Oblíbené
-      </div>
+  <div class="actions">
+    {{#link-to "profile.favourites" model.user.id class="btn-small btn btn-header btn-inverse"}}
+        {{fa-icon "heart-o"}}Oblíbené
     {{/link-to}}
   </div>
   <div class="info">

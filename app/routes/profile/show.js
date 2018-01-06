@@ -13,9 +13,9 @@ export default Route.extend({
   actions: {
     didTransition() {
       Ember.run.scheduleOnce('afterRender', () => {
-        let profileHeight = Ember.$('.profil').outerHeight();
+        /*let profileHeight = Ember.$('.profil').outerHeight();
         console.log(profileHeight);
-        Ember.$('.scrolling-box').css({"top": profileHeight});
+        Ember.$('.scrolling-box').css({"top": profileHeight});*/
       });
     }
   }
