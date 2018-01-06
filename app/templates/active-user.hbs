@@ -3,7 +3,7 @@
 </div>
 <div class="profil">
   <div class="actions">
-    <button {{action "signOut"}} class="btn-small btn" >Odhlásit se</button>
+    <button {{action "signOut"}} class="btn-small btn btn-header btn-inverse">{{fa-icon "sign-out"}}Odhlásit se</button>
   </div>
   <div class="info">
     <p><span>E-mail</span> {{model.user.email}}</p>
@@ -13,7 +13,7 @@
   <div class="heading sub">
     Přidané písničky
   </div>
-  {{song-list model=model.user.songsAdded}}
+  {{song-list model=model.user.songsAdded adminPanel=true}}
   <div class="heading sub">
     Přidané články
   </div>
@@ -25,6 +25,16 @@
           <div class="info">
             <div class="name">
               {{article.title}}
+            </div>
+            <div class="right">
+              <div class="admin-panel">
+                {{#link-to "articles.edit" article.id class="action"}}
+                  {{fa-icon "pencil"}}
+                {{/link-to}}
+                <div class="action"{{action "delete" article}}>
+                  {{fa-icon "times"}}
+                </div>
+              </div>
             </div>
           </div>
         {{/link-to}}

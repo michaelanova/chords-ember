@@ -18,9 +18,18 @@
         </div>
       {{/unless}}
     {{/if}}
-    <div class="count rating">
-      5
-    </div>
+    {{#if adminPanel}}
+      {{!#if admin}}
+        <div class="admin-panel">
+          {{#link-to "song.edit" song class="action"}}
+            {{fa-icon "pencil"}}
+          {{/link-to}}
+          <div class="action" {{action "delete"}}>
+            {{fa-icon "times"}}
+          </div>
+        </div>
+      {{!/if}}
+    {{/if}}
   </div>
 
 </div>

@@ -1,9 +1,26 @@
 {{#unless first}}
-  {{#each model as |song|}}
-    <div class="list bg">
+  {{#if firstLikes}}
+    {{#each firstSongsLikes as |song|}}
+      <div class="list bg">
+        {{#if adminPanel}}
+          {{song-item adminPanel=true song=song}}
+        {{else}}
           {{song-item song=song}}
-    </div>
-  {{/each}}
+        {{/if}}
+      </div>
+    {{/each}}
+  {{else}}
+    {{#each sortByName as |song|}}
+      <div class="list bg">
+          {{#if adminPanel}}
+            {{song-item adminPanel=true song=song}}
+          {{else}}
+            {{song-item song=song}}
+          {{/if}}
+      </div>
+    {{/each}}
+  {{/if}}
+
 {{else}}
   {{#each firstSongs as |song|}}
     <div class="list bg">
@@ -15,6 +32,7 @@
             <div class="count rating">
               5
             </div>
+
           </div>
       {{/link-to}}
     </div>

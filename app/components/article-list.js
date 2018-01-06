@@ -11,7 +11,7 @@ export default Component.extend({
   first: false,
   model: null,
   firstArticles: Ember.computed('model.@each', function() {
-    return this.get('model').slice(0,5);
+    return this.get('model').sortBy('createdAt').reverse().slice(0,5);
   }),
   admin: Ember.computed.alias('currentUser.user.admin'),
   actions: {

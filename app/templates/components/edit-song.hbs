@@ -1,0 +1,23 @@
+{{#if session.isAuthenticated}}
+<div class="new-article">
+
+  <div id="title" class="input-field" style="margin-top:1em;">
+      {{input type="text" value=song.name id="titleSong" name="title" class="form-control" autofocus="autofocus" placeholder=" "}}
+      <label class="control-label" for="titleSong">Název písničky</label>
+  </div>
+
+  <div id="body" class="input-field">
+      {{input type="text" value=song.video id="video" name="video" class="form-control" autofocus="autofocus" placeholder=" "}}
+      <label class="control-label" for="video">URL youtube videa</label>
+  </div>
+
+  <div id="body" class="input-field">
+      {{textarea type="text" value=song.text id="text" name="text" class="form-control" autofocus="autofocus" placeholder=" "}}
+      <label class="control-label" for="text">Text s akordy</label>
+  </div>
+
+    <button class="btn btn-primary" disabled={{isDisabled}} {{action 'save'}}>Uložit změny</button>
+</div>
+  {{else}}
+    <p>Pro editaci se musíte přihlásit!</p>
+  {{/if}}

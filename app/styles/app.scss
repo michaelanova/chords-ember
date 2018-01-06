@@ -40,19 +40,18 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 100%;
+  height: calc(100vh - 85px);
   margin: 0 -15px;
 
   .add {
-    background: rgba(51,51,51,1);
-    background: -moz-radial-gradient(center, ellipse cover, rgba(51,51,51,1) 0%, rgba(46,46,46,1) 100%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(51,51,51,1)), color-stop(100%, rgba(46,46,46,1)));
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(51,51,51,1) 0%, rgba(46,46,46,1) 100%);
-    background: -o-radial-gradient(center, ellipse cover, rgba(51,51,51,1) 0%, rgba(46,46,46,1) 100%);
-    background: -ms-radial-gradient(center, ellipse cover, rgba(51,51,51,1) 0%, rgba(46,46,46,1) 100%);
-    background: radial-gradient(ellipse at center, rgba(51,51,51,1) 0%, rgba(46,46,46,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#2e2e2e', GradientType=1 );
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#292929', endColorstr='#000000', GradientType=1 );
+    background: rgba(8,8,8,1);
+    background: -moz-linear-gradient(-45deg, rgba(8,8,8,1) 0%, rgba(82,82,82,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(8,8,8,1)), color-stop(100%, rgba(82,82,82,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(8,8,8,1) 0%, rgba(82,82,82,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(8,8,8,1) 0%, rgba(82,82,82,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(8,8,8,1) 0%, rgba(82,82,82,1) 100%);
+    background: linear-gradient(135deg, rgba(8,8,8,1) 0%, rgba(82,82,82,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#080808', endColorstr='#525252', GradientType=1 );
     align-items: center;
     border-bottom: 2px solid $white;
     color: $white;
@@ -157,6 +156,7 @@ main {
 button {
   background: $black;
   border: 0;
+  border-radius: 2px;
   color: $white;
   cursor: pointer;
   display: block;
@@ -179,6 +179,15 @@ button {
     border: 1px solid $black;
     color: $black;
     font-weight: bold;
+  }
+
+  &-inverse {
+    background: $white;
+    color: $gray-dark;
+
+    &:hover {
+      color: $black;
+    }
   }
 
   &:hover,
@@ -314,27 +323,25 @@ form {
     background: none;
     border: 0;
     border-bottom: 1px solid $primary;
+    border-radius: 0;
     outline: 0;
     padding: 1em 0;
 
 
     &:focus + label {
       transform: translateY(-110%);
-      color: $gray;
       font-size: .8em;
       left: 0;
     }
 
     &:not(:placeholder-shown) + label {
       transform: translateY(-110%);
-      color: $gray;
       font-size: .8em;
       left: 0;
     }
 
     &:not(:-ms-input-placeholder) + label {
       transform: translateY(-110%);
-      color: $gray;
       font-size: .8em;
       left: 0;
     }
@@ -469,6 +476,11 @@ select {
   position: fixed;
   width: 100%;
   z-index: 3;*/
+  .actions {
+    border-bottom: 1px solid $gray;
+    display: flex;
+    margin: 0 -15px;
+  }
 }
 
 .heading {
@@ -641,6 +653,17 @@ select {
     padding: 20px 15px 15px;
   }
 
+  .box {
+    .list:last-child {
+
+    }
+  }
+
+  .subtitle {
+    margin: 0 -15px;
+    padding: 5px;
+  }
+
   .head {
     background: $black;
     box-shadow: 0 1px 7px $black-transparent;
@@ -696,6 +719,11 @@ select {
       display: flex;
       height: 40px;
       overflow: hidden;
+
+      .btn-header.active {
+        background: transparent;
+        color: $white;
+      }
     }
 
     .fa {
@@ -788,6 +816,7 @@ select {
     }
   }
 
+
   .main-menu {
     display: none;
   }
@@ -800,12 +829,24 @@ select {
 
   .btn-header {
     align-items: center;
+    border-radius: 0;
     box-sizing: border-box;
     display: flex;
+    font-size: 9px;
     flex-direction: column;
     height: 100%;
     justify-content: center;
     padding: 1em 1.2em;
+    width: auto;
+
+    i.fa {
+      font-size: 25px;
+    }
+
+    &.active,
+    &:hover {
+      background: $white;
+    }
   }
 
   .article {
@@ -941,7 +982,7 @@ select {
 
   &.bg {
     background: $gray-light;
-    padding: 15px;
+    padding: 10px 15px;
 
     .info {
       display: flex;
@@ -976,7 +1017,11 @@ select {
   }
 
   .admin-panel {
+    border-left: 1px solid $white;
     display: flex;
+    margin-left: 10px;
+    margin-right: -10px;
+
     .action {
       padding: 0 10px;
     }
@@ -1015,6 +1060,9 @@ select {
   a {
     color: $gray-dark;
     text-decoration: none;
+    &.active {
+      color: $black;
+    }
   }
 
   .link {

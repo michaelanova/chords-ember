@@ -7,10 +7,10 @@ export default Component.extend({
   currentUser: Ember.inject.service(),
   onlyUsersArticles: false,
   classNames: ['article-list'],
-  article:null,
+  song:null,
   actions: {
     save() {
-      this.get('article').save();
+      this.get('song').save();
       history.back();
     }
   }

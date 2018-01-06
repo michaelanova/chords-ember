@@ -38,6 +38,7 @@ export default Component.extend({
       }, error => {
         //Ember.Logger.error(error);
       }).finally(() => {
+        history.back();
         //this.set('loading', false);
       });
     });

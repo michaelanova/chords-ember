@@ -10,13 +10,14 @@
         <!--span id="help" class="help-block hidden">Sorry, that username's taken. Try another?</span-->
     </div>
 
-    <div id="passwordInput" class="input-field" placeholder=" ">
-        <input class="form-control" id="password" type="password"/>
+    <div id="passwordInput" class="input-field">
+        <input class="form-control" id="password" type="password"/ placeholder=" ">
         <label class="control-label" for="password">Password</label>
         <!--span id="helpPass" class="help-block hidden">Incorrect username and/or password</span-->
     </div>
 
 
     <button {{action 'loginWithEmail'}} class="btn btn-primary btn-raised">Přihlásit se</button>
-    a nebo se můžete{{#link-to 'signup'}}zaregistrovat{{/link-to}}
+    <br>
+    {{#link-to 'signup'}}Zaregistrovat se{{/link-to}}
 </form>

@@ -19,9 +19,9 @@ export default Route.extend({
       });
     },
     signOut() {
+      this.replaceWith('index');
       this.get('session').close().then(() => {
         this.get('store').unloadAll();
-        this.replaceWith('index');
       });
     }
   }

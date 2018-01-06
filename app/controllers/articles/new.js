@@ -28,6 +28,7 @@ export default Controller.extend({
       this.set('responseMessage', `Thank you! We have just saved your post: ${this.get('title')}`);
       this.set('title', '');
       this.set('body', '');
+      history.back();
     },
     showCategory() {
       this.toggleProperty('categoryVisible');

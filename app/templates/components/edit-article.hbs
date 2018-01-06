@@ -1,6 +1,3 @@
-<div class="title">
-  Editace článku {{article.name}}
-</div>
 {{#if session.isAuthenticated}}
 <div class="new-article">
 
@@ -10,7 +7,7 @@
   </div>
 
   <div id="body" class="input-field">
-      {{input type="text" value=article.body id="body" name="body" class="form-control" autofocus="autofocus" placeholder=" "}}
+      {{textarea type="text" value=article.body id="body" name="body" class="form-control" autofocus="autofocus" placeholder=" "}}
       <label class="control-label" for="body">Obsah článku</label>
   </div>
 

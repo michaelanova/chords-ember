@@ -23,12 +23,13 @@ Router.map(function() {
     this.route('new');
     this.route('show');
     this.route('detail', { path: 'detail/:article_id' });
+    this.route('edit', { path: 'edit/:article_id' });
 
     this.route('category', function() {
       this.route('show', { path: 'show/:category_id' });
       this.route('index');
     });
-    this.route('edit', { path: 'edit/:article_id' });
+
   });
   this.route('signup');
   this.route('login');

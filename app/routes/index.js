@@ -1,8 +1,10 @@
 import Route from '@ember/routing/route';
 import Ember from 'ember';
+import Component from '@ember/component';
 
 export default Route.extend({
   back: Ember.inject.service(),
+
   model() {
     return Ember.RSVP.hash({
       users: this.store.findAll('user'),
@@ -15,5 +17,6 @@ export default Route.extend({
   },
   willTransition() {
     this.set('back.backVisible', true);
-  }
+  },
+
 });

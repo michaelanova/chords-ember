@@ -3,9 +3,12 @@ import Component from '@ember/component';
 export default Component.extend({
   store: Ember.inject.service(),
   session: Ember.inject.service(),
+  session: Ember.inject.service(),
+  currentUser: Ember.inject.service(),
   classNames: ['song-list'],
   first: false,
   song: null,
+  admin: Ember.computed.alias('currentUser.user.admin'),
   uid:  Ember.computed.alias('session.currentUser.uid'),
   isLiked: Ember.computed('song.likedBy', 'uid', function() {
     return this.get('song.likedBy').mapBy('id').contains(this.get('uid'));
@@ -26,6 +29,9 @@ export default Component.extend({
         current.save();
         song.save();
       });
+    },
+    delete() {
+      this.get('song').destroyRecord();
     }
   }
 });
