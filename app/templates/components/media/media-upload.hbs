@@ -1,0 +1,43 @@
+{{#if media.url}}
+  <div class="preview">
+    <div class="remove" {{action "remove"}}>
+      <i class="challingo-icons ci-close"></i>
+    </div>
+
+    {{#if media.isPhoto}}
+      <img src={{media.url}} alt="media">
+    {{else if media.isVideo}}
+      <video controls playsinline>
+        <source src={{media.url}} type="video/mp4" />
+      </video>
+    {{/if}}
+  </div>
+{{else}}
+  {{#if (gt progress 0)}}
+    <div class="progress-bar">
+      <div class="progress">
+        <div class="determinate" style={{progressStyle}}>
+          {{#if (eq progress 100)}}
+            připraven
+          {{else}}
+            {{progress}} %
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  {{else}}
+    <label>
+      {{#if cordova.enabled}}
+        <i class="challingo-icons ci-add-a-photo" {{action "captureImage"}}>pridat foto</i>
+        <img class="challingo-icons" src="assets/fonts/ic_image_black_24px.svg" style="width: 0.8em" {{action "captureVideo"}}/>
+      {{else}}
+        <input type="file" accept={{accept}} required={{required}} onchange={{action "fileChange"}}>
+        <i class="challingo-icons ci-add-a-photo">pridat foto</i>
+      {{/if}}
+    </label>
+  {{/if}}
+{{/if}}
+
+<div class="errors">
+  {{error}}
+</div>

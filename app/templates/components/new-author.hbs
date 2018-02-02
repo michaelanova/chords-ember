@@ -10,8 +10,19 @@
         id="image-input"
         name="image"
         class="btn btn-success-outline btn-block"}}
+    <div class="error">
+      {{#if error}}
+        {{error}}
+      {{/if}}
+    </div>
+
+
     <label class="control-label" for="media">foto</label>
   </div>
+  {{!media/media-upload media=media}}
+
+  {{!cloudinary-direct-file signatureEndpoint='/sign_upload' }}
+
     <div id="title" class="input-field">
         {{input type="title" value=authName id="aName" name="aName" class="form-control" autofocus="autofocus" placeholder=" "}}
         <label class="control-label" for="aName">Název autora</label>
@@ -19,10 +30,10 @@
 
     <div id="info" class="input-field">
         {{input type="text" value=authInfo id="aInfo" name="aInfo" class="form-control" autofocus="autofocus" placeholder=" "}}
-        <label class="control-label" for="aInfo">Krátký popis kategorie</label>
+        <label class="control-label" for="aInfo">Bio</label>
     </div>
 
-      <button class="btn btn-primary" disabled={{isDisabled}} {{action 'save'}}>vložit kategorii</button>
+      <button class="btn btn-primary" disabled={{isDisabled}} {{action 'save'}}>Přidat autora</button>
   {{else}}
     <p>Pro přidání kategorie se musíte přihlásit!</p>
   {{/if}}

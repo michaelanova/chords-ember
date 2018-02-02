@@ -7,12 +7,12 @@ export default Component.extend({
   //tagName: 'form',
   //formName: 'new-catgory',
   classNames: ['new-category'],
+  //error: '',
   actions: {
     saveCategory() {
       let name = this.get('name');
       let info = this.get('info');
-      var file = document.forms['new-category']['image-input'].files[0];
-      const newCategory = this.get('store').createRecord('category', { name: name, info:info, image:name});
+      const newCategory = this.get('store').createRecord('category', { name: name, info:info});
 
 
       //var newCategory = this.get('store').createRecord('category');
@@ -25,7 +25,7 @@ export default Component.extend({
       //var imagesRef = storageRef.child('images');
 
       //var file = this.get('value');
-      var uploadTask = storageRef.child('images/' + name).put(file);
+//var uploadTask = storageRef.child('images/' + name).put(file);
       /*uploadTask.on(this.get('firebaseApp').storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
       function(snapshot) {
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
@@ -60,6 +60,7 @@ export default Component.extend({
       // Upload completed successfully, now we can get the download URL
       var downloadURL = uploadTask.snapshot.downloadURL;
     });*/
+
     }
   }
 });

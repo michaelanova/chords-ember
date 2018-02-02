@@ -6,7 +6,7 @@ module.exports = function(environment) {
     modulePrefix: 'test-ember',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     firebase: {
       apiKey: "AIzaSyAxZYJYfhVDEAZ5GgF5B_ozqJj_2j033c8",
       authDomain: "wedding-c803a.firebaseapp.com",
@@ -14,13 +14,6 @@ module.exports = function(environment) {
       projectId: "wedding-c803a",
       storageBucket: "wedding-c803a.appspot.com",
       messagingSenderId: "1040464891283"
-    },
-    cloudinary: {
-      uploadPreset: {
-        image: process.env.CLOUDINARY_IMAGE,
-        video: process.env.CLOUDINARY_VIDEO
-      },
-      url:  "https://res.cloudinary.com/ember-base/image"
     },
     torii: {
       sessionServiceName: 'session'

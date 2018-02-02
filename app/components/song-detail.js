@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import Ember from 'ember';
+import { htmlSafe } from '@ember/string';
 
 export default Component.extend({
   store: Ember.inject.service(),
@@ -36,13 +37,16 @@ export default Component.extend({
     let withSup = text.replace(/\[/g, '<sup class="chord">');
     let withSup1 = withSup.replace(/\]/g, '</sup>')
 
-    this.set('textWithSup', withSup1);
+
+    let textComplete = htmlSafe(withSup1);
+    this.set('textWithSup', textComplete);
 
     var fragment = this.create(withSup1);
-    Ember.run.scheduleOnce('afterRender', () => {
+
+    /*Ember.run.scheduleOnce('afterRender', () => {
       var songBox = document.getElementById('song');
       songBox.appendChild(fragment);
-    });
+    });*/
     if(this.get('song.video')) {
       this.getVideoId();
     }

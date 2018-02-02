@@ -1090,3 +1090,79 @@ select {
     }
   }
 }
+
+$preview-height: 5.375em;
+
+.media-upload {
+  &:not(.selected) {
+    margin: 1.5em 0;
+    text-align: center;
+  }
+
+  .preview {
+    line-height: 0;
+    margin: -.5em -1em 1.25em;
+    min-height: $preview-height;
+    position: relative;
+
+    .remove {
+      //@include circle(2em, $white);
+      color: $red;
+      position: absolute;
+      right: .75em;
+      top: .75em;
+      z-index: 1;
+    }
+
+    .challingo-icons {
+      font-size: 1.5em;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .progress-bar {
+    //@extend %vertical-align;
+    margin: 0 1em;
+    min-height: $preview-height;
+  }
+
+  .progress {
+    background-color: $gray;
+    width: 100%;
+
+    .determinate {
+      //@include transition(width .25s);
+      background-color: $black;
+      box-sizing: border-box;
+      color: $white;
+      font-size: .9em;
+      padding: .5em;
+      white-space: nowrap;
+    }
+  }
+
+  label {
+    display: inline-block;
+    position: relative;
+
+    [type="file"] {
+      bottom: .25em;
+      margin: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    .challingo-icons {
+      color: $black;
+      font-size: 6.5em;
+    }
+  }
+
+  .errors {
+    margin-top: 1em;
+  }
+}

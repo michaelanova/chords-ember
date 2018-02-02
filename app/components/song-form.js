@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import { htmlSafe } from '@ember/string';
 
 export default Component.extend({
   store: Ember.inject.service(),
@@ -8,6 +9,7 @@ export default Component.extend({
   classNames: ['song-form'],
   uid:  Ember.computed.alias('session.currentUser.uid'),
   song: null,
+  text: '',
   authors: null,
   loading: false,
   init() {
@@ -25,6 +27,8 @@ export default Component.extend({
 
     this.get('store').findRecord('user', this.get('uid')).then((current) => {
       this.get('song').set('addedBy',current);
+      let text = this.get('text');
+      this.get('song').set('text', text);
 
 
       this.get('song').save().then((newSong) => {
@@ -35,6 +39,7 @@ export default Component.extend({
           author.get('songs').pushObject(newSong);
           author.save();
         });
+        console.log(newSong);
       }, error => {
         //Ember.Logger.error(error);
       }).finally(() => {
