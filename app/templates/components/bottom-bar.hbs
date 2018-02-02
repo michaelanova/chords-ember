@@ -1,4 +1,7 @@
 {{#unless session.isAuthenticated}}
+<div class="link mobile-hidden main-name">
+{{#link-to "index" class="btn btn-small btn-header"}}Chords.cz{{/link-to}}
+</div>
 <div class="link">
   {{#link-to "login"}}
     {{fa-icon "user-o"}}
@@ -6,10 +9,13 @@
   {{/link-to}}
 </div>
 {{else}}
+<div class="link mobile-hidden main-name">
+{{#link-to "index" class=""}}Chords.cz{{/link-to}}
+</div>
 <div class="link">
   {{#link-to "active-user"}}
     {{fa-icon "user-o"}}
-    Profil
+    {{session.currentUser.displayName}}
   {{/link-to}}
 </div>
 <div class="link">

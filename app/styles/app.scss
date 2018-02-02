@@ -24,9 +24,10 @@ a {
 }
 
 .main {
-  padding: 1.5em;
+  box-sizing: border-box;
   margin: 0 auto;
   max-width: 1280px;
+  padding: 1.5em;
 }
 
 .new-article {
@@ -635,7 +636,59 @@ select {
   }
 }
 
+//desktop
+
+@media screen and (min-width: 649px) {
+  .main {
+    margin-right: 80px;
+    padding-top: 0;
+  }
+
+  .bottom-bar {
+    box-shadow: 0 1px 5px rgba(86, 86, 86, 0.2196078431372549);
+    height: 100vh !important;
+    right: 0;
+    top: 0;
+    width: 80px !important;
+    flex-wrap: wrap;
+    display: inline-block !important;
+  }
+
+  .bottom-bar .link {
+
+    width: 100%;
+
+    &:not(.main-name) a{
+      display: block;
+      padding: 20px 0;
+      transition: all .5s;
+
+      &.active,
+      &:hover {
+        background: $gray;
+        transition: all .5s;
+      }
+    }
+  }
+
+  .bottom-bar .link.main-name {
+    color: $black;
+    font-size: 15px;
+
+    a {
+      color: $black;
+    }
+  }
+
+  .head {
+    height: 0;
+  }
+}
+//mobile
 @media screen and (max-width: 648px) {
+  .mobile-hidden {
+    display: none;
+  }
   h1 {
     font-size: 1.7em;
   }
