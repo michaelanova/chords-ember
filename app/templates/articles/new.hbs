@@ -3,7 +3,7 @@
 </div>
 {{#if session.isAuthenticated}}
 <div class="new-article">
-  <div id="title" class="input-field">
+  <div id="title" class="input-field category">
     {{select-field model=model.category selected=category name="name" id="category"  required=true}}
     <label class="control-label" for="category">Karegorie</label>
   </div>

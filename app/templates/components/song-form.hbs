@@ -1,6 +1,12 @@
-<div class="row">
 
-      {{select-field model=authors selected=song.author name="name" label="Autor" required=true}}
+<div class="new-article">
+
+      <div id="title" class="input-field category">
+        {{select-field model=authors selected=song.author name="name" label="Autor" required=true}}
+        <label class="control-label" for="category">Autor</label>
+      </div>
+
+
 
       <div class="add-cat">
         <a class="btn btn-default" {{action "showAuthor"}}>

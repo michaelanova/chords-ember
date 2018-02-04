@@ -1,47 +1,73 @@
-{{#unless session.isAuthenticated}}
-<div class="link mobile-hidden main-name">
-{{#link-to "index" class="btn btn-small btn-header"}}Chords.cz{{/link-to}}
-</div>
-<div class="link">
-  {{#link-to "login"}}
-    {{fa-icon "user-o"}}
-    Login
-  {{/link-to}}
-</div>
-{{else}}
-<div class="link mobile-hidden main-name">
-{{#link-to "index" class=""}}Chords.cz{{/link-to}}
-</div>
-<div class="link">
-  {{#link-to "active-user"}}
-    {{fa-icon "user-o"}}
-    {{session.currentUser.displayName}}
-  {{/link-to}}
-</div>
-<div class="link">
-  {{#link-to "profile.favourites" uid}}
-    {{fa-icon "heart-o"}}
-    Oblíbené
-  {{/link-to}}
-</div>
-{{/unless}}
+<div class="bottom-bar inner">
 
-{{#if session.isAuthenticated}}
-  <div class="link add">
-    {{#link-to "add-new"}}
-      {{fa-icon "plus-square-o"}}
+  {{#unless session.isAuthenticated}}
+  <div class="link mobile-hidden main-name">
+  {{#link-to "index" class=""}}Chords.cz{{/link-to}}
+  </div>
+  <div class="link chords">
+    {{#link-to "song.author.index"}}
+      {{fa-icon "music"}}
+      Akordy
     {{/link-to}}
   </div>
-{{/if}}
-<div class="link">
-  {{#link-to "song.author.index"}}
-    {{fa-icon "music"}}
-    Akordy
-  {{/link-to}}
-</div>
-<div class="link">
-  {{#link-to "articles.show"}}
-    {{fa-icon "newspaper-o"}}
-    Novinky
-  {{/link-to}}
+
+  <div class="link login mobile-hidden">
+    {{#link-to "login"}}
+      {{fa-icon "user-o"}}
+      <span>Přihlásit</span>
+    {{/link-to}}
+  </div>
+
+  <div class="link desktop-hidden">
+    {{#link-to "login"}}
+      {{fa-icon "user-o"}}
+      Login
+    {{/link-to}}
+  </div>
+  {{else}}
+  <div class="link mobile-hidden main-name">
+  {{#link-to "index" class=""}}Chords.cz{{/link-to}}
+  </div>
+
+  <div class="link chords">
+    {{#link-to "song.author.index"}}
+      {{fa-icon "music"}}
+      Akordy
+    {{/link-to}}
+  </div>
+
+  {{/unless}}
+
+
+
+  <div class="link news">
+    {{#link-to "articles.show"}}
+      {{fa-icon "newspaper-o"}}
+      Novinky
+    {{/link-to}}
+  </div>
+
+  {{#if session.isAuthenticated}}
+    <div class="link add">
+      {{#link-to "add-new"}}
+        {{fa-icon "plus-square-o"}}
+        <span class="mobile-hidden">Vložit</span>
+      {{/link-to}}
+    </div>
+  {{/if}}
+
+  {{#if session.isAuthenticated}}
+    <div class="link profile">
+      {{#link-to "active-user"}}
+        {{fa-icon "user-o"}}
+        Profil
+      {{/link-to}}
+    </div>
+    <div class="link favourite">
+      {{#link-to "profile.favourites" uid}}
+        {{fa-icon "heart-o"}}
+        Oblíbené
+      {{/link-to}}
+    </div>
+  {{/if}}
 </div>

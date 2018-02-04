@@ -1,14 +1,22 @@
+<div class="hero">
+  <div class="hero-inner">
+    <img src="guitar.jpg" class="hero-img" alt="">
+  </div>
+</div>
+<div class="home-info">
+  <div class="box">
+    <p class="title">Nejnovéjší články</p>
+    {{article-list first=false model=model.articles onlyTitle=false firstArticles=true}}
+  </div>
+  <div class="box">
+    <p class="title">Nejnovéjší písničky</p>
+    {{song-list first=true model=model.songs}}
+  </div>
+  <div class="box">
+    <p class="title">Nejoblíbenější písničky</p>
+    {{song-list firstLikes=true model=model.songs}}
+  </div>
 
-<div class="box">
-  <p>Nejnovéjší písničky</p>
-  {{song-list first=true model=model.songs}}
 </div>
-<div class="box">
-  <p>Nejoblíbenější písničky</p>
-  {{song-list firstLikes=true model=model.songs}}
-</div>
-<div class="box">
-  <p>Nejnovéjší články</p>
-  {{article-list first=true model=model.articles onlyTitle=true}}
-</div>
+
 <br>

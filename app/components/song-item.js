@@ -5,7 +5,7 @@ export default Component.extend({
   session: Ember.inject.service(),
   session: Ember.inject.service(),
   currentUser: Ember.inject.service(),
-  classNames: ['song-list'],
+  classNames: ['song-item'],
   first: false,
   song: null,
   admin: Ember.computed.alias('currentUser.user.admin'),
