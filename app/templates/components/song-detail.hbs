@@ -40,3 +40,32 @@
     <div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/{{videoId}}?ecver=2" style="position:absolute;width:100%;height:100%;left:0" width="640" height="360" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe></div>
   </div>
 </div>
+<div class="buttons">
+  <div class="scroll-buttons">
+    <div class="btn btn-scroll slow" {{action "scroll" 200000}}>
+      {{fa-icon "angle-down"}}
+    </div>
+    <div class="btn btn-scroll medium" {{action "scroll" 120000}}>
+      {{fa-icon "angle-double-down"}}
+    </div>
+    <div class="btn btn-scroll speed" {{action "scroll" 80000}}>
+      {{fa-icon "angle-down"}}
+      {{fa-icon "angle-double-down"}}
+    </div>
+    <div class="btn btn-scroll stop"  {{action "stopScrolling"}}>
+      {{fa-icon "stop"}}
+    </div>
+  </div>
+  <div class="text-buttons">
+    <div class="btn btn-small" {{action "bigger"}}>
+      a
+      <span>a</span>
+      <p class="lavel">zvětšit písmo</p>
+    </div>
+    <div class="btn btn-small" {{action "smaller"}}>
+      <span>a</span>
+      a
+      <p class="label">zmenšit písmo</p>
+    </div>
+  </div>
+</div>

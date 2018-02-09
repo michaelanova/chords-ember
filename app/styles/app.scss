@@ -24,6 +24,13 @@ a {
   color: $green;
 }
 
+.scroll-buttons {
+  position: fixed;
+  top: 178px;
+  right: 0;
+
+}
+
 .main {
   box-sizing: border-box;
   margin: 0 auto;
@@ -550,6 +557,21 @@ select {
   }
 }
 
+.song-detail {
+  .content {
+    .text {
+      max-height: calc(100vh - 150px);
+      overflow-y: scroll;
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
+
 .song-detail,
 .article-detail {
   .name {
@@ -600,6 +622,26 @@ select {
     font-weight: 100;
     margin-bottom: 5px;
     width: 100%;
+  }
+
+  .buttons {
+    position: fixed;
+    top: 40px;
+    right: 0;
+
+    .btn {
+      height: 50px;
+    }
+  }
+
+  &.bigger-text {
+    .text .song {
+      font-size: 25px;
+
+      .chord {
+        font-size: 27px;
+      }
+    }
   }
 
 }
@@ -799,7 +841,7 @@ select {
 
 .song {
   font-family: 'Slabo 27px', serif;
-  padding: 15px 0 25px;
+  padding: 15px 10px 25px;
 
   .chord {
     color: $green;

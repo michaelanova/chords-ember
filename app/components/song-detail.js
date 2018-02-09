@@ -1,16 +1,23 @@
 import Component from '@ember/component';
 import Ember from 'ember';
 import { htmlSafe } from '@ember/string';
+import $ from 'jquery';
 
 export default Component.extend({
   store: Ember.inject.service(),
   session: Ember.inject.service(),
   classNames: ['song-detail'],
+  classNameBindings: ['biggerText', 'smallerText'],
   song: null,
   allChords: [],
   uid:  Ember.computed.alias('session.currentUser.uid'),
   textWithSup: null,
   videoId: '',
+  duration: 1900,
+  biggerText: false,
+  smallerText: false,
+  animate: false,
+  top: 0,
   isLiked: Ember.computed('song.likedBy', 'uid', function() {
     return this.get('song.likedBy').mapBy('id').contains(this.get('uid'));
   }),
@@ -51,6 +58,16 @@ export default Component.extend({
       this.getVideoId();
     }
   },
+  didInsertElement() {
+    this._super(...arguments);
+  /*  $('.btn-scroll').on("mouseover", function(){
+      let f = this.get('top');
+      f++;
+      this.set('top', f);
+      console.log(this.get('top'));
+      $("html, body").animate({ scrollTop: this.get('top') }, 2);
+    })*/
+  },
   actions: {
     like(song) {
       this.get('store').findRecord('user', this.get('uid')).then((current) => {
@@ -67,6 +84,50 @@ export default Component.extend({
         current.save();
         song.save();
       });
+    },
+    scroll(speed) {
+
+      /*let position = $('html, body').scrollTop();
+      console.log('posisiton start',position);
+      let plus = position + 1;
+      console.log('plus',plus);
+      this.set('top', position + 1);
+      console.log(this.get('top'));*/
+
+      /*  var start = 0;
+        let f = 1;
+        for(var i = 0; i < f; i++) {
+          //$('html, body').scrollTop(i);
+          f++;
+          console.log(i);
+            $("html, body").animate({ scrollTop: i }, 2);
+        }*/
+
+      //return ret;
+
+    /*  let f = this.get('top');
+      f++;
+      this.set('top', f);
+      console.log(this.get('top'));
+      $("html, body").animate({ scrollTop: this.get('top') }, 2);*/
+
+    $(".song-detail .content .text").stop();
+    $(".song-detail .content .text").animate({ scrollTop: 600 }, speed, "linear");
+
+    },
+    stopScrolling() {
+      $(".song-detail .content .text").stop();
+      //console.log(position);
+      //clearTimeout(animate);
+    },
+    smaller() {
+      this.set('biggerText', false);
+      this.set('smallerText', true);
+
+    },
+    bigger() {
+      this.set('smallerText', false);
+      this.set('biggerText', true);
     }
   }
 });
