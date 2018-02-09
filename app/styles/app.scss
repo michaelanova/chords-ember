@@ -15,9 +15,14 @@ $yellow: #daac00;
 $box-shadow: #a9a9a9;
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-family: 'Alegreya Sans', sans-serif;
   font-size: 16px;
   margin: 0;
+}
+
+html {
+  background: $gray-lighter;
 }
 
 a {
@@ -100,7 +105,7 @@ a {
   .category-name {
     color: $white;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 500;
     position: absolute;
     text-align: center;
     text-transform: uppercase;
@@ -146,7 +151,7 @@ main {
 
 .main-name {
   //background: linear-gradient(45deg, $blue, $yellow);
-  font-family: 'Zilla Slab Highlight';
+  //font-family: 'Work Sans', sans-serif;
   font-size: 25px;
   font-weight: 500;
 
@@ -169,9 +174,9 @@ button {
   color: $white;
   cursor: pointer;
   display: block;
-  font-family: 'Roboto';
+  //font-family: 'Roboto';
   font-size: .9em;
-  font-weight: bold;
+  font-weight: 500;
   padding: 1em 2em;
   text-align: center;
   text-decoration: none;
@@ -187,7 +192,7 @@ button {
     background: $white;
     border: 1px solid $black;
     color: $black;
-    font-weight: bold;
+    font-weight: 500;
   }
 
   &-inverse {
@@ -499,7 +504,7 @@ select {
   background: $gray-light;
   color: $black;
   //font-size: 1.1em;
-  font-weight: bold;
+  font-weight: 500;
   //margin: 0 -15px 3px;
   margin: 0 0;
   padding: 15px 15px;
@@ -590,7 +595,7 @@ select {
       color: $black;
       display: block;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 500;
       text-decoration: none;
       text-transform: uppercase;
     }
@@ -733,7 +738,7 @@ select {
     position: relative;
 
     .name {
-      font-weight: bold;
+      font-weight: 500;
       text-align: center;
       text-transform: uppercase;
       width: 100%;
@@ -840,7 +845,8 @@ select {
 }
 
 .song {
-  font-family: 'Slabo 27px', serif;
+  //font-family: 'Work Sans', sans-serif;
+  font-family: 'Space Mono', monospace;
   padding: 15px 10px 25px;
 
   .chord {
@@ -984,7 +990,7 @@ $preview-height: 5.375em;
   display: flex;
   .box {
     .title {
-      font-weight: bold;
+      font-weight: 500;
       text-transform: uppercase;
     }
 
@@ -1034,9 +1040,7 @@ $preview-height: 5.375em;
 //desktop
 
 @media screen and (min-width: 649px) {
-  html {
-    background: $gray-lighter;
-  }
+
   .desktop-hidden {
     display: none !important;
   }
@@ -1207,6 +1211,12 @@ $preview-height: 5.375em;
        a {
          color: $black;
          padding: 0;
+
+         img {
+          height: 75px;
+          position: relative;
+          top: 15px;
+         }
        }
      }
 
@@ -1357,7 +1367,7 @@ $preview-height: 5.375em;
       padding: 0 15px;
 
       .title {
-        font-weight: bold;
+        font-weight: 500;
         font-size: 20px;
         text-transform: uppercase;
       }
@@ -1475,6 +1485,12 @@ $preview-height: 5.375em;
     .main-name {
       color: $white;
       margin: 0;
+
+      img {
+        max-height: 55px;
+        position: absolute;
+        top: 0;
+      }
     }
 
     .right {
