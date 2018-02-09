@@ -85,37 +85,21 @@ export default Component.extend({
         song.save();
       });
     },
-    scroll(speed) {
-
-      /*let position = $('html, body').scrollTop();
-      console.log('posisiton start',position);
-      let plus = position + 1;
-      console.log('plus',plus);
-      this.set('top', position + 1);
-      console.log(this.get('top'));*/
-
-      /*  var start = 0;
-        let f = 1;
-        for(var i = 0; i < f; i++) {
-          //$('html, body').scrollTop(i);
-          f++;
-          console.log(i);
-            $("html, body").animate({ scrollTop: i }, 2);
-        }*/
-
-      //return ret;
-
-    /*  let f = this.get('top');
-      f++;
-      this.set('top', f);
-      console.log(this.get('top'));
-      $("html, body").animate({ scrollTop: this.get('top') }, 2);*/
-
+    scroll(speed,btn) {
+      if(btn == 1) {
+        this.set('animate', 1);
+      } else if(btn == 2) {
+        this.set('animate', 2);
+      } else {
+        this.set('animate', 3);
+      }
+    $("body, html").animate({ scrollTop: 107 }, 50, "linear");
     $(".song-detail .content .text").stop();
     $(".song-detail .content .text").animate({ scrollTop: 600 }, speed, "linear");
 
     },
     stopScrolling() {
+      this.set('animate', 0);
       $(".song-detail .content .text").stop();
       //console.log(position);
       //clearTimeout(animate);

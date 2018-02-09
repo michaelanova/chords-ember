@@ -41,31 +41,50 @@
   </div>
 </div>
 <div class="buttons">
-  <div class="scroll-buttons">
-    <div class="btn btn-scroll slow" {{action "scroll" 200000}}>
-      {{fa-icon "angle-down"}}
-    </div>
-    <div class="btn btn-scroll medium" {{action "scroll" 120000}}>
-      {{fa-icon "angle-double-down"}}
-    </div>
-    <div class="btn btn-scroll speed" {{action "scroll" 80000}}>
-      {{fa-icon "angle-down"}}
-      {{fa-icon "angle-double-down"}}
-    </div>
-    <div class="btn btn-scroll stop"  {{action "stopScrolling"}}>
-      {{fa-icon "stop"}}
-    </div>
-  </div>
   <div class="text-buttons">
-    <div class="btn btn-small" {{action "bigger"}}>
-      a
-      <span>a</span>
+    <div class="btn btn-default btn-small {{if biggerText "active"}}" {{action "bigger"}}>
+      <div class="icon">
+        a
+        <span>a</span>
+      </div>
       <p class="lavel">zvětšit písmo</p>
     </div>
-    <div class="btn btn-small" {{action "smaller"}}>
-      <span>a</span>
-      a
+    <div class="btn btn-default btn-small {{if smallerText "active"}}" {{action "smaller"}}>
+      <div class="icon">
+        <span>a</span>
+        a
+      </div>
       <p class="label">zmenšit písmo</p>
     </div>
   </div>
+  <div class="scroll-buttons">
+    <div class="btn btn-default btn-small btn-scroll slow {{if (eq animate 1) "active"}}" {{action "scroll" 160000 1}}>
+      <div class="icon">
+        {{fa-icon "angle-down"}}
+      </div>
+
+      <p class="label">Pomalý scroll</p>
+    </div>
+    <div class="btn btn-default btn-small btn-scroll medium {{if (eq animate 2) "active"}}" {{action "scroll" 99000 2}}>
+      <div class="icon">
+        {{fa-icon "angle-double-down"}}
+      </div>
+
+      <p class="label">Rychlejší scroll</p>
+    </div>
+    <div class="btn btn-default btn-small btn-scroll speed {{if (eq animate 3) "active"}}" {{action "scroll" 50000 3}}>
+      <div class="icon">
+        {{fa-icon "angle-down" class="third"}}
+        {{fa-icon "angle-double-down"}}
+      </div>
+      <p class="label">Rychlý scroll</p>
+    </div>
+    <div class="btn btn-default btn-small btn-scroll stop"  {{action "stopScrolling"}}>
+      <div class="icon">
+        {{fa-icon "stop"}}
+      </div>
+      <p class="label">Zastavit scroll</p>
+    </div>
+  </div>
+
 </div>

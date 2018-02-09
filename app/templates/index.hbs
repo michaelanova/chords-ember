@@ -4,19 +4,36 @@
   </div>
 </div>
 <div class="home-info">
-  <div class="box">
-    <p class="title">Nejnovéjší články</p>
+  <div class="box articles">
+    <p class="title">Nejnovější články</p>
     {{article-list first=false model=model.articles onlyTitle=false firstArticles=true}}
   </div>
-  <div class="box">
-    <p class="title">Nejnovéjší písničky</p>
+  <div class="box new">
+    <p class="title">Nejnovější písničky</p>
     {{song-list first=true model=model.songs}}
   </div>
-  <div class="box">
+  <div class="box favourite">
     <p class="title">Nejoblíbenější písničky</p>
     {{song-list firstLikes=true model=model.songs}}
   </div>
-
 </div>
-
-<br>
+<div class="home-stats">
+  <div class="inner">
+      {{#link-to "song.index" class="stat songs"}}
+        <p>{{model.songs.length}}</p>
+        <span>písniček v databázi</span>
+      {{/link-to}}
+      {{#link-to "song.author.index" class="stat authors"}}
+        <p>{{model.authors.length}}</p>
+        <span>přidaných autorů</span>
+      {{/link-to}}
+      {{#link-to "articles.show" class="stat articles"}}
+        <p>{{model.articles.length}}</p>
+        <span>článků v databázi</span>
+      {{/link-to}}
+    <div class="stat users">
+      <p>{{model.users.length}}</p>
+      <span>zaregistrovanýh uživatelů</span>
+    </div>
+  </div>
+</div>
