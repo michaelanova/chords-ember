@@ -60,6 +60,7 @@ export default Component.extend({
   },
   didInsertElement() {
     this._super(...arguments);
+
   /*  $('.btn-scroll').on("mouseover", function(){
       let f = this.get('top');
       f++;
@@ -67,6 +68,9 @@ export default Component.extend({
       console.log(this.get('top'));
       $("html, body").animate({ scrollTop: this.get('top') }, 2);
     })*/
+  },
+  didUpdateAttrs() {
+
   },
   actions: {
     like(song) {
@@ -94,8 +98,12 @@ export default Component.extend({
         this.set('animate', 3);
       }
     $("body, html").animate({ scrollTop: 107 }, 50, "linear");
+    let songHeight = $('.song-detail .content .text .song').height();
+    let scrollTo = songHeight + 160;
+    console.log(scrollTo);
     $(".song-detail .content .text").stop();
-    $(".song-detail .content .text").animate({ scrollTop: 600 }, speed, "linear");
+    $(".song-detail .content .text").animate({ scrollTop: scrollTo }, speed, "linear");
+
 
     },
     stopScrolling() {
@@ -103,6 +111,13 @@ export default Component.extend({
       $(".song-detail .content .text").stop();
       //console.log(position);
       //clearTimeout(animate);
+    },
+    topScroll() {
+      this.set('animate', 0);
+      $(".song-detail .content .text").stop();
+      $(".song-detail .content .text").animate({ scrollTop: 0 }, 1000, "linear");
+      $("body, html").animate({ scrollTop: 0 }, 1500, "linear");
+
     },
     smaller() {
       this.set('biggerText', false);
