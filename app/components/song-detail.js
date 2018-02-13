@@ -17,6 +17,7 @@ export default Component.extend({
   biggerText: false,
   smallerText: false,
   animate: false,
+  scrollSpeed: 0,
   top: 0,
   isLiked: Ember.computed('song.likedBy', 'uid', function() {
     return this.get('song.likedBy').mapBy('id').contains(this.get('uid'));
@@ -89,20 +90,28 @@ export default Component.extend({
         song.save();
       });
     },
-    scroll(speed,btn) {
-      if(btn == 1) {
-        this.set('animate', 1);
-      } else if(btn == 2) {
-        this.set('animate', 2);
-      } else {
-        this.set('animate', 3);
-      }
-    $("body, html").animate({ scrollTop: 107 }, 50, "linear");
+    scroll(btn) {
+    let headingHeight = $('.song-detail .heading').outerHeight();
+    console.log(headingHeight );
+    $("body, html").animate({ scrollTop: headingHeight }, 50, "linear");
     let songHeight = $('.song-detail .content .text .song').height();
     let scrollTo = songHeight + 160;
+
+    if(btn == 1) {
+      this.set('animate', 1);
+      this.set('scrollSpeed', 250);
+    } else if(btn == 2) {
+      this.set('animate', 2);
+      this.set('scrollSpeed', 150);
+    } else {
+      this.set('animate', 3);
+      this.set('scrollSpeed', 100);
+    }
+    console.log(songHeight);
     console.log(scrollTo);
+    console.log((this.get('scrollSpeed') * songHeight));
     $(".song-detail .content .text").stop();
-    $(".song-detail .content .text").animate({ scrollTop: scrollTo }, speed, "linear");
+    $(".song-detail .content .text").animate({ scrollTop: scrollTo }, (this.get('scrollSpeed') * songHeight), "linear");
 
 
     },
@@ -115,8 +124,8 @@ export default Component.extend({
     topScroll() {
       this.set('animate', 0);
       $(".song-detail .content .text").stop();
-      $(".song-detail .content .text").animate({ scrollTop: 0 }, 1000, "linear");
-      $("body, html").animate({ scrollTop: 0 }, 1500, "linear");
+      $(".song-detail .content .text").animate({ scrollTop: 0 }, 800, "linear");
+      $("body, html").animate({ scrollTop: 0 }, 1000, "linear");
 
     },
     smaller() {
