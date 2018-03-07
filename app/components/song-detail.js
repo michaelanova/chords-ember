@@ -19,7 +19,7 @@ export default Component.extend({
   animate: false,
   scrollSpeed: 0,
   top: 0,
-  isLiked: Ember.computed('song.likedBy', 'uid', function() {
+  isLiked: Ember.computed('song.likedBy.[]', 'uid', function() {
     return this.get('song.likedBy').mapBy('id').contains(this.get('uid'));
   }),
   create(htmlStr) {

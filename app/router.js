@@ -51,6 +51,7 @@ Router.map(function() {
     });
   });
   this.route('add-new');
+  this.route('search');
 });
 
 export default Router;

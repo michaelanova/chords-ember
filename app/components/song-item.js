@@ -10,7 +10,7 @@ export default Component.extend({
   song: null,
   admin: Ember.computed.alias('currentUser.user.admin'),
   uid:  Ember.computed.alias('session.currentUser.uid'),
-  isLiked: Ember.computed('song.likedBy', 'uid', function() {
+  isLiked: Ember.computed('song.likedBy.[]', 'uid', function() {
     return this.get('song.likedBy').mapBy('id').contains(this.get('uid'));
   }),
   actions: {

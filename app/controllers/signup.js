@@ -3,8 +3,10 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
     firebaseApp: Ember.inject.service(),
+    error: null,
     actions: {
         signUp() {
+          console.log('bla');
             var email = document.getElementById("email").value;
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
@@ -12,6 +14,7 @@ export default Ember.Controller.extend({
 
             let validLogin = this.passIsValid(password, password2) && this.usernameIsValid(username) && this.emailIsValid(email);
 
+            console.log(validLogin);
             if (validLogin) {
                var self = this;
                this.get('firebaseApp').auth().createUserWithEmailAndPassword(email, password).then(result => {
@@ -41,8 +44,10 @@ export default Ember.Controller.extend({
                         alert("Failure");
                     });
                }).catch(error => {
-                   alert(error);
+                   console.log('Chyba');
                })
+            } else {
+              this.set('error', 'Vyplňte všechna pole formuláře. Heslo musí obsahovat minimálně 6 znaků.')
             }
         }
     },
@@ -54,7 +59,7 @@ export default Ember.Controller.extend({
     },
     usernameTaken(username) {
         if(username == "") {
-            alert("Please enter a username");
+            this.set('error', 'Zadejte uživatelské jméno.');
             return true;
         }
         this.store.query('user', {
@@ -62,7 +67,7 @@ export default Ember.Controller.extend({
                 equalTo: username
         }).then((records) => {
            if(records.get('length') > 0){
-               alert("username already taken");
+               this.set('error', 'Toto uživatelské jméno se již používá.');
                return true;
            }
            return false;
@@ -72,7 +77,7 @@ export default Ember.Controller.extend({
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (re.test(email) == false) {
-            alert("not a valid email address");
+            this.set('error', 'Zadejte platný tvar e-mailové adresy. Např.: email@domena.cz');
             return false;
         }
         return !this.emailTaken(email);
@@ -85,7 +90,7 @@ export default Ember.Controller.extend({
                 equalTo: email
         }).then((records) => {
             if(records.get('length') > 0) {
-                alert("email is taken");
+                this.set('error', 'Tento e-mail se již používá.');
                 return true;
             }
             return false;

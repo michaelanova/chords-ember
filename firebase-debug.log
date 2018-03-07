@@ -1,0 +1,92 @@
+[debug] [2018-03-07T22:42:33.148Z] ----------------------------------------------------------------------
+[debug] [2018-03-07T22:42:33.152Z] Command:       /home/michaela/.nvm/versions/node/v8.9.4/bin/node /home/michaela/.nvm/versions/node/v8.9.4/bin/firebase deploy
+[debug] [2018-03-07T22:42:33.152Z] CLI Version:   3.17.4
+[debug] [2018-03-07T22:42:33.152Z] Platform:      linux
+[debug] [2018-03-07T22:42:33.152Z] Node Version:  v8.9.4
+[debug] [2018-03-07T22:42:33.152Z] Time:          Wed Mar 07 2018 23:42:33 GMT+0100 (CET)
+[debug] [2018-03-07T22:42:33.152Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-07T22:42:33.169Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-07T22:42:33.169Z] > authorizing via signed-in user
+[debug] [2018-03-07T22:42:33.172Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/wedding-c803a  
+  
+ Wed Mar 07 2018 23:42:33 GMT+0100 (CET)
+[debug] [2018-03-07T22:42:43.427Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-07T22:42:43.431Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/wedding-c803a/tokens  
+  
+ Wed Mar 07 2018 23:42:43 GMT+0100 (CET)
+[debug] [2018-03-07T22:43:08.525Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-07T22:45:08.605Z] ----------------------------------------------------------------------
+[debug] [2018-03-07T22:45:08.611Z] Command:       /home/michaela/.nvm/versions/node/v8.9.4/bin/node /home/michaela/.nvm/versions/node/v8.9.4/bin/firebase deploy
+[debug] [2018-03-07T22:45:08.611Z] CLI Version:   3.17.4
+[debug] [2018-03-07T22:45:08.611Z] Platform:      linux
+[debug] [2018-03-07T22:45:08.611Z] Node Version:  v8.9.4
+[debug] [2018-03-07T22:45:08.612Z] Time:          Wed Mar 07 2018 23:45:08 GMT+0100 (CET)
+[debug] [2018-03-07T22:45:08.612Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-07T22:45:08.630Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-07T22:45:08.631Z] > authorizing via signed-in user
+[debug] [2018-03-07T22:45:08.634Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/wedding-c803a  
+  
+ Wed Mar 07 2018 23:45:08 GMT+0100 (CET)
+[debug] [2018-03-07T22:45:09.475Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-07T22:45:09.477Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/wedding-c803a/tokens  
+  
+ Wed Mar 07 2018 23:45:09 GMT+0100 (CET)
+[debug] [2018-03-07T22:45:10.145Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'wedding-c803a'...
+[info] 
+[info] i  deploying functions, hosting
+[info] Running command: npm --prefix $RESOURCE_DIR run lint
+[info] ✔  functions: Finished running predeploy script.
+[debug] [2018-03-07T22:45:12.114Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "@google-cloud/storage": "^1.6.0",
+    "child-process-promise": "^2.2.1",
+    "firebase-admin": "~5.8.1",
+    "firebase-functions": "^0.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.0",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-03-07T22:45:12.117Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/wedding-c803a?view=CONSUMER_VIEW  
+  
+ Wed Mar 07 2018 23:45:12 GMT+0100 (CET)
+[debug] [2018-03-07T22:45:12.119Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/wedding-c803a?view=CONSUMER_VIEW  
+  
+ Wed Mar 07 2018 23:45:12 GMT+0100 (CET)
+[debug] [2018-03-07T22:45:13.800Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-03-07T22:45:14.227Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-07T22:45:14.230Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/wedding-c803a  
+  
+ Wed Mar 07 2018 23:45:14 GMT+0100 (CET)
+[debug] [2018-03-07T22:45:14.231Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/wedding-c803a/apiKeys  
+  
+ Wed Mar 07 2018 23:45:14 GMT+0100 (CET)
+[debug] [2018-03-07T22:45:14.988Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-07T22:45:15.129Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-03-07T22:45:15.135Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/wedding-c803a/configs  
+  
+ Wed Mar 07 2018 23:45:15 GMT+0100 (CET)
+[debug] [2018-03-07T22:45:15.414Z] <<< HTTP RESPONSE 200
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2018-03-07T22:45:16.906Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/wedding-c803a/uploads/-L71cxXUxukmNB_wzF_e?fileCount=43&message=  
+  
+ Wed Mar 07 2018 23:45:16 GMT+0100 (CET)

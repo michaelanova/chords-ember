@@ -372,7 +372,7 @@ button {
 
 
 form {
-  //padding-top: 20px;
+  padding-top: 20px;
 }
 
 .input-field {
@@ -441,6 +441,11 @@ form {
 
   .errors {
     margin: -1em 0 1.5em;
+  }
+
+  .error {
+    color: $red;
+    margin: 1em 0;
   }
 
   @supports (-ms-ime-align: auto) {
@@ -1237,7 +1242,7 @@ $preview-height: 5.375em;
         }
 
         .name {
-          font-size: 15px;
+          font-size: 17px;
         }
       }
 
@@ -2144,6 +2149,7 @@ $preview-height: 5.375em;
 
       &.articles {
         background: $white;
+        display: none;
         margin: 0 -10px 0;
         padding: 0 10px 25px;
         width: auto;
@@ -2165,6 +2171,7 @@ $preview-height: 5.375em;
   }
 
   .home-stats {
+    display: none;
     margin: 0 -10px;
     padding-bottom: 30px;
     .stat {

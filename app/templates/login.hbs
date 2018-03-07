@@ -7,6 +7,7 @@
 
         <input class="form-control" id="email" type="text" placeholder=" ">
         <label class="control-label" for="username">Email</label>
+
         <!--span id="help" class="help-block hidden">Sorry, that username's taken. Try another?</span-->
     </div>
 
@@ -14,6 +15,11 @@
         <input class="form-control" id="password" type="password"/ placeholder=" ">
         <label class="control-label" for="password">Password</label>
         <!--span id="helpPass" class="help-block hidden">Incorrect username and/or password</span-->
+        <div class="error">
+          {{#if error}}
+            {{error}}
+          {{/if}}
+        </div>
     </div>
 
 

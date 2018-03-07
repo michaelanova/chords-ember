@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  error: '',
     actions: {
         /*loginWithGoogle() {
             var self = this;
@@ -26,6 +27,7 @@ export default Ember.Controller.extend({
              });
         },*/
         loginWithEmail() {
+            this.set('error', null);
             var email = document.getElementById('email').value;
             var pass = document.getElementById('password').value;
             this.get('session').open('firebase', {
@@ -35,7 +37,7 @@ export default Ember.Controller.extend({
             }).then(() => {
                 this.transitionToRoute('/');
             }, () => {
-                alert("Failure");
+                this.set('error', 'Špatný e-mail nebo heslo.')
             });
         }
     }
