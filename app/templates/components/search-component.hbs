@@ -1,4 +1,7 @@
-{{input value=searchText}}
+<div class="input-field">
+  {{input value=searchText id="search" name="search" placeholder=" "}}
+  <label class="control-label" for="search">Název písničky</label>
+</div>
 {{#each filteredSongs as |song|}}
   {{#link-to "song.show" song.id}}
     <div class="name">
