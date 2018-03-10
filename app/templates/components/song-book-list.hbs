@@ -1,6 +1,17 @@
 
-{{song.name}}
 <div class="add">
+  <div class="list-song-book">
+    <div class="list-song-book-inner">
+  {{#each user.songBooksAdded as |songBook|}}
+    <div class="btn btn-default btn-gray btn-small btn-song-book">
+        <div class="songbook" {{action "addToSongBook" songBook}}>
+          {{songBook.name}}
+        </div>
+    </div>
+  {{/each}}
+  </div>
+  </div>
+
   <div class="btn btn-small" {{action "newSongBookForm"}}>
     Založit nový zpěvník
   </div>
@@ -15,17 +26,7 @@
           {{input type="text" value=description id="description" name="description" class="form-control" autofocus="autofocus" placeholder=" "}}
           <label class="control-label" for="description">Popis zpěvníku</label>
       </div>
-      <button class="btn btn-primary" {{action 'saveSongBook'}}>Přidat zpěvník</button>
+      <button class="btn btn-primary btn-small" {{action 'saveSongBook'}}>Přidat zpěvník</button>
     </div>
   {{/if}}
 </div>
-
-{{#each user.songBooksAdded as |songBook|}}
-  <div class="list bg">
-    <div class="info">
-      <div class="name" {{action "addToSongBook" songBook}}>
-        {{songBook.name}}
-      </div>
-    </div>
-  </div>
-{{/each}}

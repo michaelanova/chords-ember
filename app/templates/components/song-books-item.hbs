@@ -1,11 +1,22 @@
 <div class="list bg">
   <div class="info">
-    {{#link-to "song-book.show" book.id}}
+
       <div class="name">
-        {{book.name}}
+        {{#link-to "song-book.show" book.id}}
+          {{book.name}}
+        {{/link-to}}
+        <small>
+          {{#link-to "profile.show" book.createdBy.id}}
+            {{book.createdBy.username}}
+          {{/link-to}}
+        </small>
       </div>
-    {{/link-to}}
+
     <div class="right">
+      <small class="song-count">
+        {{book.songsLength}}
+        písniček
+      </small>
         {{#unless isMarked}}
           <div class="like plus"{{action "addMark" book}}>
             {{fa-icon "bookmark-o"}}
@@ -17,6 +28,18 @@
             {{book.markedLength}}
           </div>
         {{/unless}}
+        {{#if adminPanel}}
+          {{#if (or isAuthor isUserAdmin)}}
+            <div class="admin-panel">
+              {{#link-to "song-book.edit" book class="action"}}
+                {{fa-icon "pencil"}}
+              {{/link-to}}
+              <div class="action" {{action "delete"}}>
+                {{fa-icon "times"}}
+              </div>
+            </div>
+          {{/if}}
+        {{/if}}
     </div>
   </div>
 </div>

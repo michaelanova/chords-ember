@@ -25,7 +25,7 @@
       {{/unless}}
       <div class="addedBy">
         Počet písniček
-        {{book.songsLength}}
+       <a>{{book.songsLength}}</a>  
       </div>
 
     </div>
@@ -35,11 +35,22 @@
   <div class="text">
     {{#each book.songs as |song|}}
     <div class="list bg">
-      {{#link-to "song.show" song.id}}
+      <div class="info">
         <div class="name">
-          {{song.name}}
+          {{#link-to "song.show" song.id}}
+            {{song.name}}
+          {{/link-to}}
         </div>
-      {{/link-to}}
+        <div class="right">
+          {{#if (or isAuthor admin)}}
+            <div class="admin-panel">
+              <div class="action" {{action "delete" song}}>
+                {{fa-icon "times"}}
+              </div>
+            </div>
+          {{/if}}
+        </div>
+      </div>
     </div>
     {{/each}}
   </div>

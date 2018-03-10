@@ -45,6 +45,7 @@ export default Component.extend({
       songBook.save();
       this.get('song').get('songBooks').pushObject(songBook);
       this.get('song').save();
+      this.set('isnewSongBookFormOpen', false);
     }
   }
 });

@@ -1,18 +1,4 @@
 <div class="title">
   Zpěvníky
 </div>
-{{#each model as |songBook|}}
-<div class="list bg">
-  <div class="info">
-    {{#link-to "song-book.show" songBook.id}}
-      <div class="name">
-        {{songBook.name}}
-      </div>
-    {{/link-to}}
-    <div class="right">
-      {{songBook.songsLength}}
-    </div>
-  </div>
-</div>
-{{/each}}
 {{song-books-list books=model}}

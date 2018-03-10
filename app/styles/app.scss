@@ -275,6 +275,11 @@ button {
     }
   }
 
+  &-gray {
+    background: $gray;
+    border-color: $gray;
+  }
+
   &:hover,
   &:active,
   &.active {
@@ -651,6 +656,29 @@ select {
         display: none;
       }
     }
+  }
+}
+
+.song-book-detail {
+  .heading {
+    margin-bottom: 3px
+  }
+
+  .list.bg {
+    margin-bottom: 1px;
+
+    .name {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.song-detail {
+  .btn-add {
+    position: absolute;
+    right: 15px;
+    top: 52px;
+    z-index: 1;
   }
 }
 
@@ -1040,7 +1068,12 @@ footer {
     }
 
     .right {
-      display: flex
+      align-items: center;
+      display: flex;
+
+      .song-count {
+        margin-right: 10px;
+      }
     }
 
     .rating {
@@ -1338,6 +1371,21 @@ $preview-height: 5.375em;
   }
 }
 
+.song-book-list {
+  background: $white;
+  margin: 0 -15px;
+  padding: 0 15px 15px;
+
+  .list.bg {
+    background: $white;
+  }
+
+  .add .btn {
+    border-top: 1px solid $gray;
+    margin-top: 5px;
+  }
+}
+
 //desktop
 
 @media screen and (min-width: 649px) {
@@ -1348,6 +1396,7 @@ $preview-height: 5.375em;
   .main {
     padding: 47px 0 0;
     position: relative;
+
 
     > .title {
       text-align: center;
@@ -2183,6 +2232,15 @@ $preview-height: 5.375em;
     font-size: 14px;
   }
 
+  .song-detail {
+    .btn-add {
+      left: 0;
+      margin: 5px 0;
+      position: relative;
+      top: 0;
+    }
+  }
+
   .home-stats {
     display: none;
     margin: 0 -10px;
@@ -2199,4 +2257,32 @@ $preview-height: 5.375em;
 
 
   }
+  .song-book-list {
+    .add {
+      .btn-song-book {
+        margin-right: 5px;
+        width: auto;
+        display: inline-block;
+      }
+    }
+  }
+  .new-song-book {
+    border: 1px solid $black;
+    padding: 15px;
+
+  }
+
+  .list-song-book {
+    display: block;
+    height: 45px;
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+  }
+
+  .list-song-book-inner {
+    display: flex;
+  }
+
 }

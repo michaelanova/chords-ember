@@ -1,0 +1,18 @@
+{{#if session.isAuthenticated}}
+<div class="new-article">
+
+  <div id="title" class="input-field" style="margin-top:1em;">
+      {{input type="text" value=book.name id="name" name="name" class="form-control" autofocus="autofocus" placeholder=" "}}
+      <label class="control-label" for="name">Název zpěvníku</label>
+  </div>
+
+  <div id="body" class="input-field">
+      {{input type="text" value=book.description id="description" name="description" class="form-control" autofocus="autofocus" placeholder=" "}}
+      <label class="control-label" for="description">Popis zpěvníku</label>
+  </div>
+
+  <button class="btn btn-primary" {{action 'save'}}>Uložit změny</button>
+</div>
+{{else}}
+  <p>Pro editaci se musíte přihlásit!</p>
+{{/if}}

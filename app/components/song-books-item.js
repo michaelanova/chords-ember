@@ -7,10 +7,20 @@ export default Component.extend({
   session: service(),
   classNames: ['song-book-detail'],
   book: null,
+  adminPanel: false,
+  uid:  Ember.computed.alias('session.currentUser.uid'),
+  isAuthor: Ember.computed('book.createdBy.[]', 'uid', function() {
+    return (this.get('book.createdBy.id') === this.get('uid')) ? true : false;
+  }),
   isMarked: Ember.computed('book.markedBy.[]', 'uid', function() {
     return this.get('book.markedBy').mapBy('id').contains(this.get('uid'));
   }),
-  uid:  Ember.computed.alias('session.currentUser.uid'),
+  data: null,
+  isUserAdmin: computed('uid', function() {
+      this.get('store').findRecord('user', this.get('uid')).then(current => {
+        return (current.admin) ? true : false;
+      });
+  }),
   actions: {
     addMark(book) {
       this.get('store').findRecord('user', this.get('uid')).then((current) => {
@@ -28,5 +38,8 @@ export default Component.extend({
         book.save();
       });
     },
+    delete() {
+      this.get('book').destroyRecord();
+    }
   }
 });

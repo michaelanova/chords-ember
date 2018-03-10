@@ -55,6 +55,7 @@ Router.map(function() {
   this.route('song-book', function() {
     this.route('index');
     this.route('show', { path: 'show/:book_id' });
+    this.route('edit', { path: 'edit/:book_id' });
   });
   this.route('marks');
 });

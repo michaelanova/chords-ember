@@ -1,16 +1,18 @@
-
+<div class="btn btn-small btn-default btn-add">
+  <div class="add-to-songbook link"{{action "openSongBook" song}}>
+    {{fa-icon "plus"}}
+    přidat do zpěvníku
+  </div>
+</div>
+{{#if isSongBookOpen}}
+  {{song-book-list song=song}}
+{{/if}}
 <div class="heading">
   <div class="info">
     <div class="name">
       {{song.name}}
-      <div class="add-to-songbook link"{{action "openSongBook" song}}>
-        {{fa-icon "plus"}}
-        přidat do zpěvníku
-      </div>
-      {{#if isSongBookOpen}}
-        {{song-book-list song=song}}
-      {{/if}}
     </div>
+
     <div class="others">
       <div class="author">
         Interpret
