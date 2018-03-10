@@ -1,32 +1,36 @@
 
 <div class="add">
-  <div class="list-song-book">
-    <div class="list-song-book-inner">
-  {{#each user.songBooksAdded as |songBook|}}
-    <div class="btn btn-default btn-gray btn-small btn-song-book" {{action "addToSongBook" songBook}}>
-        <div class="songbook" >
-          {{songBook.name}}
+  {{#if session.isAuthenticated}}
+    <div class="list-song-book">
+      <div class="list-song-book-inner">
+    {{#each user.songBooksAdded as |songBook|}}
+      <div class="btn btn-default btn-gray btn-small btn-song-book" {{action "addToSongBook" songBook}}>
+          <div class="songbook">
+            {{songBook.name}}
+          </div>
+      </div>
+    {{/each}}
+    </div>
+    </div>
+
+    <div class="btn btn-small" {{action "newSongBookForm"}}>
+      Založit nový zpěvník
+    </div>
+    {{#if isnewSongBookFormOpen}}
+      <div class="new-song-book">
+        <div id="title" class="input-field">
+            {{input type="name" value=name id="name" name="name" class="form-control" autofocus="autofocus" placeholder=" "}}
+            <label class="control-label" for="name">Název zpěvníku</label>
         </div>
-    </div>
-  {{/each}}
-  </div>
-  </div>
 
-  <div class="btn btn-small" {{action "newSongBookForm"}}>
-    Založit nový zpěvník
-  </div>
-  {{#if isnewSongBookFormOpen}}
-    <div class="new-song-book">
-      <div id="title" class="input-field">
-          {{input type="name" value=name id="name" name="name" class="form-control" autofocus="autofocus" placeholder=" "}}
-          <label class="control-label" for="name">Název zpěvníku</label>
+        <div id="info" class="input-field">
+            {{input type="text" value=description id="description" name="description" class="form-control" autofocus="autofocus" placeholder=" "}}
+            <label class="control-label" for="description">Popis zpěvníku</label>
+        </div>
+        <button class="btn btn-primary btn-small" {{action 'saveSongBook'}}>Přidat zpěvník</button>
       </div>
-
-      <div id="info" class="input-field">
-          {{input type="text" value=description id="description" name="description" class="form-control" autofocus="autofocus" placeholder=" "}}
-          <label class="control-label" for="description">Popis zpěvníku</label>
-      </div>
-      <button class="btn btn-primary btn-small" {{action 'saveSongBook'}}>Přidat zpěvník</button>
-    </div>
+    {{/if}}
+  {{else}}
+  Pro přidání písničky do zpěvníku se musíte přihlásit!
   {{/if}}
 </div>
