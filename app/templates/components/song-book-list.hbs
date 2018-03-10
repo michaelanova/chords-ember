@@ -3,8 +3,8 @@
   <div class="list-song-book">
     <div class="list-song-book-inner">
   {{#each user.songBooksAdded as |songBook|}}
-    <div class="btn btn-default btn-gray btn-small btn-song-book">
-        <div class="songbook" {{action "addToSongBook" songBook}}>
+    <div class="btn btn-default btn-gray btn-small btn-song-book" {{action "addToSongBook" songBook}}>
+        <div class="songbook" >
           {{songBook.name}}
         </div>
     </div>

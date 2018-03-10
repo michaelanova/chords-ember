@@ -2233,9 +2233,12 @@ $preview-height: 5.375em;
   }
 
   .song-detail {
+    .heading {
+      padding-top: 5px;
+    }
     .btn-add {
       left: 0;
-      margin: 5px 0;
+      margin: 0 0 15px;;
       position: relative;
       top: 0;
     }
@@ -2279,6 +2282,11 @@ $preview-height: 5.375em;
     overflow-x: scroll;
     overflow-y: hidden;
 
+  }
+
+  .song-book-list {
+    margin: 15px 0;
+    padding: 15px;
   }
 
   .list-song-book-inner {
