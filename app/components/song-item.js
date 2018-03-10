@@ -3,7 +3,6 @@ import Component from '@ember/component';
 export default Component.extend({
   store: Ember.inject.service(),
   session: Ember.inject.service(),
-  session: Ember.inject.service(),
   currentUser: Ember.inject.service(),
   classNames: ['song-item'],
   first: false,

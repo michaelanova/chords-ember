@@ -1,0 +1,46 @@
+
+<h2 class="heading">
+  <div class="info">
+    <div class="name">
+      {{book.name}}
+    </div>
+    <div class="date like">
+      {{book.description}}
+    </div>
+    <div class="others">
+      <div class="author">
+        Přidal
+        {{#link-to "profile.show" book.createdBy.id}}{{book.createdBy.username}}{{/link-to}}
+      </div>
+      {{#unless isMarked}}
+        <div class="like plus"{{action "addMark" book}}>
+          {{fa-icon "bookmark-o"}}
+          {{book.markedLength}}
+        </div>
+      {{else}}
+        <div class="like minus"{{action "unMark" book}}>
+          {{fa-icon "bookmark"}}
+          {{book.markedLength}}
+        </div>
+      {{/unless}}
+      <div class="addedBy">
+        Počet písniček
+        {{book.songsLength}}
+      </div>
+
+    </div>
+  </div>
+</h2>
+<div class="content">
+  <div class="text">
+    {{#each book.songs as |song|}}
+    <div class="list bg">
+      {{#link-to "song.show" song.id}}
+        <div class="name">
+          {{song.name}}
+        </div>
+      {{/link-to}}
+    </div>
+    {{/each}}
+  </div>
+</div>

@@ -19,6 +19,7 @@ export default Component.extend({
   animate: false,
   scrollSpeed: 0,
   top: 0,
+  isSongBookOpen: false,
   isLiked: Ember.computed('song.likedBy.[]', 'uid', function() {
     return this.get('song.likedBy').mapBy('id').contains(this.get('uid'));
   }),
@@ -112,8 +113,6 @@ export default Component.extend({
     console.log((this.get('scrollSpeed') * songHeight));
     $(".song-detail .content .text").stop();
     $(".song-detail .content .text").animate({ scrollTop: scrollTo }, (this.get('scrollSpeed') * songHeight), "linear");
-
-
     },
     stopScrolling() {
       this.set('animate', 0);
@@ -136,6 +135,9 @@ export default Component.extend({
     bigger() {
       this.set('smallerText', false);
       this.set('biggerText', true);
+    },
+    openSongBook() {
+      (this.get('isSongBookOpen')) ? this.set('isSongBookOpen', false) : this.set('isSongBookOpen', true);
     }
   }
 });

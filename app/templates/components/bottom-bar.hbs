@@ -51,6 +51,13 @@
     {{/link-to}}
   </div>
 
+  <div class="link song-books">
+    {{#link-to "song-book.index"}}
+      {{fa-icon "book"}}
+      Zpěvníky
+    {{/link-to}}
+  </div>
+
   {{#if session.isAuthenticated}}
     <div class="link add">
       {{#link-to "add-new"}}

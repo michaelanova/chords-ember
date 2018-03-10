@@ -1,0 +1,22 @@
+<div class="list bg">
+  <div class="info">
+    {{#link-to "song-book.show" book.id}}
+      <div class="name">
+        {{book.name}}
+      </div>
+    {{/link-to}}
+    <div class="right">
+        {{#unless isMarked}}
+          <div class="like plus"{{action "addMark" book}}>
+            {{fa-icon "bookmark-o"}}
+            {{book.markedLength}}
+          </div>
+        {{else}}
+          <div class="like minus"{{action "unMark" book}}>
+            {{fa-icon "bookmark"}}
+            {{book.markedLength}}
+          </div>
+        {{/unless}}
+    </div>
+  </div>
+</div>

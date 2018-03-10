@@ -52,6 +52,11 @@ Router.map(function() {
   });
   this.route('add-new');
   this.route('search');
+  this.route('song-book', function() {
+    this.route('index');
+    this.route('show', { path: 'show/:book_id' });
+  });
+  this.route('marks');
 });
 
 export default Router;

@@ -11,4 +11,5 @@ export default DS.Model.extend({
   video: DS.attr('string'),
   likedBy: DS.hasMany('user', { inverse: 'favourites' }),
   likes: Ember.computed.alias('likedBy.length'),
+  songBooks: DS.hasMany('song-book', { inverse: 'songs' }),
 });

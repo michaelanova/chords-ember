@@ -655,7 +655,8 @@ select {
 }
 
 .song-detail,
-.article-detail {
+.article-detail,
+.song-book-detail {
   .name {
     margin-bottom: 8px;
   }
@@ -1475,7 +1476,8 @@ $preview-height: 5.375em;
     }
 
     &.chords,
-    &.news {
+    &.news,
+    &.song-books {
       i {
         display: none;
       }
