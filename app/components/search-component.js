@@ -1,15 +1,17 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+import FindQuery from 'ember-emberfire-find-query/mixins/find-query';
 
-export default Component.extend({
+export default Component.extend(FindQuery, {
+  classNames: ['search'],
   songs: null,
+  store: service(),
   searchText: '',
-  filteredSongs: computed('searchText', 'songs.[]', function() {
-    //if (this.get('searchValue.length') >= this.get('searchLimit')) {
-    console.log(this.get('songs').filterBy('name', this.get('searchText')));
-    return this.get('songs').filterBy('name', this.get('searchText'));
-    //return this.get('songs').filterBy('name', this.get('searchText'));
-      //this.get('songs').mapBy('name').contains(this.get('searchText'));
-    //}
+  foundSongs: null,
+  filteredSongs: computed('searchText', 'songs.[]', 'store', function() {
+    this.filterContains(this.get('store'), 'song', {'name': this.get('searchText')}, (posts) => {
+      this.set('foundSongs', posts);
+    });
   }),
 });

@@ -38,6 +38,17 @@ a {
 }
 
 
+.search {
+  margin-top: 20px;
+  a {
+    text-decoration: none;
+  }
+  .list.bg {
+    border-bottom: 1px solid $gray-lighter;
+
+  }
+}
+
 
 .buttons {
   bottom: 0;

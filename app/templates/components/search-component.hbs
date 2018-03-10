@@ -1,11 +1,30 @@
 <div class="input-field">
-  {{input value=searchText id="search" name="search" placeholder=" "}}
-  <label class="control-label" for="search">Název písničky</label>
+  {{input value=searchText id="search-box" name="search" placeholder=" "}}
+  <label class="control-label" for="search-box">Název písničky</label>
 </div>
 {{#each filteredSongs as |song|}}
   {{#link-to "song.show" song.id}}
-    <div class="name">
-      {{song.name}}
+    <div class="list bg">
+      <div class="info">
+        <div class="name">
+          {{song.name}}
+        </div>
+      </div>
+    </div>
+  {{/link-to}}
+{{/each}}
+
+{{#each foundSongs as |song|}}
+  {{#link-to "song.show" song.id}}
+    <div class="list bg">
+      <div class="info">
+        <div class="name">
+          {{song.name}}
+        </div>
+        <div class="right small">
+          <small>{{song.author.name}}</small>
+        </div>
+      </div>
     </div>
   {{/link-to}}
 {{/each}}
