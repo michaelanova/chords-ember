@@ -6,18 +6,7 @@
       {{#each model as |article|}}
         <div class="article heading">
 
-            {{!#if (eq article.user session.currentUser.uid)}}
-              {{#if admin}}
-                <div class="admin-panel">
-                  <div class="action"{{action "delete" article}}>
-                    {{fa-icon "times"}}
-                  </div>
-                  {{#link-to "articles.edit" article.id class="action"}}
-                    {{fa-icon "pencil"}}
-                  {{/link-to}}
-                </div>
-              {{/if}}
-            {{!/if}}
+          
 
             {{#if onlyTitle}}
               {{#link-to "articles.detail" article.id}}

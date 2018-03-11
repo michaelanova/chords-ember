@@ -20,12 +20,6 @@
     {{/link-to}}
   </div>
 
-  <div class="link desktop-hidden">
-    {{#link-to "login"}}
-      {{fa-icon "user-o"}}
-      Login
-    {{/link-to}}
-  </div>
   {{else}}
   <div class="link mobile-hidden main-name">
   {{#link-to "index" class=""}}
@@ -41,15 +35,6 @@
   </div>
 
   {{/unless}}
-
-
-
-  <div class="link news">
-    {{#link-to "articles.show"}}
-      {{fa-icon "newspaper-o"}}
-      Novinky
-    {{/link-to}}
-  </div>
 
   <div class="link song-books">
     {{#link-to "song-book.index"}}
@@ -67,6 +52,13 @@
     </div>
   {{/if}}
 
+  <div class="link news">
+    {{#link-to "articles.show"}}
+      {{fa-icon "newspaper-o"}}
+      Novinky
+    {{/link-to}}
+  </div>
+
   {{#if session.isAuthenticated}}
     <div class="link profile">
       {{#link-to "active-user"}}
@@ -74,6 +66,12 @@
         Profil
       {{/link-to}}
     </div>
-  
+  {{else}}
+    <div class="link desktop-hidden">
+      {{#link-to "login"}}
+        {{fa-icon "user-o"}}
+        Login
+      {{/link-to}}
+    </div>
   {{/if}}
 </div>
