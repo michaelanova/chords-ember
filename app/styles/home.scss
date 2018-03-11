@@ -170,6 +170,11 @@
 
     .hero-inner {
       height: 150px;
+      img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
     }
   }
 
@@ -194,6 +199,7 @@
 
       .title {
         font-size: 20px;
+        text-align: center;
       }
     }
   }
