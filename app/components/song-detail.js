@@ -52,27 +52,12 @@ export default Component.extend({
 
     var fragment = this.create(withSup1);
 
-    /*Ember.run.scheduleOnce('afterRender', () => {
-      var songBox = document.getElementById('song');
-      songBox.appendChild(fragment);
-    });*/
     if(this.get('song.video')) {
       this.getVideoId();
     }
   },
   didInsertElement() {
     this._super(...arguments);
-
-  /*  $('.btn-scroll').on("mouseover", function(){
-      let f = this.get('top');
-      f++;
-      this.set('top', f);
-      console.log(this.get('top'));
-      $("html, body").animate({ scrollTop: this.get('top') }, 2);
-    })*/
-  },
-  didUpdateAttrs() {
-
   },
   actions: {
     like(song) {

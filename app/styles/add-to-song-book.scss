@@ -38,3 +38,48 @@
 .list-song-book-inner {
   display: flex;
 }
+
+.song-book-detail {
+  .btn-header {
+    background: transparent;
+    border: 0;
+    border-right: 1px solid #e8e8e8;
+    display: inline-block;
+    font-size: 8px;
+    line-height: 8px;
+    margin-bottom: 7.5px;
+    padding: 3.75px 7.5px;
+    position: absolute;
+    right: $space;
+
+    i.fa {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
+  }
+  .song-detail {
+    .song-book-list,
+    .like,
+    .addedBy,
+    .buttons {
+      display: none;
+    }
+
+    .content .text {
+      max-height: none;
+      width: 100%;
+    }
+
+    .content .video {
+      display: none;
+      width: 0;
+    }
+  }
+
+
+}
+
+@media screen and (min-width: $breakpoint-mobile + 1) {
+
+}

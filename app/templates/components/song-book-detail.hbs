@@ -1,5 +1,6 @@
 
 <h2 class="heading">
+  <button type="button" name="button" class="btn btn-header btn-default" {{action "print"}}>{{fa-icon "print"}}Verze pro tisk</button>
   <div class="info">
     <div class="name">
       {{book.name}}
@@ -25,13 +26,14 @@
       {{/unless}}
       <div class="addedBy">
         Počet písniček
-       <a>{{book.songsLength}}</a>  
+       <a>{{book.songsLength}}</a>
       </div>
 
     </div>
   </div>
 </h2>
 <div class="content">
+  {{#unless print}}
   <div class="text">
     {{#each book.songs as |song|}}
     <div class="list bg">
@@ -54,4 +56,12 @@
     </div>
     {{/each}}
   </div>
+  {{else}}
+  <div class="text">
+    {{#each book.songs as |song|}}
+    {{song-detail song=song}}
+    {{/each}}
+  </div>
+
+  {{/unless}}
 </div>
