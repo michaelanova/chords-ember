@@ -31,6 +31,29 @@ a {
   cursor: pointer;
 }
 
+.subtitle {
+  .btn.btn-header {
+    background: transparent;
+    border: 0;
+    border-right: 1px solid $gray;
+    display: inline-block;
+    font-size: 8px;
+    line-height: 8px;
+    margin-bottom: $small-space;
+    padding: ($small-space / 2) $small-space;
+
+    &:last-child {
+      border: 0;
+    }
+
+    i.fa {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
+  }
+}
+
 @media screen and (min-width: $breakpoint-mobile + 1) {
   .desktop-hidden {
     display: none !important;
@@ -78,7 +101,7 @@ a {
         .about {
           font-size: 18px;
           margin-bottom: 10px;
-          max-height: calc(100% - 60px);
+          max-height: calc(100% - 75px);
         }
       }
     }
@@ -98,6 +121,22 @@ a {
       .list {
         width: 100%;
       }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .song-detail .heading,
+  .author-detail .heading.image-bg,
+  .hero-inner,
+  .home-stats,
+  .article-detail:not(.articles-all) .heading {
+    margin-left: calc( ( 100vw - (1280px) ) / 2* -1);
+    margin-right: calc( ( 100vw - (1280px) ) / 2 * -1);
+
+    .info {
+      max-width: 1280px;
+      margin: 0 auto;
     }
   }
 }
@@ -127,6 +166,7 @@ a {
     }
 
     .subtitle {
+      display: flex;
       padding: $small-space 0;
     }
   }

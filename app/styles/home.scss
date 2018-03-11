@@ -1,3 +1,77 @@
+.home-stats {
+  padding: 20px 0 80px;
+  background: $gray;
+
+  .inner {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-decoration: none;
+    transition: all .5s;
+    width: 33.3%;
+
+    &:hover {
+      p {
+        transform: scale(1.15);
+        transition: all .5s;
+      }
+    }
+
+    &.songs {
+      margin-bottom: 20px;
+      width: 100%;
+
+      p {
+        color: $gold;
+        font-size: 75px;
+        font-weight: 300;
+        margin-top: 35px;
+      }
+
+    }
+
+    p {
+      color: $black;
+      font-size: 25px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      text-align: center;
+      transition: all .5s;
+      width: 100%;
+    }
+
+    span {
+      color: $black;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+footer {
+  padding: 10px 0;
+  text-align: center;
+
+  a {
+    border-bottom: 1px solid transparent;
+    color: $gray-dark;
+    text-decoration: none;
+    transition: all .5s;
+
+    &:hover {
+      border-bottom: 1px solid $gray-dark;
+      transition: all .5s;
+    }
+  }
+}
+
 @media screen and (min-width: $breakpoint-mobile + 1) {
   .hero {
     height: 400px;
@@ -159,6 +233,63 @@
           }
         }
       }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .hero {
+    .hero-inner {
+      height: 400px;
+      overflow: hidden;
+      .hero-img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .home-info {
+    //padding: 15px 0;
+    margin-left: calc( ( 100vw - (1280px) ) / 2* -1);
+    margin-right: calc( ( 100vw - (1280px) ) / 2 * -1);
+    .box {
+      width: 33.3%;
+      box-sizing: border-box;
+      padding: 15px 15px;
+      background: $gray-lighter;
+
+      &.articles {
+        background: $white;
+        padding-left: calc( ( 100vw - (1280px) ) / 2);
+            width: calc( 426px + ( ( 100vw - (1280px) ) / 2) );
+      }
+
+      &.favourite {
+        //background: $black;
+        //color: $white;
+        padding-right: calc( ( 100vw - (1280px) ) / 2);
+            width: calc( 426px + ( ( 100vw - (1280px) ) / 2) );
+      }
+
+      &.new {
+        //background: $black;
+        //color: $white;
+        width: 456px;
+      }
+
+      &.new,
+      &.favourite {
+        .list.bg a {
+          //color: $white;
+        }
+      }
+    }
+  }
+
+  .home-stats {
+    .inner {
+      max-width: 1280px;
+      margin: 0 auto;
     }
   }
 }

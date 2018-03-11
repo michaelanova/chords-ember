@@ -31,3 +31,73 @@
     }
   }
 }
+
+.opening-box {
+  border: 1px solid $black;
+  border-top: 0;
+  box-shadow: 0 0 3px $box-shadow;
+  margin-bottom: 2em;
+  padding: 20px $space $space;
+  position: relative;
+  z-index: 2;
+}
+
+@media screen and (min-width: $breakpoint-mobile + 1) {
+  .new-article {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+
+     &>div {
+      width: 100%;
+
+      input,
+      textarea {
+        max-width: 50%;
+      }
+    }
+
+    .add-cat {
+      margin-top: 27px;
+    }
+
+    .category,
+    .add-cat {
+      width: 50%;
+    }
+
+    .new-category {
+      &>div {
+        input,
+        textarea {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  .add-new {
+    .add {
+      font-size: 18px;
+      height: 50px;
+      width: 50%;
+
+      i {
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .add-new {
+    .add {
+      margin: 0 -10px;
+      width: 100vw;
+    }
+  }
+
+  .add-cat {
+    margin: (-$space) 0 $big-space;
+  }
+}

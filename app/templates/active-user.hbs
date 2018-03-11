@@ -2,7 +2,17 @@
   {{model.user.username}}
 </div>
 <div class="subtitle actions">
-  <button {{action "signOut"}} class="btn-small btn btn-header btn-default">{{fa-icon "sign-out"}}Odhlásit se</button>
+  {{#link-to "profile.favourites" model.user.id class="btn-small btn btn-header btn-default"}}
+    {{fa-icon "heart-o"}}
+    Oblíbené <br> písničky
+  {{/link-to}}
+
+
+  {{#link-to "marks" class="btn-small btn btn-header btn-default"}}
+    {{fa-icon "bookmark"}}
+    Uložené <br> zpěvníky
+  {{/link-to}}
+  <a {{action "signOut"}} class="btn-small btn btn-header btn-default">{{fa-icon "sign-out"}}Odhlásit se</a>
 
 </div>
 <div class="profil">

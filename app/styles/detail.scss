@@ -1,7 +1,142 @@
+.song-detail,
+.article-detail,
+.song-book-detail {
+  .name {
+    margin-bottom: 8px;
+  }
+  .others {
+    border-top: 1px solid $gray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 10px;
+    width: 100%;
+
+    a {
+      color: $black;
+      display: block;
+      font-size: 18px;
+      font-weight: 500;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all .25s;
+
+      &:hover {
+        color: $gray-dark;
+        transition: all .25s;
+      }
+    }
+  }
+
+  .like {
+    font-size: 18px;
+    text-align: center;
+    width: 20%;
+
+    i {
+      display: block;
+      font-size: 20px;
+    }
+  }
+
+  .addedBy,
+  .author {
+    font-size: 18px;
+    font-weight: 100;
+    width: 40%;
+  }
+
+  .addedBy {
+    text-align: right;
+  }
+
+  .date {
+    font-weight: 100;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  &.bigger-text {
+    .content {
+      .text .song {
+        font-size: 25px;
+        line-height: 45px;
+
+        .chord {
+          font-size: 27px;
+
+        }
+      }
+      .text {
+        width: 70%;
+        transition: all .5s;
+      }
+
+      .video {
+        width: 30%;
+        transition: all .25s;
+      }
+    }
+  }
+}
+
+.song-detail {
+  .content {
+    .text {
+      max-height: calc(100vh - 175px);
+      overflow-y: scroll;
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
+
+.article-detail {
+  .content {
+    .text {
+      margin-top: 20px;
+    }
+  }
+}
+
+.song-book-detail {
+  .heading {
+    margin-bottom: 3px
+  }
+
+  .list.bg {
+    margin-bottom: 1px;
+
+    .name {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.song {
+  font-family: 'Cutive Mono', monospace;
+  padding: 15px 10px 0;
+
+  .chord {
+    color: $black;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+  }
+}
+
 @media screen and (min-width: $breakpoint-mobile + 1) {
   .author-detail,
-  .article-detail {
+  .article-detail,
+  .song-book-detail {
     .heading {
+      margin-top: 0;
+
       .info .name {
         font-size: 26px;
         font-weight: 400;

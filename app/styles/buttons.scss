@@ -158,6 +158,7 @@ button {
 
   .buttons {
     bottom: 45px;
+    width: 100%;
 
     .scroll-buttons,
     .text-buttons {
@@ -179,6 +180,12 @@ button {
           font-size: 18px;
           line-height: 22px;
         }
+      }
+    }
+
+    .scroll-buttons {
+      .btn {
+        width: 20%;
       }
     }
   }
