@@ -1,4 +1,8 @@
-
+<div class="add-to-songbook btn btn-small btn-default"{{action "openSongBook" song}}>
+  {{fa-icon "plus"}}
+  přidat do zpěvníku
+</div>
+{{#if isSongBookOpen}}
 <div class="add">
   {{#if session.isAuthenticated}}
     <div class="list-song-book">
@@ -34,3 +38,4 @@
   Pro přidání písničky do zpěvníku se musíte přihlásit!
   {{/if}}
 </div>
+{{/if}}

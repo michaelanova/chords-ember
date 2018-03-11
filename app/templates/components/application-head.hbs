@@ -12,22 +12,9 @@
     </h1>
   {{/link-to}}
   <div class="right">
-    <div class="login">
-      {{#if session.isAuthenticated}}
-      <div class="active-user">
-        {{!#link-to "active-user"}}{{!fa-icon "user-circle"}}{{!session.currentUser.displayName}}{{!/link-to}}
-      </div>
-        <!--button {{!action "signOut"}} class="btn-small logout" >Sign out</button-->
-      {{else}}
-        {{#link-to "signup" class="btn btn-small btn-header"}}Registrace{{/link-to}}
-        {{#link-to "login" class="btn btn-small btn-header"}}Přihlášení{{/link-to}}
-      {{/if}}
-    </div>
     <div class="login-mobile">
       {{#link-to "search" class="btn btn-small btn-header"}}{{fa-icon "search"}}{{/link-to}}
       {{#link-to "index" class="btn btn-small btn-header"}}{{fa-icon "home"}}domů{{/link-to}}
-      <!--button type="button" name="button" class="btn btn-small btn-header"{{!action "open"}}>{{!fa-icon "bars"}}Menu</button-->
     </div>
-    {{burger-menu}}
   </div>
 </div>

@@ -135,9 +135,6 @@ export default Component.extend({
     bigger() {
       this.set('smallerText', false);
       this.set('biggerText', true);
-    },
-    openSongBook() {
-      (this.get('isSongBookOpen')) ? this.set('isSongBookOpen', false) : this.set('isSongBookOpen', true);
     }
   }
 });

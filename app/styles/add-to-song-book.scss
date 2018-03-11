@@ -1,0 +1,40 @@
+.song-book-list {
+
+  .list.bg {
+    background: $white;
+  }
+
+  .add .btn {
+    border-top: 1px solid $gray;
+    margin-top: 5px;
+  }
+}
+
+.song-book-list {
+  margin-bottom: 15px;
+
+  .add {
+    .btn-song-book {
+      margin-right: 5px;
+      width: auto;
+      display: inline-block;
+    }
+  }
+}
+
+.new-song-book {
+  border: 1px solid $black;
+  padding: 15px;
+}
+
+.list-song-book {
+  display: block;
+  height: 45px;
+  max-width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.list-song-book-inner {
+  display: flex;
+}

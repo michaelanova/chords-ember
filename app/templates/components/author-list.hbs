@@ -1,6 +1,5 @@
 {{#each model as |author|}}
-  {{#link-to "song.author.show" author.id}}
-    <div class="list image-bg">
+  {{#link-to "song.author.show" author.id class="list image-bg"}}
       <div class="image">
         {{load-image model=author class="image-container"}}
       </div>
@@ -15,7 +14,5 @@
           {{author.count}}
         </div>
       </div>
-    </div>
-
   {{/link-to}}
 {{/each}}

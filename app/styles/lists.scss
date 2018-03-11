@@ -1,0 +1,50 @@
+.list {
+  border-bottom: 1px solid $gray-lighter;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: $breakpoint-mobile + 1) {
+  .song-list,
+  .article-list,
+  .author-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .list {
+      border: 1px solid $gray-lighter;
+      box-sizing: border-box;
+      padding: $small-space $space;
+      transition: all .5s;
+      width: 33.3%;
+
+      &:hover {
+        background: $gray;
+        transition: all .5s;
+      }
+    }
+  }
+
+  .articles-all {
+    width: 100%;
+
+    .heading {
+      width: 33.3%;
+      transition: all .25s;
+
+      &:hover {
+        background: $gray;
+        transition: all .25s;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .list.image-bg {
+    display: flex;
+  }
+}

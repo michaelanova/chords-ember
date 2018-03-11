@@ -1,0 +1,79 @@
+@media screen and (min-width: $breakpoint-mobile + 1) {
+  .author-detail,
+  .article-detail {
+    .heading {
+      .info .name {
+        font-size: 26px;
+        font-weight: 400;
+        text-transform: none;
+      }
+
+      .info .about {
+        font-size: 18px;
+      }
+
+      .text {
+        font-size: 18px;
+        margin-top: 0;
+      }
+    }
+  }
+
+  .song-detail {
+    .content {
+      display: flex;
+
+      .text,
+      .video {
+        transition: all .5s;
+        width: 50%;
+
+        .song {
+          font-size: 19px;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .article-detail {
+    .content {
+      padding: $space 0;
+    }
+  }
+
+  .song-detail {
+    .heading {
+      padding-top: 5px;
+    }
+
+    .btn-add {
+      left: 0;
+      margin: 0 0 15px;;
+      position: relative;
+      top: 0;
+    }
+
+    .content {
+      .text {
+        max-height: calc(100vh - 131px);
+        overflow: -moz-scrollbars-none;
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+      }
+
+      .video {
+        padding: $big-space 0 52px;
+      }
+    }
+  }
+
+  .song-detail,
+  .article-detail {
+    .others a {
+      font-size: 14px;
+   }
+  }
+}

@@ -1,0 +1,215 @@
+@media screen and (min-width: $breakpoint-mobile + 1) {
+  .hero {
+    height: 400px;
+    .hero-inner {
+      height: 400px;
+      overflow: hidden;
+      .hero-img {
+        max-width: 100%;
+        position: relative;
+        transform: translateY(-50%);
+        top: 50%;
+      }
+    }
+  }
+
+  .home-info {
+    display: flex;
+    .box {
+      .title {
+        text-align: center;
+      }
+
+      .song-list {
+        .list {
+          background: transparent;
+          border: 0;
+        }
+      }
+
+      .song-list .list, .article-list .list {
+        width: 100%;
+      }
+
+      .articles-all .heading {
+        background: transparent;
+        padding: 0;
+        width: 100%;
+
+        .others {
+          border-top: 0;
+        }
+
+        .info {
+          .name,
+          .date {
+            font-weight: 400;
+            text-align: left;
+            text-transform: none;
+          }
+
+          .date {
+            border: 0;
+            padding: 0;
+          }
+
+          .name {
+            font-size: 17px;
+          }
+        }
+
+        .text {
+          margin-top: 0;
+        }
+
+      }
+    }
+  }
+
+  .home-info {
+    .box {
+      width: 33.3%;
+      box-sizing: border-box;
+      padding: 15px 30px 50px;
+      background: $gray-lighter;
+
+      .title {
+        font-size: 26px;
+      }
+
+      &.articles {
+        background: $white;
+        .title {
+          text-align: left;
+        }
+      }
+
+      &.new {
+        .title {
+          text-align: center;
+        }
+
+        .song-list .list {
+          &.bg .info {
+            justify-content: center;
+          }
+        }
+      }
+
+      &.favourite {
+        .title {
+          text-align: right;
+        }
+
+        .song-list .list {
+          &.bg .info {
+            justify-content: flex-end;
+
+            .name {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+
+      .song-list .list,
+      .article-list .list {
+        background-color: transparent;
+        margin-bottom: 4px;
+        padding: 10px 0;
+        transition: all .5s;
+        width: 100%;
+
+        &:hover {
+          background-color: $gray;
+          transition: all .5s;
+        }
+      }
+
+      .articles-all .heading {
+        background: transparent;
+        padding: 0;
+        width: 100%;
+
+        .info {
+          .name,
+          .date {
+            text-align: left;
+          }
+
+          .date {
+            padding: 0;
+          }
+
+          .others {
+            border: 0;
+          }
+
+          .name {
+            font-size: 20px;
+            font-weight: 400;
+            text-transform: none;
+            transition: all .25s;
+
+            &:hover {
+              color: $gray-dark;
+              transition: all .25s;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .hero {
+    height: 150px;
+    margin: 0 -10px;
+
+    .hero-inner {
+      height: 150px;
+    }
+  }
+
+  .home-info {
+    flex-wrap: wrap;
+
+    .box {
+      margin-bottom: 20px;
+      width: 100%;
+
+      &.articles {
+        background: $white;
+        display: none;
+        margin: 0 -10px;
+        padding: 0 10px 25px;
+        width: auto;
+      }
+
+      .heading {
+        margin: 0;
+      }
+
+      .title {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .home-stats {
+    display: none;
+    margin: 0 -10px;
+    padding-bottom: 30px;
+    .stat {
+      width: 100%;
+
+      &.songs {
+        p {
+          margin: 0 0 10px;
+        }
+      }
+    }
+  }
+}

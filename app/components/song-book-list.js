@@ -10,7 +10,7 @@ export default Component.extend({
   song: null,
   name: '',
   description: '',
-  isnewSongBookFormOpen: false,
+  isSongBookOpen: false,  isnewSongBookFormOpen: false,
   user: Ember.computed('uid', 'data', function() {
     let uid = this.get('uid'),
         data = this.get('data');
@@ -38,6 +38,7 @@ export default Component.extend({
       songBook.save();
       this.get('user').get('songBooksAdded').pushObject(songBook);
       this.get('user').save();
+      this.set('isnewSongBookFormOpen', false);
     },
     addToSongBook(songBook) {
       console.log(songBook);
@@ -45,7 +46,10 @@ export default Component.extend({
       songBook.save();
       this.get('song').get('songBooks').pushObject(songBook);
       this.get('song').save();
-      this.set('isnewSongBookFormOpen', false);
+      this.set('isSongBookOpen', false);
+    },
+    openSongBook() {
+      (this.get('isSongBookOpen')) ? this.set('isSongBookOpen', false) : this.set('isSongBookOpen', true);
     }
   }
 });
