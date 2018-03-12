@@ -6,8 +6,11 @@ export default Component.extend({
   store: service(),
   session: service(),
   classNames: ['song-book-detail'],
+  classNameBindings: ['print', 'style', 'format'],
   book: null,
-  print: false,
+  print: true,
+  style: 'retro',
+  format: 'a4',
   uid:  Ember.computed.alias('session.currentUser.uid'),
   isMarked: Ember.computed('book.markedBy.[]', 'uid', function() {
     return this.get('book.markedBy').mapBy('id').contains(this.get('uid'));
@@ -47,6 +50,15 @@ export default Component.extend({
     },
     print() {
       (this.get('print')) ? this.set('print', false) : this.set('print', true);
+    },
+    setStyle(style) {
+      this.set('style', style);
+    },
+    setFormat(format) {
+      this.set('format', format);
+    },
+    printPage() {
+      window.print();
     }
   }
 });

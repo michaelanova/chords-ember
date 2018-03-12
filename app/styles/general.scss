@@ -31,6 +31,12 @@ a {
   cursor: pointer;
 }
 
+.flex {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .subtitle {
   .btn.btn-header {
     background: transparent;
@@ -50,6 +56,19 @@ a {
       display: block;
       font-size: 20px;
       margin-bottom: 3px;
+    }
+  }
+}
+
+.how-it-works {
+  margin-top: $big-space;
+
+  .image {
+    max-width: 100%;
+
+    img {
+      box-shadow: 0 0 5px $black-transparent-light;
+      max-width: 100%;
     }
   }
 }
@@ -121,6 +140,34 @@ a {
       .list {
         width: 100%;
       }
+    }
+  }
+
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .space-between {
+    justify-content: space-between;
+  }
+
+  .how-it-works {
+    .col-3 {
+      box-sizing: border-box;
+      padding: $space;
+      width: 33%;
+
+      p {
+        min-height: 50px;
+      }
+    }
+
+    .full-width {
+      padding: $space;
     }
   }
 }

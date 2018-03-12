@@ -58,6 +58,7 @@ Router.map(function() {
     this.route('edit', { path: 'edit/:book_id' });
   });
   this.route('marks');
+  this.route('how-it-works');
 });
 
 export default Router;
