@@ -1,0 +1,85 @@
+<div class="editor">
+  <div class="fixed-container">
+    <p>1. Vyberte styl zpěvníku:</p>
+    <div class="flex">
+      <button type="button" name="button" class="btn btn-small btn-default {{if (eq style "vinil") "active"}}" {{action "setStyle" "vinil"}}>
+        <div class="image">
+          <img src="/img/bg-1.png" alt="">
+        </div>
+        Vinil
+      </button>
+      <button type="button" name="button" class="btn btn-small btn-default {{if (eq style "black") "active"}}" {{action "setStyle" "black"}}>
+        <div class="image">
+          <img src="/img/bg-2.jpg" alt="">
+        </div>
+        Black
+      </button>
+      <button type="button" name="button" class="btn btn-small btn-default {{if (eq style "retro") "active"}}" {{action "setStyle" "retro"}}>
+        <div class="image">
+          <img src="/img/bg-3.jpg" alt="">
+        </div>
+        Retro
+      </button>
+      <button type="button" name="button" class="btn btn-small btn-default {{if (eq style "hippie") "active"}}" {{action "setStyle" "hippie"}}>
+        <div class="image">
+          <img src="/img/bg-4.jpg" alt="">
+        </div>
+        Hippie
+      </button>
+    </div>
+
+    <p>2. Vyberte formát zpěvníku:</p>
+    <div class="flex">
+      <button type="button" name="button" class="btn btn-small btn-default {{if (eq format "a4") "active"}}" {{action "setFormat" "a4"}}>A4</button>
+      <button type="button" name="button" class="btn btn-small btn-default {{if (eq format "a5") "active"}}" {{action "setFormat" "a5"}}>A5</button>
+    </div>
+
+    <p>2. Klikněte na tlačítko "tisk", zvolte "více možností" a nastavte vybraný formát stránky z minulého kroku (A4 a nebo A5), odsazení nastavte na "žádné" a nebo "minimálni".</p>
+
+     {{#link-to "how-it-works" target="_blank"}}Jak to funguje {{fa-icon "question-circle"}}{{/link-to}}
+    <div class="flex print-page">
+      <button type="button" name="button" class="btn btn-primary btn-print-page" {{action "printPage" "a4"}}>Tisk</button>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <h2 class="heading title-page">
+    <div class="info">
+      <div class="name">
+        {{book.name}}
+      </div>
+      <div class="date like">
+        {{book.description}}
+      </div>
+      <div class="others">
+        <div class="addedBy">
+          Počet písniček
+         <a>{{book.songsLength}}</a>
+        </div>
+      </div>
+    </div>
+  </h2>
+  <div class="list-of-songs">
+    <div class="heading">
+      <div class="info">
+        <div class="name">
+          Obsah
+        </div>
+      </div>
+    </div>
+    <ol>
+      {{#each book.songs as |song|}}
+        <li class="">{{song.name}} - <small>{{song.author.name}}</small> </li>
+      {{/each}}
+    </ol>
+  </div>
+  <div class="text">
+    {{#each book.songs as |song|}}
+    {{song-detail song=song}}
+    {{/each}}
+  </div>
+  <footer>
+  <p class="small"><a href="mailto:mmiissaann@seznam.cz" target="_top">{{fa-icon "copyright"}} Chords.cz, Michaela Nová, 2018</a></p>
+  </footer>
+</div>

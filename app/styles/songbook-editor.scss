@@ -1,0 +1,220 @@
+
+.song-book-editor {
+
+    display: flex;
+
+    .editor {
+      box-sizing: border-box;
+      max-height: calc(100vh - 47px);
+      width: 50%;
+      position: relative;
+
+      .fixed-container {
+
+      }
+    }
+
+    > .content {
+      background: $white;
+      box-shadow: 0 0 5px $black-transparent-light;
+      max-height: calc(100vh - 62px);
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .title-page {
+      .info {
+        margin: 2 * $big-space;
+        padding: $big-space;
+
+        .date {
+          display: none;
+        }
+
+        .others {
+          text-align: center;
+          margin-top: $space;
+          padding-top: $space;
+        }
+      }
+    }
+
+    &.vinil {
+      .title-page {
+        background: $black url('/img/bg-1.png') no-repeat 50% 50% / cover;
+        color: $white;
+
+        a {
+          color: $white;
+        }
+      }
+    }
+
+
+  &.black {
+     .title-page {
+        background: $black url('/img/bg-2.jpg') no-repeat 50% 50% / cover;
+        color: $white;
+
+        .info {
+          .name {
+            text-align: right;
+          }
+
+          .others {
+            border-top: 0;
+            justify-content: flex-end;
+          }
+        }
+
+        a {
+          color: $white;
+          text-align: right;
+        }
+      }
+    }
+
+    &.retro {
+      .title-page {
+        background: $black url('/img/bg-3.jpg') no-repeat 50% 50% / cover;
+        color: $white;
+        margin: 0;
+
+        .info {
+          background: $brown-transparent;
+          color: $brown-light;
+
+          .name {
+            font-size: 65px;
+          }
+
+          .others {
+            border-top: 1px solid;
+            font-size: 12px;
+          }
+        }
+
+        a {
+          color: $brown-light;
+          display: block;
+          font-size: 30px;
+        }
+      }
+    }
+
+    &.hippie {
+      .title-page {
+        background: $black url('/img/bg-4.jpg') no-repeat 50% 50% / cover;
+        color: $white;
+
+        .info {
+          background: $green-transparent;
+          color: $blue-dark;
+
+          .name {
+            font-size: 65px;
+          }
+
+          .others {
+            border: 0;
+          }
+        }
+
+        a {
+          color: $green-dark;
+        }
+      }
+    }
+
+    &.a4 {
+      .title-page {
+        height: 1090px;
+      }
+    }
+
+    &.a5 {
+      .title-page {
+        height: 770px;
+      }
+    }
+
+    > .heading {
+      box-sizing: border-box;
+      height: 100%;
+      page-break-after: always;
+      position: static;
+      width: 100%;
+
+      .btn-print {
+        height: auto;
+        top: 62px;
+      }
+
+      .info {
+        margin: 30px;
+        padding: 30px;
+        .name {
+          font-size: 65px;
+          //text-transform: uppercase;
+        }
+      }
+
+      .author,
+      .like {
+        display: none;
+      }
+
+      .others {
+        justify-content: center;
+
+        .addedBy {
+          font-size: 25px;
+          text-align: center;
+          width: auto;
+
+          a {
+            font-size: 35px;
+          }
+        }
+      }
+
+      .list-of-songs {
+        font-size: 12px;
+        font-weight: normal;
+      }
+    }
+
+    .song-detail {
+      margin-bottom: 3 * $big-space;
+      .buttons {
+        display: none;
+      }
+
+      .text {
+        max-height: none;
+        width: 100%;
+      }
+
+      .video,
+      .addedBy {
+        display: none;
+      }
+
+      .song-book-list {
+        display: none;
+      }
+
+      .author {
+        font-size: 15px;
+        text-align: center;
+        width: 100%;
+
+        a {
+          font-size: 16px;
+        }
+      }
+    }
+
+
+
+}
