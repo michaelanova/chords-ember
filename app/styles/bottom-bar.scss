@@ -24,7 +24,7 @@
 
     i {
       display: block;
-      font-size: 18px;
+      font-size: 15px;
       margin-bottom: 1px;
     }
 
@@ -38,73 +38,81 @@
 
 @media screen and (min-width: $breakpoint-mobile + 1) {
   .bottom-bar {
+
     .inner {
-      height: 47px;
+      height: 80px;
       max-width: 1280px;
       margin: 0 auto;
     }
   }
 
   .bottom-bar {
+    background: transparent;
     border: 0;
     justify-content: flex-start !important;
     top: 0;
 
     &.container {
-      box-shadow: 0 1px 5px rgba(86, 86, 86, 0.2196078431372549);
-      height: 47px;
+      height: 80px;
       justify-content: center !important;
+      z-index: 3;
     }
   }
 
   .bottom-bar .link {
-    font-size: 18px;
-    font-weight: normal;
     transition: all .5s;
     flex-grow: 0 !important;
     height: 100%;
     display: flex;
     text-transform: none;
 
-    &.active,
-    &:hover {
+    a {
+      align-items: center;
+      border-bottom-color: transparent;
+      color: rgba($white, .5);
+      display: flex;
+      justify-content: center;
+      padding: 0  25px;
       transition: all .5s;
 
-      a {
-        color: $black;
-        transform: scale(1.05);
+      &.active,
+      &:hover {
+        color: $white;
+        //text-decoration: underline;
         transition: all .5s;
+    }
+
+    
+
+      a {
+        color: $white;
+        //text-decoration: underline;
+        transition: all .5s;
+      }
+
+      .link-to-home {
+        text-decoration: none;
+      }
+    }
+
+    &-to-home {
+      align-items: flex-end;
+      font-size: 24px;
+      margin-right: 2em;
+
+      .fa {
+        font-size: 5px;
+        margin-left: 5px;
+      }
+
+      span {
+        font-size: 16px;
       }
     }
 
     i {
       font-size: 15px;
       margin-right: 5px;
-    }
-
-    a {
-      align-items: center;
-      border-bottom-color: transparent;
-      display: flex;
-      justify-content: center;
-      padding: 0  25px;
-      transition: all .5s;
-    }
-
-    &.favourite,
-    &.profile {
-      font-size: 10px;
-
-      a {
-        flex-wrap: wrap;
-      }
-
-      i {
-        display: block;
-        font-size: 18px;
-        margin: 0 0 -10px;
-        width: 100%;
-      }
     }
 
     &.chords,
@@ -115,40 +123,16 @@
       }
     }
 
-    &.add,
+    &.profile,
     &.login {
      margin-left: auto;
      order: 5;
 
-     a {
-      background: $black;
-      color: $white;
-      transform: none;
-      transition: all .25s;
-      width: 110px;
 
-      &:hover,
-      &:active,
-      &.active {
-        background: $gray;
-        color: $gray-dark;
-        transition: all .25s;
-
-        span {
-          transition: all .25s;
-        }
-
-        i {
-          transform: scale(1.1);
-          transition: all .25s;
-        }
+      i {
+        font-size: 15px !important;
+        margin-right: 10px;
       }
-     }
-
-     i {
-       font-size: 18px !important;
-       margin-right: 10px;
-       }
     }
 
      &.main-name {

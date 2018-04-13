@@ -1,42 +1,34 @@
-<div class="hero">
-  <div class="hero-inner">
-    <img src="guitar.jpg" class="hero-img" alt="">
+<div class="home">
+  <div class="welcome">
+    <h1>Vítejte na chords.cz</h1> 
+
+    {{#unless session.isAuthenticated}}
+    <h2>{{#link-to "signup"}}Založte{{/link-to}}
+       si uživatelský účet pro <br>
+        zpřístupnění všech funkcí webu.</h2>
+    {{else}}
+      <h2 class="motto">Prohlédněte si své oblíbené akordy</h2>
+    {{/unless}}
   </div>
-</div>
-<div class="home-info">
-  <div class="box articles">
-    <p class="title">Nejnovější články</p>
-    {{article-list first=false model=model.articles onlyTitle=false firstArticles=true}}
-  </div>
-  <div class="box new">
-    <p class="title">Nejnovější písničky</p>
-    {{song-list first=true model=model.songs}}
-  </div>
-  <div class="box favourite">
-    <p class="title">Nejoblíbenější písničky</p>
-    {{song-list firstLikes=true model=model.songs}}
-  </div>
-</div>
-<div class="home-stats">
-  <div class="inner">
-      {{#link-to "song.index" class="stat songs"}}
-        <p>{{model.songs.length}}</p>
-        <span>písniček v databázi</span>
-      {{/link-to}}
-      {{#link-to "song.author.index" class="stat authors"}}
-        <p>{{model.authors.length}}</p>
-        <span>přidaných autorů</span>
-      {{/link-to}}
-      {{#link-to "articles.show" class="stat articles"}}
-        <p>{{model.articles.length}}</p>
-        <span>článků v databázi</span>
-      {{/link-to}}
-    <div class="stat users">
-      <p>{{model.users.length}}</p>
-      <span>zaregistrovanýh uživatelů</span>
+  <div class="home-box">
+    <div class="path-box">
+      <h2>{{#link-to "song.author.index"}}Akordy{{/link-to}}</h2>
+      <h3>Prohlížejte, přidávejte a editujte <br>
+      písničky s akordy.</h3>
+      <div class="homepage-buttons">
+        {{#link-to "song.author.index" class="btn btn-large"}}Prohlížet{{/link-to}}
+        {{#link-to "song.new" class="btn btn-large"}}Vložit{{/link-to}}
+      </div>
+    </div>
+    <div class="path-box text-right">
+      <h2>{{#link-to "song-book.index"}}Zpěvníky{{/link-to}}</h2>
+      <h3>Listujte zpěvníky, nebo si <br>
+      vytvořte a vytiskněte vlastní.</h3>
+      <div class="homepage-buttons">
+        {{#link-to "song-book.index" class="btn btn-large"}}Listovat{{/link-to}}
+        {{#link-to "song-book.index" class="btn btn-large"}}Vložit{{/link-to}}
+      </div>
     </div>
   </div>
+ 
 </div>
-<footer>
-<p class="small"><a href="mailto:mmiissaann@seznam.cz" target="_top">{{fa-icon "copyright"}} Michaela Nová, 2018</a></p>
-</footer>

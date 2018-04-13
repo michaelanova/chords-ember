@@ -6,8 +6,9 @@
     .editor {
       box-sizing: border-box;
       max-height: calc(100vh - 47px);
-      width: 50%;
-      position: relative;
+      width: 300px;
+      position: fixed;
+      z-index: 1;
 
       .fixed-container {
 
@@ -17,9 +18,11 @@
     > .content {
       background: $white;
       box-shadow: 0 0 5px $black-transparent-light;
-      max-height: calc(100vh - 62px);
+      margin-left: 300px;
+      position: relative;
       overflow-x: hidden;
       overflow-y: auto;
+      width: 100%;
     }
 
     .title-page {
@@ -217,4 +220,19 @@
 
 
 
+}
+@media screen and (max-width: 648px) {
+  .song-book-editor {
+    display: block;
+
+    .editor {
+      position: relative;
+      max-height: unset;
+    }
+
+    > .content {
+      margin: 0 -10px;
+      width: auto;
+    }
+  }
 }

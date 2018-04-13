@@ -1,17 +1,43 @@
 body {
-  font-family: 'Alegreya Sans', sans-serif;
+  color: $white;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  font-weight: 100 !important;
   margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  &::before {
+    background: rgba($black, .7);
+    bottom: 0;
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
 }
 
 
 html {
   background: $gray-lighter;
+  background: $black url('/img/background.png') no-repeat 50% 100% / cover;
+  background-attachment: fixed;
+
+  &::before {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(255,0,0,0)); 
+      content: "";
+      height: 250px;
+      position: absolute;
+      top: 0;
+      width: 1000%;
+      z-index: -1;
+    }
 }
 
 a {
   background: transparent;
-  color: $black;
+  color: $white;
   transition: all .5s;
 
   &:hover {
@@ -19,11 +45,62 @@ a {
   }
 }
 
+h1,
+h2,
+h3 {
+  font-weight: 100;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 50px;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.large {
+  font-size: 18px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+/*flex styles*/
+.row-flex {
+  display: flex;
+} 
+
+.flex-justify-space-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
 .main {
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: 1030px;
   padding: $big-space;
+}
+
+.error-box {
+  background: rgba($red, .6);
+  padding: 25px;
 }
 
 [data-ember-action]:not(:disabled),
@@ -79,8 +156,10 @@ a {
   }
 
   .main {
-    padding: 47px 0 0;
+    padding: 0px 25px 0;
     position: relative;
+    top: 80px;
+    z-index: 2;
 
     > .title {
       font-size: 26px;
@@ -107,7 +186,7 @@ a {
 
 
     &.image-bg {
-      height: 150px;
+     //height: 150px;
 
       .info {
         .name {
@@ -172,23 +251,30 @@ a {
   }
 }
 
-@media screen and (min-width: 1280px) {
-  .song-detail .heading,
-  .author-detail .heading.image-bg,
-  .hero-inner,
-  .home-stats,
-  .article-detail:not(.articles-all) .heading {
-    margin-left: calc( ( 100vw - (1280px) ) / 2* -1);
-    margin-right: calc( ( 100vw - (1280px) ) / 2 * -1);
-
-    .info {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-  }
-}
-
 @media screen and (max-width: $breakpoint-mobile) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+  font-size: 30px;
+  line-height: 33px;
+  }
+
+  h2 {
+    font-size: 23px;
+    line-height: 26px;
+  }
+
+  h3 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .large {
+    font-size: 16px;
+  }
+
   .mobile-hidden {
     display: none;
   }

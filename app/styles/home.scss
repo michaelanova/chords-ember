@@ -1,351 +1,91 @@
-.home-stats {
-  padding: 20px 0 80px;
-  background: $gray;
-
-  .inner {
-    align-items: center;
+.home {
+  .home-box {
+    background: rgba($path-box, .9);
+    box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-  }
 
-  .stat {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    text-decoration: none;
-    transition: all .5s;
-    width: 33.3%;
+    h1 {
+      margin-bottom: 0;
+    }
 
-    &:hover {
-      p {
-        transform: scale(1.15);
-        transition: all .5s;
+    h2 {
+      margin: 0;
+
+      a {
+        text-decoration: none;
       }
-    }
-
-    &.songs {
-      margin-bottom: 20px;
-      width: 100%;
-
-      p {
-        color: $gold;
-        font-size: 75px;
-        font-weight: 300;
-        margin-top: 35px;
-      }
-
-    }
-
-    p {
-      color: $black;
-      font-size: 25px;
-      font-weight: 500;
-      margin-bottom: 10px;
-      text-align: center;
-      transition: all .5s;
-      width: 100%;
-    }
-
-    span {
-      color: $black;
-      text-align: center;
-      width: 100%;
-    }
-  }
-}
-
-footer {
-  padding: 10px 0;
-  text-align: center;
-
-  a {
-    border-bottom: 1px solid transparent;
-    color: $gray-dark;
-    text-decoration: none;
-    transition: all .5s;
-
-    &:hover {
-      border-bottom: 1px solid $gray-dark;
-      transition: all .5s;
     }
   }
 }
 
 @media screen and (min-width: $breakpoint-mobile + 1) {
-  .hero {
-    height: 400px;
-    .hero-inner {
-      height: 400px;
-      overflow: hidden;
-      .hero-img {
-        max-width: 100%;
-        position: relative;
-        transform: translateY(-50%);
-        top: 50%;
-      }
+  .home {
+    h1 {
+      font-size: 64px;
+      line-height: 75px;
     }
-  }
 
-  .home-info {
-    display: flex;
-    .box {
-      .title {
-        text-align: center;
-      }
-
-      .song-list {
-        .list {
-          background: transparent;
-          border: 0;
-        }
-      }
-
-      .song-list .list, .article-list .list {
-        width: 100%;
-      }
-
-      .articles-all .heading {
-        background: transparent;
-        padding: 0;
-        width: 100%;
-
-        .others {
-          border-top: 0;
-        }
-
-        .info {
-          .name,
-          .date {
-            font-weight: 400;
-            text-align: left;
-            text-transform: none;
-          }
-
-          .date {
-            border: 0;
-            padding: 0;
-          }
-
-          .name {
-            font-size: 17px;
-          }
-        }
-
-        .text {
-          margin-top: 0;
-        }
-
-      }
+    .welcome,
+    .home-box {
+      padding: 0 0;
     }
-  }
 
-  .home-info {
-    .box {
-      width: 33.3%;
-      box-sizing: border-box;
-      padding: 15px 30px 50px;
-      background: $gray-lighter;
+    .home-box {
+      bottom: 0;
+      left: 0;
+      margin: 0 -25px;
+      padding: 75px 75px;
+      position: fixed;
+      right: 0;
 
-      .title {
-        font-size: 26px;
+      h3 {
+        margin-top: 10px;
       }
 
-      &.articles {
-        background: $white;
-        .title {
-          text-align: left;
-        }
-      }
+      .homepage-buttons {
 
-      &.new {
-        .title {
-          text-align: center;
-        }
-
-        .song-list .list {
-          &.bg .info {
-            justify-content: center;
-          }
-        }
-      }
-
-      &.favourite {
-        .title {
-          text-align: right;
-        }
-
-        .song-list .list {
-          &.bg .info {
-            justify-content: flex-end;
-
-            .name {
-              margin-right: 10px;
-            }
-          }
-        }
-      }
-
-
-      .song-list .list,
-      .article-list .list {
-        background-color: transparent;
-        margin-bottom: 4px;
-        padding: 10px 0;
-        transition: all .5s;
-        width: 100%;
-
-        &:hover {
-          background-color: $gray;
-          transition: all .5s;
-        }
-      }
-
-      .articles-all .heading {
-        background: transparent;
-        padding: 0;
-        width: 100%;
-
-        .info {
-          .name,
-          .date {
-            text-align: left;
-          }
-
-          .date {
-            padding: 0;
-          }
-
-          .others {
-            border: 0;
-          }
-
-          .name {
-            font-size: 20px;
-            font-weight: 400;
-            text-transform: none;
-            transition: all .25s;
-
-            &:hover {
-              color: $gray-dark;
-              transition: all .25s;
-            }
-          }
-        }
       }
     }
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .hero {
-    .hero-inner {
-      height: 400px;
-      overflow: hidden;
-      .hero-img {
-        max-width: 100%;
-      }
-    }
-  }
-
-  .home-info {
-    //padding: 15px 0;
-    margin-left: calc( ( 100vw - (1280px) ) / 2* -1);
-    margin-right: calc( ( 100vw - (1280px) ) / 2 * -1);
-    .box {
-      width: 33.3%;
-      box-sizing: border-box;
-      padding: 15px 15px;
-      background: $gray-lighter;
-
-      &.articles {
-        background: $white;
-        padding-left: calc( ( 100vw - (1280px) ) / 2);
-            width: calc( 426px + ( ( 100vw - (1280px) ) / 2) );
-      }
-
-      &.favourite {
-        //background: $black;
-        //color: $white;
-        padding-right: calc( ( 100vw - (1280px) ) / 2);
-            width: calc( 426px + ( ( 100vw - (1280px) ) / 2) );
-      }
-
-      &.new {
-        //background: $black;
-        //color: $white;
-        width: 456px;
-      }
-
-      &.new,
-      &.favourite {
-        .list.bg a {
-          //color: $white;
-        }
-      }
-    }
-  }
-
-  .home-stats {
-    .inner {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-  }
+ 
 }
 
 @media screen and (max-width: $breakpoint-mobile) {
-  .hero {
-    height: 150px;
-    margin: 0 -10px;
-
-    .hero-inner {
-      height: 150px;
-      img {
-        height: 100%;
-        object-fit: cover;
-        width: 100%;
-      }
+  .home {
+    .motto {
+      font-size: 20px;
+      line-height: 20px;
     }
-  }
 
-  .home-info {
-    flex-wrap: wrap;
-
-    .box {
-      margin-bottom: 20px;
-      width: 100%;
-
-      &.articles {
-        background: $white;
-        display: none;
-        margin: 0 -10px;
-        padding: 0 10px 25px;
-        width: auto;
-      }
-
-      .heading {
-        margin: 0;
-      }
-
-      .title {
-        font-size: 20px;
-        text-align: center;
-      }
+    .welcome {
+      padding: 10px 0 15px;
     }
-  }
 
-  .home-stats {
-    display: none;
-    margin: 0 -10px;
-    padding-bottom: 30px;
-    .stat {
-      width: 100%;
+    .home-box {
+      background: transparent;
+      flex-wrap: wrap;
+      margin: 0 -10px;
 
-      &.songs {
-        p {
-          margin: 0 0 10px;
+      h3 {
+        margin-top: 10px;
+      }
+
+      .path-box {
+        background: rgba($path-box, .9);
+        padding: 25px 10px;
+        width: 100%; 
+
+        &:first-child {
+          background: rgba($path-box-lighter, .9);
         }
+      }
+
+      .text-right {
+        text-align: left;
       }
     }
   }

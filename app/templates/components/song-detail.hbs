@@ -1,29 +1,34 @@
 
 <div class="heading">
-  {{song-book-list song=song}}
+  
   <div class="info">
-    <div class="name">
-      {{song.name}}
+    <div class="row-flex flex-justify-space-between align-items-center">
+      <div class="name">
+        <h2>{{song.name}}</h2>
+      </div>
+      <div class="detail-buttons row-flex">
+        {{song-book-list song=song}}
+      {{#if uid}}
+        {{#unless isLiked}}
+          <div class="like plus btn btn-small"{{action "like" song}}>
+            {{fa-icon "heart-o"}}
+            Přidat do oblíbených ({{song.likes}})
+          </div>
+        {{else}}
+          <div class="like minus btn btn-small"{{action "unlike" song}}>
+            {{fa-icon "heart"}}
+            Odebrat z oblíbených ({{song.likes}})
+          </div>
+        {{/unless}}
+      {{/if}}
+      </div>
     </div>
-
-    <div class="others">
+    <div class="others row-flex flex-justify-space-between align-items-center">
       <div class="author">
         Interpret
         {{#link-to "song.author.show" song.author.id}}{{song.author.name}}{{/link-to}}
       </div>
-      {{#if uid}}
-        {{#unless isLiked}}
-          <div class="like plus"{{action "like" song}}>
-            {{fa-icon "heart-o"}}
-            {{song.likes}}
-          </div>
-        {{else}}
-          <div class="like minus"{{action "unlike" song}}>
-            {{fa-icon "heart"}}
-            {{song.likes}}
-          </div>
-        {{/unless}}
-      {{/if}}
+      
       <div class="addedBy">
         Přidal
         {{#link-to "profile.show" song.addedBy.id}}{{song.addedBy.username}}{{/link-to}}

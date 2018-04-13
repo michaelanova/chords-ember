@@ -5,10 +5,11 @@ import { computed } from '@ember/object';
 export default Component.extend({
   store: service(),
   session: service(),
-  classNames: ['song-book-editor', 'print'],
+  classNames: ['song-book-editor', 'print', 'fullWidth'],
   classNameBindings: ['style', 'format'],
   book: null,
   print: true,
+  fullWidth: false,
   style: 'retro',
   format: 'a4',
   actions: {
@@ -20,6 +21,9 @@ export default Component.extend({
     },
     printPage() {
       window.print();
+    },
+    fullwidth() {
+      this.get('fullWidth') ? this.set('fullWidth', false) : this.set('fullWidth', true);
     }
   }
 });

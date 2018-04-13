@@ -18,8 +18,11 @@
 
   .song-book-editor {
 
-    >.content {
-      max-height: none;
+    .content {
+      margin-left: 0!important;
+      max-height: inherit !important;
+      overflow-y: inherit !important;
+      width: 100vw !important;
     }
 
     &.print {
@@ -28,6 +31,7 @@
 
     .editor {
       display: none;
+      width: 0 !important;
     }
 
     .list-of-songs {

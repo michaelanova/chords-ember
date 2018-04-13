@@ -1,4 +1,10 @@
-<div class="title">
-  Nová písnička
-</div>
-{{song-form song=model}}
+{{#if session.isAuthenticated}}
+	<div class="title">
+	  Nová písnička
+	</div>
+	{{song-form song=model}}
+{{else}}
+	<div class="error-box">
+		Pro vkládání akordů se musíte {{#link-to "login"}}přihlásit{{/link-to}}.
+	</div>
+{{/if}}

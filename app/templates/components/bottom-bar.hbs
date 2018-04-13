@@ -2,8 +2,8 @@
 
   {{#unless session.isAuthenticated}}
   <div class="link mobile-hidden main-name">
-  {{#link-to "index" class=""}}
-    <img src="/logo/pick_big_guitar_152.png" alt="chords.cz">
+  {{#link-to "index" class="link-to-home"}}
+    Chords{{fa-icon "circle"}}<span>cz</span> 
   {{/link-to}}
   </div>
   <div class="link chords">
@@ -22,8 +22,8 @@
 
   {{else}}
   <div class="link mobile-hidden main-name">
-  {{#link-to "index" class=""}}
-  <img src="/logo/pick_big_guitar_152.png" alt="chords.cz">
+  {{#link-to "index" class="link-to-home"}}
+    Chords{{fa-icon "circle"}}<span>cz</span> 
   {{/link-to}}
   </div>
 

@@ -4,15 +4,24 @@
     {{load-image model=author class="image-container"}}
   </div>
   <div class="info">
-    <div class="name">
-      {{author.name}}
+    <div class="row-flex flex-justify-space-between align-items-center">
+      <div class="name">
+      <h2>{{author.name}}</h2>
+      </div>
     </div>
-    <div class="about">
+    <div class="date">
       {{author.info}}
     </div>
-    <div class="count">
-      {{author.count}}
+    <div class="others row-flex flex-justify-space-between align-items-center">
+      <div></div>
+      <div class="addedBy">
+        písní
+        <a >{{author.count}}</a>
+      </div>
     </div>
+    
+    
+
   </div>
 </div>
 <div class="content">

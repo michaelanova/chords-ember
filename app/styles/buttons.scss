@@ -1,27 +1,30 @@
 .button,
 .btn,
 button {
-  background: $black;
-  border: 0;
-  border-radius: 2px;
+  background: rgba($white, .17);
+  border: 1px solid $white;
+  border-radius: 0;
   color: $white;
   cursor: pointer;
-  display: block;
+  display: inline-block;
   //font-family: 'Roboto';
-  font-size: .9em;
-  font-weight: 500;
-  padding: 1em 2em;
-  text-align: center;
+  font-size: 15px;
+  font-weight: 300;
+  padding: 10px 25px;
   text-decoration: none;
-  text-transform: uppercase;
   transition: all .5s;
 
-  &-small {
-    font-size: .8em;
-    padding: .75em 1.5em;
+  &-large {
+    font-size: 18px;
+    padding: 12px 25px;
   }
 
-  &-default {
+  &-small {
+    font-size: 13px;
+    padding: 8px 20px;
+  }
+
+  /*&-default {
     background: $white;
     border: 1px solid $black;
     color: $black;
@@ -35,19 +38,19 @@ button {
     &:hover {
       color: $black;
     }
-  }
+  }*/
 
-  &-gray {
+  /*&-gray {
     background: $gray;
     border-color: $gray;
-  }
+  }*/
 
   &:hover,
   &:active,
   &.active {
-    background: $gray;
-    border-color: $gray-dark;
-    color: $gray-dark;
+    color: rgba($white, .35);
+    background: rgba($white, .25);
+    border-color: rgba($white, .25);
     transition: all .5s;
   }
 
@@ -131,7 +134,7 @@ button {
 
   .btn {
     box-sizing: border-box;
-    width: 100%;
+   // width: 100%;
   }
 
   .btn-header {
