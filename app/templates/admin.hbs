@@ -1,0 +1,13 @@
+{{outlet}}
+Hosté
+<div class="list guests">
+	{{#each model.guests as |guest|}}
+		<div class="list-row">
+			<p>{{guest.name}}</p>
+			<p>{{guest.host.username}}</p>
+			<span class="delete" {{action "deleteGuest" guest}}>delete</span>
+		</div>
+	{{/each}}
+</div>
+
+{{#link-to "admin.new-guest"}}Přidat hosta{{/link-to}}

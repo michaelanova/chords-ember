@@ -18,7 +18,7 @@
       <div class="progress">
         <div class="determinate" style={{progressStyle}}>
           {{#if (eq progress 100)}}
-            připraven
+            {{t "prepare_preview"}}
           {{else}}
             {{progress}} %
           {{/if}}
@@ -28,11 +28,11 @@
   {{else}}
     <label>
       {{#if cordova.enabled}}
-        <i class="challingo-icons ci-add-a-photo" {{action "captureImage"}}>pridat foto</i>
+        <i class="challingo-icons ci-add-a-photo {{if (eq currentUser.user.locale "en") "en"}}" {{action "captureImage"}}></i>
         <img class="challingo-icons" src="assets/fonts/ic_image_black_24px.svg" style="width: 0.8em" {{action "captureVideo"}}/>
       {{else}}
         <input type="file" accept={{accept}} required={{required}} onchange={{action "fileChange"}}>
-        <i class="challingo-icons ci-add-a-photo">pridat foto</i>
+        <i class="challingo-icons ci-add-a-photo {{if (eq currentUser.user.locale "en") "en"}}"></i>
       {{/if}}
     </label>
   {{/if}}

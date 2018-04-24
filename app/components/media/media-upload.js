@@ -1,33 +1,38 @@
-import { later } from '@ember/runloop';
-import { Promise as EmberPromise } from 'rsvp';
-import $ from 'jquery';
-import { htmlSafe } from '@ember/string';
-import { computed } from '@ember/object';
-import { inject as service } from '@ember/service';
 import Component from '@ember/component';
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import { Promise as EmberPromise } from 'rsvp';
+import { htmlSafe } from '@ember/string';
+import { later } from '@ember/runloop';
+import { debug } from '@ember/debug';
 import ENV from '../../config/environment';
+import $ from 'jquery';
 
 export default Component.extend({
-  /*i18n: service(),
-  toastMessage: service(),
-  cordova: service(),*/
+	//currentUser: service(),
+  //i18n: service(),
+  //toastMessage: service(),
+  //cordova: service(),
   classNames: ['media-upload'],
   classNameBindings: ['media.url:selected'],
   media: null,
   accept: 'image/*,video/*',
-  maxSize: { image: '10000', video: '40000' }, // kilobytes
+  maxSize: null, // kilobytes
   duration: 60, // seconds
   publicId: null,
   deleteToken: null,
   required: true,
   progress: 0,
   progressStyle: computed('progress', function() {
-    return htmlSafe(`width: ${this.get('progress')}%;`);
+    return htmlSafe(`width: ${this.progress}%;`);
   }),
   error: '',
+  init() {
+    this._super(...arguments);
+    this.set('maxSize', { image: '10000', video: '40000' });
+  },
   willDestroyElement() {
-    if (!this.get('media.url') && this.get('deleteToken')) {
+    if (!this.get('media.url') && this.deleteToken) {
       this.send('remove');
     }
   },
@@ -37,7 +42,7 @@ export default Component.extend({
 
     let formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'https://api.cloudinary.com/v1_1/chords-cz/image/upload');
+    formData.append('upload_preset', ENV.cloudinary.uploadPreset[type]);
 
     $.ajax({
       xhr: () => {
@@ -51,13 +56,13 @@ export default Component.extend({
 
         return xhr;
       },
-      url: 'https://api.cloudinary.com/v1_1/chords-cz/image/upload',
+      url: ENV.cloudinary.url + '/upload',
       method: 'POST',
       contentType: false,
       processData: false,
       data: formData,
       success: result => {
-        this.get('media').setProperties({
+        this.media.setProperties({
           url: result.secure_url, type: result.resource_type
         });
         this.setProperties({
@@ -69,7 +74,7 @@ export default Component.extend({
       error: () => {
         this.set('progress', 0);
         $submit.removeClass('disabled');
-        //this.get('toastMessage').show(this.get('i18n').t('media.upload_error'));
+        console.log('media uload error');
       }
     });
   },
@@ -78,7 +83,7 @@ export default Component.extend({
     const fileURL = fileData.fullPath;
     const success = r => {
       const result = JSON.parse(r.response);
-      this.get('media').setProperties({
+      this.media.setProperties({
         url: result.secure_url, type: result.resource_type
       });
       this.setProperties({
@@ -91,15 +96,15 @@ export default Component.extend({
     const fail = error => {
       this.set('progress', 0);
       $submit.removeClass('disabled');
-      //this.get('toastMessage').show(this.get('i18n').t('media.upload_error'));
-      Ember.Logger.error(error);
+      console.log('media uload error');
+      debug(error);
     };
 
-    const uri = encodeURI('https://api.cloudinary.com/v1_1/chords-cz/image/upload');
+    const uri = encodeURI(ENV.cloudinary.url + '/upload');
     const options = new window.FileUploadOptions();
     options.fileKey = "file";
     options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
-    options.params = {upload_preset: 'https://api.cloudinary.com/v1_1/chords-cz/image'};
+    options.params = {upload_preset: ENV.cloudinary.uploadPreset[type]};
     options.mimeType = fileData.type;
 
     const ft = new window.FileTransfer();
@@ -144,16 +149,16 @@ export default Component.extend({
   actions: {
     remove() {
       $.ajax({
-        url: 'https://api.cloudinary.com/v1_1/chords-cz/delete_by_token',
+        url: ENV.cloudinary.url + '/delete_by_token',
         method: 'POST',
         data: {
-          public_id: this.get('publicId'), token: this.get('deleteToken')
+          public_id: this.publicId, token: this.deleteToken
         },
         error: () => {
-          //this.get('toastMessage').show(this.get('i18n').t('media.remove_error'));
+          console.log('media remove error');
         },
         complete: () => {
-          this.get('media').setProperties({ url: null, type: null });
+          this.media.setProperties({ url: null, type: null });
           this.setProperties({ publicId: null, deleteToken: null });
         }
       });
@@ -167,13 +172,11 @@ export default Component.extend({
             this._transcodeVideo(file).then(fileData => {
               this._fileUpload(fileData, 'video');
             }, e => {
-              Ember.Logger.error(e);
+              debug(e);
               this.set('progress', 0);
-              const maxSize = this.get('maxSize')['video'];
+              const maxSize = this.maxSize['video'];
               if (file.size > maxSize) {
-                this.set('error',
-                //  `${this.get('i18n').t('media.max_size_error')} ${maxSize / 1000} MB.`
-                );
+                this.set('error',`maximalni velikost je 20MB`);
               } else {
                 this._fileUpload(file, 'video', 0);
               }
@@ -183,16 +186,16 @@ export default Component.extend({
           }
         }, 300);
       }, e => {
-        Ember.Logger.error(e);
-        //this.get('toastMessage').show(this.get('i18n').t('media.remove_error'));
-      }, {duration: this.get('duration'), quality: 1, ios_quality: 'high'});
+        debug(e);
+        console.log('media remove error');
+      }, {duration: this.duration, quality: 1, ios_quality: 'high'});
     },
     captureImage() {
       navigator.device.capture.captureImage(data => {
         this._fileUpload(data[0], 'image');
       }, e => {
-        Ember.Logger.error(e);
-        //this.get('toastMessage').show(this.get('i18n').t('media.remove_error'));
+        debug(e);
+        console.log('media remove error');
       });
     },
     fileChange(event) {
@@ -200,12 +203,10 @@ export default Component.extend({
 
       let file = event.target.files[0],
           type = file.type.split('/').shift(),
-          maxSize = this.get('maxSize')[type];
+          maxSize = this.maxSize[type];
 
       if (file && file.size / 1000 > maxSize) {
-        /*this.set('error',
-          `${this.get('i18n').t('media.max_size_error')} ${maxSize / 1000} MB.`
-        );*/
+        this.set('error', 'překročena velikost');
         event.target.value = '';
         return;
       }
@@ -214,15 +215,13 @@ export default Component.extend({
         this._upload(file, type);
       } else if (type === 'video') {
         let _this = this,
-            duration = this.get('duration'),
+            duration = this.duration,
             video = document.createElement('video');
         video.preload = 'metadata';
         video.onloadedmetadata = function() {
           window.URL.revokeObjectURL(this.src);
           if (video.duration > duration) {
-          /*  _this.set('error',
-              `${_this.get('i18n').t('video.max_length_error')} ${duration} sec.`
-            );*/
+            _this.set('error','moc dlouhé video');
             event.target.value = '';
           } else {
             _this._upload(file, type);
@@ -230,7 +229,7 @@ export default Component.extend({
         };
         video.src = window.URL.createObjectURL(file);
       } else {
-      //  this.set('error', this.get('i18n').t('media.type_error'));
+        this.set('error', 'špatný formát');
         event.target.value = '';
       }
     }

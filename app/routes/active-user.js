@@ -7,7 +7,7 @@ export default Route.extend({
       //return this.store.findRecord('user', this.get('session.currentUser.uid'));
       return Ember.RSVP.hash({
         user: this.store.findRecord('user', this.get('session.currentUser.uid')),
-        article: this.store.findAll('article'),
+        //article: this.store.findAll('article'),
       });
     },
   actions: {

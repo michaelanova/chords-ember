@@ -1,0 +1,27 @@
+<div class="title">
+  Nový host
+</div>
+
+<form class="">
+    <div id="usernameInput" class="input-field label-floating">
+
+        {{input class="form-control" id="email" type="text" placeholder=" " value=guest.name}}
+        <label class="control-label" for="username">Jméno</label>
+
+        <!--span id="help" class="help-block hidden">Sorry, that username's taken. Try another?</span-->
+    </div>
+
+    <div id="passwordInput" class="input-field">
+        {{input type="checkbox" checked=sleep action="setSleep"}}
+        
+    </div>
+
+    <div id="passwordInput" class="input-field">
+        {{select-field model=users selected=guest.host name="username" label="Hositel" required=true}}
+       
+    </div>
+
+
+    <button  class="btn btn-primary" {{action 'save'}}>Přidat</button>
+    <br>
+</form>

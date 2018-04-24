@@ -8,9 +8,9 @@ export default Route.extend({
   model() {
     return Ember.RSVP.hash({
       users: this.store.findAll('user'),
-      authors: this.store.findAll('author'),
-      songs: this.store.findAll('song'),
-      articles: this.store.findAll('article'),
+      //authors: this.store.findAll('author'),
+      //songs: this.store.findAll('song'),
+      //articles: this.store.findAll('article'),
     });
   },
   didTransition() {

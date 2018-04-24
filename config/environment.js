@@ -8,16 +8,17 @@ module.exports = function(environment) {
     rootURL: '',
     locationType: 'hash',
     firebase: {
-      apiKey: "AIzaSyAxZYJYfhVDEAZ5GgF5B_ozqJj_2j033c8",
-      authDomain: "wedding-c803a.firebaseapp.com",
-      databaseURL: "https://wedding-c803a.firebaseio.com",
-      projectId: "wedding-c803a",
-      storageBucket: "wedding-c803a.appspot.com",
-      messagingSenderId: "1040464891283"
+      apiKey: "AIzaSyAf1ecsayTrE1a8Pg_Ci2Y6cV6V8Dno9K4",
+      authDomain: "bartosicovi.firebaseapp.com",
+      databaseURL: "https://bartosicovi.firebaseio.com",
+      projectId: "bartosicovi",
+      storageBucket: "bartosicovi.appspot.com",
+      messagingSenderId: "968664642857"
     },
     torii: {
       sessionServiceName: 'session'
     },
+    
 
     'ember-service-worker': {
       enabled: false

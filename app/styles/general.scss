@@ -1,5 +1,5 @@
 body {
-  color: $white;
+  color: $black;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 100 !important;
@@ -7,37 +7,19 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 
-  &::before {
-    background: rgba($black, .7);
-    bottom: 0;
-    content: "";
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-  }
+  
 }
 
 
 html {
-  background: $gray-lighter;
-  background: $black url('/img/background.png') no-repeat 50% 100% / cover;
+  background: $white;
+  //background: $black url('/img/background.png') no-repeat 50% 100% / cover;
   background-attachment: fixed;
-
-  &::before {
-      background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(255,0,0,0)); 
-      content: "";
-      height: 250px;
-      position: absolute;
-      top: 0;
-      width: 1000%;
-      z-index: -1;
-    }
 }
 
 a {
   background: transparent;
-  color: $white;
+  //color: $white;
   transition: all .5s;
 
   &:hover {
