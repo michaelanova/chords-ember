@@ -1,8 +1,10 @@
 <div class="inner">
-	{{#link-to "index"}}Hlavní stránka{{/link-to}}
-	{{#unless session.isAuthenticated}}
-		{{#link-to "login"}}Přihlásit se{{/link-to}}
-	{{else}}
-		{{#link-to "admin"}}Administrace{{/link-to}}
-	{{/unless}}
+	{{#link-to "index" class="heading"}}Miška & Víťa{{/link-to}}
+	<div class="hidden">
+		{{#unless session.isAuthenticated}}
+			{{#link-to "login"}}Přihlásit se{{/link-to}}
+		{{else}}
+			{{#link-to "admin"}}Administrace{{/link-to}}
+		{{/unless}}
+	</div>
 </div>

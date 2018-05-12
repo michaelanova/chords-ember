@@ -17,36 +17,94 @@
       }
     }
   }
+
+  .welcome-banner {
+    background: url(/img/wedding.jpeg) no-repeat 50% 50%/cover;
+    height: 450px;
+  }
+
+  .info {
+    margin-bottom: 20px;
+    text-align: center;
+
+    h2 {
+      color: $blue-dark;
+    }
+
+    .date,
+    .place,
+    .dresscode {
+      padding: 20px 15px;
+
+      .inner {
+        max-width: 1024px;
+        margin: 0 auto;
+      }
+    }
+
+    .date {
+      background: $garned;
+      color: $white;
+
+      a {
+        color: $white;
+      }
+
+      .date-number {
+        font-size: 25px;
+        margin: 0;
+      }
+    }
+
+    .place {
+
+      .inner {
+        max-width: 800px;
+      }
+
+      
+
+      p {
+        //text-align: left;
+      }
+    }
+
+    .dresscode {
+      //background: $blue-dark;
+      .color {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 400px;
+        margin: 0 auto;
+
+        .red,
+        .blue,
+        .gold {
+          position: relative;
+          height: 50px;
+          width: 50px;
+        }
+
+        .red {
+          background: $garned;
+        }
+
+        .gold {
+          background: $gold;
+        }
+
+        .blue {
+          background: $blue-dark;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: $breakpoint-mobile + 1) {
   .home {
-    h1 {
-      font-size: 64px;
-      line-height: 75px;
-    }
-
-    .welcome,
-    .home-box {
-      padding: 0 0;
-    }
-
-    .home-box {
-      bottom: 0;
-      left: 0;
-      margin: 0 -25px;
-      padding: 75px 75px;
-      position: fixed;
-      right: 0;
-
-      h3 {
-        margin-top: 10px;
-      }
-
-      .homepage-buttons {
-
-      }
-    }
+    
   }
 }
 
@@ -56,37 +114,8 @@
 
 @media screen and (max-width: $breakpoint-mobile) {
   .home {
-    .motto {
-      font-size: 20px;
-      line-height: 20px;
-    }
-
-    .welcome {
-      padding: 10px 0 15px;
-    }
-
-    .home-box {
-      background: transparent;
-      flex-wrap: wrap;
-      margin: 0 -10px;
-
-      h3 {
-        margin-top: 10px;
-      }
-
-      .path-box {
-        background: rgba($path-box, .9);
-        padding: 25px 10px;
-        width: 100%; 
-
-        &:first-child {
-          background: rgba($path-box-lighter, .9);
-        }
-      }
-
-      .text-right {
-        text-align: left;
-      }
+    .welcome-banner {
+      height: 250px;
     }
   }
 }

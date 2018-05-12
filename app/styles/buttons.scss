@@ -1,8 +1,8 @@
 .button,
 .btn,
 button {
-  background: rgba($white, .17);
-  border: 1px solid $white;
+  background: $blue-dark;
+  border: 1px solid $blue-dark;
   border-radius: 0;
   color: $white;
   cursor: pointer;
@@ -25,14 +25,14 @@ button {
   }
 
   /*&-default {
-    background: $white;
+    background: $black;
     border: 1px solid $black;
     color: $black;
     font-weight: 500;
   }
 
   &-inverse {
-    background: $white;
+    background: $black;
     color: $gray-dark;
 
     &:hover {
@@ -48,9 +48,9 @@ button {
   &:hover,
   &:active,
   &.active {
-    color: rgba($white, .35);
-    background: rgba($white, .25);
-    border-color: rgba($white, .25);
+    color: $white;
+    background: darken($blue-dark, 8);
+    border-color: rgba($blue-dark, .25);
     transition: all .5s;
   }
 
@@ -155,7 +155,7 @@ button {
 
     &.active,
     &:hover {
-      background: $white;
+      background: $black;
     }
   }
 
