@@ -208,30 +208,15 @@
   overflow: hidden;
 
   .image {
+    height: 100%;
     left: 0;
     position: absolute;
     top: 0;
     width: 100%;
 
     .image-container {
-      //height: 120px;
+      height: 100%;
       position: relative;
-
-      img {
-        max-width: 100%;
-        min-width: 100%;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      &::after {
-        background: linear-gradient(to bottom, black, rgba(32, 25, 0, 0.9));
-        content: '';
-        height: 100%;
-        position: absolute;
-        width: 100%;
-      }
     }
   }
 
@@ -261,6 +246,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    width: 100%;
   }
 
   &::after {

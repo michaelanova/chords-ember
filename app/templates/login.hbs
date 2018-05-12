@@ -2,7 +2,7 @@
   Přihlášení
 </div>
 
-<form class="">
+<form class="box small">
     <div id="usernameInput" class="input-field label-floating">
 
         <input class="form-control" id="email" type="text" placeholder=" ">
@@ -15,11 +15,12 @@
         <input class="form-control" id="password" type="password"/ placeholder=" ">
         <label class="control-label" for="password">Password</label>
         <!--span id="helpPass" class="help-block hidden">Incorrect username and/or password</span-->
-        <div class="error">
-          {{#if error}}
-            {{error}}
-          {{/if}}
-        </div>
+        {{#if error}}
+        <br>
+            <div class="error-box">
+                {{error}}
+            </div>
+        {{/if}}
     </div>
 
 
