@@ -1,0 +1,27 @@
+<div class="title">
+  Nový úkol
+</div>
+
+<form class="">
+    <div id="usernameInput" class="input-field label-floating">
+
+        {{input class="form-control" id="email" type="text" placeholder=" " value=task.name}}
+        <label class="control-label" for="username">Název úkolu</label>
+
+        <!--span id="help" class="help-block hidden">Sorry, that username's taken. Try another?</span-->
+    </div>
+
+    <div id="passwordInput" class="input-field">
+        {{input type="checkbox" checked=task.completed action="setCompleted"}}
+        
+    </div>
+
+    <div id="passwordInput" class="input-field">
+        {{select-field model=users selected=task.host name="username" label="Hositel" required=true}}
+       
+    </div>
+
+
+    <button  class="btn btn-primary" {{action 'save'}}>Přidat</button>
+    <br>
+</form>

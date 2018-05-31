@@ -16,6 +16,7 @@ body {
   background: $white;
   color: $blue-dark;
   padding: 15px;
+  position: relative;
   text-align: center;
 
   a {
@@ -29,12 +30,26 @@ body {
     }
   }
 
+  .admin {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .fa {
+      padding: 0 5px;
+    }
+  }
+
   .inner {
     max-width: 1024px;
     margin: 0 auto;
   }
 }
 
+.page-content {
+  padding: $space;
+}
 
 html {
   background: $white;
@@ -64,8 +79,8 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 24px;
+  line-height: 30px;
 }
 
 h3 {
@@ -119,6 +134,26 @@ h3 {
   align-items: center;
   display: flex;
   justify-content: flex-start;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  tr {
+    border-bottom: 1px solid $gray-light;
+    padding: 0 $small-space;
+  }
+
+  th, td {
+    text-align: left;
+    padding: $small-space 0;
+  }
+
+  th {
+    background: $gray-light;
+    color: $gray;
+  }
 }
 
 .subtitle {
@@ -278,6 +313,16 @@ h3 {
     line-height: 24px;
   }
 
+  .mobile-hidden {
+    display: none;
+  }
+
+  .nav-bar {
+    .admin {
+
+    }
+  }
+
   .large {
     font-size: 16px;
   }
@@ -313,6 +358,31 @@ h3 {
 
   .list,
   .heading {
-    margin: 0 (-$space);
+    margin: $space 0;
+  }
+}
+
+
+.login-box {
+  background: $blue-dark;
+  color: $white;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: $space * 1.5;
+  text-align: center;
+
+  .input-field {
+    input {
+      border-bottom: 1px solid $white;
+      color: $white;
+    }
+
+    label {
+      color: $white;
+    }
+  }  
+
+  a {
+    color: $white;
   }
 }

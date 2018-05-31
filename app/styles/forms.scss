@@ -1,4 +1,4 @@
-/*label {
+label {
   color: $gray-dark;
   font-size: .95em;
   left: 0;
@@ -29,7 +29,7 @@ form {
     width: 100%;
   }
 
-  input,
+  input:not[type="checkbox"],
   textarea {
     background: none;
     border: 0;
@@ -111,15 +111,15 @@ form {
   }
 }
 
-input,
+input:not[type="checkbox"],
 select {
   -webkit-appearance: none;
-  max-width: 50%;
-  min-width: 50%;
+  max-width: 100%;
+  min-width: 100%;
 }
 
 @media screen and (max-width: $breakpoint-mobile) {
-  input,
+  input:not[type="checkbox"],
   select {
     border-radius: 0;
     box-shadow: none;
@@ -128,4 +128,3 @@ select {
     width: 100%;
   }
 }
-*/ 

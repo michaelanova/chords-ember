@@ -1,10 +1,10 @@
 <div class="inner">
 	{{#link-to "index" class="heading"}}Miška & Víťa{{/link-to}}
-	<div class="hidden">
+	<div class="admin">
 		{{#unless session.isAuthenticated}}
-			{{#link-to "login"}}Přihlásit se{{/link-to}}
+			{{#link-to "login"}}{{fa-icon "user-o"}}<span class="mobile-hidden">Přihlásit se</span>{{/link-to}}
 		{{else}}
-			{{#link-to "admin"}}Administrace{{/link-to}}
+			{{#link-to "admin"}}{{fa-icon "lock"}}<span class="mobile-hidden">Administrace</span>{{/link-to}}
 		{{/unless}}
 	</div>
 </div>

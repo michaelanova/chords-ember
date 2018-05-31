@@ -1,29 +1,32 @@
-<div class="title">
-  Přihlášení
-</div>
-
-<form class="">
-    <div id="usernameInput" class="input-field label-floating">
-
-        <input class="form-control" id="email" type="text" placeholder=" ">
-        <label class="control-label" for="username">Email</label>
-
-        <!--span id="help" class="help-block hidden">Sorry, that username's taken. Try another?</span-->
+<div class="login-box">
+    <div class="title">
+      Přihlášení
     </div>
 
-    <div id="passwordInput" class="input-field">
-        <input class="form-control" id="password" type="password"/ placeholder=" ">
-        <label class="control-label" for="password">Password</label>
-        <!--span id="helpPass" class="help-block hidden">Incorrect username and/or password</span-->
-        <div class="error">
-          {{#if error}}
-            {{error}}
-          {{/if}}
+    <form class="">
+        <div id="usernameInput" class="input-field label-floating">
+
+            <input class="form-control" id="email" type="text" placeholder=" ">
+            <label class="control-label" for="username">Email</label>
+
+            <!--span id="help" class="help-block hidden">Sorry, that username's taken. Try another?</span-->
         </div>
-    </div>
+
+        <div id="passwordInput" class="input-field">
+            <input class="form-control" id="password" type="password"/ placeholder=" ">
+            <label class="control-label" for="password">Password</label>
+            <!--span id="helpPass" class="help-block hidden">Incorrect username and/or password</span-->
+            <div class="error">
+              {{#if error}}
+                {{error}}
+              {{/if}}
+            </div>
+        </div>
 
 
-    <button {{action 'loginWithEmail'}} class="btn btn-primary btn-raised">Přihlásit se</button>
-    <br>
-    {{#link-to 'signup'}}Zaregistrovat se{{/link-to}}
-</form>
+        <button {{action 'loginWithEmail'}} class="btn btn-primary btn-inverse">Přihlásit se</button>
+        <br>
+        {{#link-to 'signup'}}Zaregistrovat se{{/link-to}}
+    </form>
+
+</div>

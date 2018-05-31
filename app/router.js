@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('login');
   this.route('admin', function() {
     this.route('new-guest');
+    this.route('new-task');
   });
 });
 

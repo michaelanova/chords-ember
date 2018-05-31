@@ -29,16 +29,17 @@ button {
     border: 1px solid $black;
     color: $black;
     font-weight: 500;
-  }
+  }*/
 
   &-inverse {
-    background: $black;
-    color: $gray-dark;
+    background: $white;
+    color: $blue-dark;
 
-    &:hover {
+   /* &:hover {
+      background-color: transparentize($white, .2);
       color: $black;
-    }
-  }*/
+    }*/
+  }
 
   /*&-gray {
     background: $gray;
