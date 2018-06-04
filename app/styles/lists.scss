@@ -242,11 +242,11 @@
   position: relative;
 
   img {
+    left: 50%;
     max-width: 100%;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
+    transform: translateY(-50%) translateX(-50%);
   }
 
   &::after {
@@ -267,7 +267,7 @@
     justify-content: flex-start;
 
     .list {
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 0;
       box-sizing: border-box;
       padding: $small-space $space;
       transition: all .5s;
@@ -299,11 +299,19 @@
       }
     }
   }
+
+  .author-list {
+
+  }
 }
 
 @media screen and (max-width: $breakpoint-mobile) {
   .list.image-bg {
     display: flex;
     height: 120px;
+
+    .list {
+      height: 150px;
+    }
   }
 }

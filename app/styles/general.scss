@@ -187,20 +187,16 @@ h3 {
 
 
     &.image-bg {
-     //height: 150px;
-
       .info {
         .name {
-          font-size: 26px;
-          font-weight: 400;
           text-shadow: 1px 1px 6px rgba(0, 0, 0, .54);
           text-transform: none;
         }
 
         .about {
-          font-size: 18px;
+          font-size: 15px;
           margin-bottom: 10px;
-          max-height: calc(100% - 75px);
+          max-height: calc(100% - 61px);
         }
       }
     }
