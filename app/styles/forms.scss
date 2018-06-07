@@ -29,7 +29,7 @@ form {
     width: 100%;
   }
 
-  input:not[type="checkbox"],
+  input,
   textarea {
     background: none;
     border: 0;
@@ -111,7 +111,7 @@ form {
   }
 }
 
-input:not[type="checkbox"],
+input,
 select {
   -webkit-appearance: none;
   max-width: 100%;
@@ -119,7 +119,7 @@ select {
 }
 
 @media screen and (max-width: $breakpoint-mobile) {
-  input:not[type="checkbox"],
+  input,
   select {
     border-radius: 0;
     box-shadow: none;
